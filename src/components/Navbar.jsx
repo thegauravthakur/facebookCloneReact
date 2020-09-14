@@ -21,8 +21,8 @@ export default function Navbar() {
           alt='Facebook Logo'
         />
 
-        <div className='navbar__input'>
-          <SearchIcon className='navbar__input__icon' />
+        <div className='navbar__left__input'>
+          <SearchIcon className='navbar__left__input__icon' />
           <input type='text' />
         </div>
       </div>
