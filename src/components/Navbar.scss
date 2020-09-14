@@ -1,0 +1,17 @@
+@import '../mixins';
+@import '../variables';
+
+.navbar {
+  display: flex;
+  align-items: center;
+
+  &__left {
+    & > img {
+      height: 4rem;
+    }
+  }
+  &__middle {
+  }
+  &__right {
+  }
+}

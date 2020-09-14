@@ -1,10 +1,11 @@
 import React from 'react'
+import Navbar from './components/Navbar'
 import './App.scss'
 
 function App() {
   return (
     <div className='app'>
-      <h1>Facebook</h1>
+      <Navbar />
     </div>
   )
 }
