@@ -1,5 +1,15 @@
 import React from 'react'
 import SearchIcon from '@material-ui/icons/Search'
+import HomeIcon from '@material-ui/icons/Home'
+import SubscriptionsOutlinedIcon from '@material-ui/icons/SubscriptionsOutlined'
+import StorefrontOutlinedIcon from '@material-ui/icons/StorefrontOutlined'
+import FlagIcon from '@material-ui/icons/Flag'
+import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle'
+import { Avatar, IconButton } from '@material-ui/core'
+import AddIcon from '@material-ui/icons/Add'
+import ForumIcon from '@material-ui/icons/Forum'
+import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import './Navbar.scss'
 
 export default function Navbar() {
@@ -16,8 +26,37 @@ export default function Navbar() {
           <input type='text' />
         </div>
       </div>
-      <div className='header__middle'></div>
-      <div className='header__right'></div>
+      <div className='navbar__middle'>
+        <div className='navbar__middle__option'>
+          <HomeIcon className='navbar__middle__option__icon' />
+        </div>
+
+        <div className='navabr__middle__option'>
+          <FlagIcon className='navbar__middle__option__icon' />
+        </div>
+
+        <div className='navabr__middle__option'>
+          <SubscriptionsOutlinedIcon className='navbar__middle__option__icon' />
+        </div>
+
+        <div className='navabr__middle__option'>
+          <StorefrontOutlinedIcon className='navbar__middle__option__icon' />
+        </div>
+
+        <div className='navabr__middle__option'>
+          <SupervisedUserCircleIcon className='navbar__middle__option__icon' />
+        </div>
+      </div>
+      <div className='navbar__right'>
+        <div className='navbar__info'>
+          <Avatar />
+          <h4>William</h4>
+
+          <IconButton>
+            <AddIcon />
+          </IconButton>
+        </div>
+      </div>
     </div>
   )
 }
