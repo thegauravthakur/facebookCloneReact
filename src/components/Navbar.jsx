@@ -53,7 +53,19 @@ export default function Navbar() {
           <h4>William</h4>
 
           <IconButton>
-            <AddIcon />
+            <AddIcon className='navbar__right__icon' />
+          </IconButton>
+
+          <IconButton>
+            <ForumIcon className='navbar__right__icon' />
+          </IconButton>
+
+          <IconButton>
+            <NotificationsActiveIcon className='navbar__right__icon' />
+          </IconButton>
+
+          <IconButton>
+            <ExpandMoreIcon className='navbar__right__icon' />
           </IconButton>
         </div>
       </div>
