@@ -23,11 +23,11 @@ export default function Navbar() {
 
         <div className='navbar__left__input'>
           <SearchIcon className='navbar__left__input__icon' />
-          <input type='text' />
+          <input placeholder='Search Facebook' type='text' />
         </div>
       </div>
       <div className='navbar__middle'>
-        <div className='navbar__middle__option'>
+        <div className='navbar__middle__option navbar__middle__option--active'>
           <HomeIcon className='navbar__middle__option__icon' />
         </div>
 
