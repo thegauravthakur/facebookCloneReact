@@ -31,24 +31,24 @@ export default function Navbar() {
           <HomeIcon className='navbar__middle__option__icon' />
         </div>
 
-        <div className='navabr__middle__option'>
+        <div className='navbar__middle__option'>
           <FlagIcon className='navbar__middle__option__icon' />
         </div>
 
-        <div className='navabr__middle__option'>
+        <div className='navbar__middle__option'>
           <SubscriptionsOutlinedIcon className='navbar__middle__option__icon' />
         </div>
 
-        <div className='navabr__middle__option'>
+        <div className='navbar__middle__option'>
           <StorefrontOutlinedIcon className='navbar__middle__option__icon' />
         </div>
 
-        <div className='navabr__middle__option'>
+        <div className='navbar__middle__option'>
           <SupervisedUserCircleIcon className='navbar__middle__option__icon' />
         </div>
       </div>
       <div className='navbar__right'>
-        <div className='navbar__info'>
+        <div className='navbar__right__info'>
           <Avatar />
           <h4>William</h4>
 
