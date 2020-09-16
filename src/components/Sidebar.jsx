@@ -16,13 +16,13 @@ export default function Sidebar() {
         src='https://pbs.twimg.com/profile_images/1277454851195179009/-p_CRLYU_400x400.jpg'
         title='William Simms'
       />
-      <SidebarRow Icon={} title='' />
-      <SidebarRow Icon={} title='' />
-      <SidebarRow Icon={} title='' />
-      <SidebarRow Icon={} title='' />
-      <SidebarRow Icon={} title='' />
-      <SidebarRow Icon={} title='' />
-      <SidebarRow Icon={} title='' />
+      <SidebarRow Icon={LocalHospitalIcon} title='COVID-19 Information Center' />
+      <SidebarRow Icon={EmojiFlagsIcon} title='Pages' />
+      <SidebarRow Icon={PeopleIcon} title='Find Friends' />
+      <SidebarRow Icon={ChatIcon} title='Messenger' />
+      <SidebarRow Icon={StorefrontIcon} title='Marketplace' />
+      <SidebarRow Icon={VideoLibraryIcon} title='Videos' />
+      <SidebarRow Icon={ExpandMoreOutlinedIcon} title='Marketplace' />
     </div>
   )
 }
