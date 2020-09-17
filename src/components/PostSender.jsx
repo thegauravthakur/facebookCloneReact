@@ -15,8 +15,8 @@ export default function PostSender() {
       <div className='postSender__top'>
         <Avatar />
         <form>
-          <input type='text' placeholder='Whats on your mind' className='postSenderinput' />
-          <input type='text' placeholder='Image URL (Optional)' className='postSenderImageinput' />
+          <input type='text' placeholder='Whats on your mind ?' className='postSender__topinput' />
+          <input type='text' placeholder='Image URL (Optional)' className='postSender__topImageinput' />
           <button onClick={handleSubmit} type='submit'>
             Submit
           </button>

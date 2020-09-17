@@ -15,9 +15,17 @@
     border-bottom: 0.1rem solid #eff2f5;
     padding: 1.5rem;
 
+    &input {
+      flex: 1;
+    }
+
     & > form {
       flex: 1;
       display: flex;
+
+      & > button {
+        display: none;
+      }
 
       & > input {
         border: none;
