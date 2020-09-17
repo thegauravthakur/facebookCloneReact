@@ -1,0 +1,35 @@
+@import '../mixins';
+@import '../variables';
+
+.postSender {
+  display: flex;
+  margin-top: 3rem;
+  flex-direction: column;
+  background-color: $white;
+  border-radius: 1.5rem;
+  box-shadow: $box-shadow;
+  width: 100%;
+
+  &__top {
+    display: flex;
+    border-bottom: 0.1rem solid #eff2f5;
+    padding: 1.5rem;
+
+    & > form {
+      flex: 1;
+      display: flex;
+
+      & > input {
+        border: none;
+        padding: 0.5rem 2rem;
+        margin: 0 1rem;
+        border-radius: 999px;
+        background-color: #eff2f5;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}
