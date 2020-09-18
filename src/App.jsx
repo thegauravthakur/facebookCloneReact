@@ -9,13 +9,14 @@ import { useStateValue } from './StateProvider'
 
 function App() {
   const [{ user }, dispatch] = useStateValue()
+  console.log(user)
 
   return (
     <div className='app'>
       {!user ? (
         <Login />
       ) : (
-        <Login>
+        <>
           <Navbar />
 
           <div className='app__body'>
@@ -23,7 +24,7 @@ function App() {
             <Feed />
             <Widgets />
           </div>
-        </Login>
+        </>
       )}
     </div>
   )

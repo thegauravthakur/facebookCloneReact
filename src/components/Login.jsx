@@ -11,7 +11,6 @@ export default function Login() {
 
   const [state, dispatch] = useStateValue()
 
-  console.log(db)
   const signIn = () => {
     auth
       .signInWithPopup(provider)
