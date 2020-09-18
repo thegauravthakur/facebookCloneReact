@@ -41,4 +41,14 @@
       width: 100%;
     }
   }
+
+  &__options {
+    border-top: 0.1rem solid lightgray;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 1.3rem;
+    color: gray;
+    cursor: pointer;
+    padding: 1.5rem;
+  }
 }
