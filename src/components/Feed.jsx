@@ -11,8 +11,6 @@ export default function Feed() {
       <PostSender />
       <Post />
       <Post />
-      <Post />
-      <Post />
     </div>
   )
 }

@@ -1,2 +1,44 @@
 @import '../mixins';
 @import '../variables';
+
+.post {
+  width: 100%;
+  box-shadow: $box-shadow;
+  border-radius: 1.5rem;
+  background-color: #fff;
+  margin-top: 1.5rem;
+
+  &__top {
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding: 1.5rem;
+
+    &__info {
+      & > h3 {
+        font-size: 1.5rem;
+      }
+
+      & > p {
+        color: gray;
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  &__bottom {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 1.5rem 2.5rem;
+  }
+
+  &__avatar {
+    margin-right: 1rem;
+  }
+
+  &__image {
+    & > img {
+      width: 100%;
+    }
+  }
+}

@@ -13,6 +13,14 @@ export default function Post({ profileImage, image, username, timestamp, message
           <p>{new Date(timestamp?.toDate()).toUTCString()}</p>
         </div>
       </div>
+
+      <div className='post__bottom'>
+        <p className='post__bottom__message'>{message}</p>
+      </div>
+
+      <div className='post__image'>
+        <img src={image} alt='' />
+      </div>
     </div>
   )
 }
