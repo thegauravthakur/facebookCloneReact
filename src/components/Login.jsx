@@ -1,10 +1,22 @@
 import React from 'react'
 import { Button } from '@material-ui/core'
 import './Login.scss'
+import { auth, db } from '../firebase'
+import firebase from 'firebase'
 
 export default function Login() {
+  const provider = new firebase.auth.GoogleAuthProvider()
+
+  console.log(db)
   const signIn = () => {
-    // Sign In
+    auth
+      .signInWithPopup(provider)
+      .then((result) => {
+        console.log(result)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 
   return (
