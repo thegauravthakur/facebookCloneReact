@@ -4,8 +4,11 @@ import VideocamIcon from '@material-ui/icons/Videocam'
 import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary'
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
 import './PostSender.scss'
+import { useStateValue } from '../StateProvider'
 
 export default function PostSender() {
+  const [{ user }, dispatch] = useStateValue()
+
   const [input, setInput] = useState('')
   const [imageUrl, setImageUrl] = useState('')
 
@@ -19,7 +22,7 @@ export default function PostSender() {
   return (
     <div className='postSender'>
       <div className='postSender__top'>
-        <Avatar />
+        <Avatar src={user.photoURL} />
         <form>
           <input
             type='text'
