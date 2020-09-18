@@ -12,7 +12,7 @@
 
   &__top {
     display: flex;
-    border-bottom: 0.1rem solid #eff2f5;
+    border-bottom: 0.1rem solid $lightGray;
     padding: 1.5rem;
 
     &input {
@@ -32,7 +32,7 @@
         padding: 0.5rem 2rem;
         margin: 0 1rem;
         border-radius: 999px;
-        background-color: #eff2f5;
+        background-color: $lightGray;
 
         &:focus {
           outline: none;
@@ -63,7 +63,7 @@
       }
 
       &:hover {
-        background-color: #eff2f5;
+        background-color: $lightGray;
         border-radius: 2rem;
       }
     }

@@ -5,7 +5,7 @@
   width: 100%;
   box-shadow: $box-shadow;
   border-radius: 1.5rem;
-  background-color: #fff;
+  background-color: $white;
   margin-top: 1.5rem;
 
   &__top {
@@ -13,6 +13,10 @@
     position: relative;
     align-items: center;
     padding: 1.5rem;
+
+    &__avatar {
+      margin-right: 1rem;
+    }
 
     &__info {
       & > h3 {
@@ -32,10 +36,6 @@
     padding: 1.5rem 2.5rem;
   }
 
-  &__avatar {
-    margin-right: 1rem;
-  }
-
   &__image {
     & > img {
       width: 100%;
@@ -50,5 +50,22 @@
     color: gray;
     cursor: pointer;
     padding: 1.5rem;
+
+    &__option {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem;
+      flex: 1;
+
+      & > p {
+        margin-left: 1rem;
+      }
+
+      &:hover {
+        background-color: $lightGray;
+        border-radius: 1rem;
+      }
+    }
   }
 }
