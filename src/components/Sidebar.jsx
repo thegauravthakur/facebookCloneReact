@@ -8,14 +8,13 @@ import VideoLibraryIcon from '@material-ui/icons/VideoLibrary'
 import ExpandMoreOutlinedIcon from '@material-ui/icons/ExpandMoreOutlined'
 import './Sidebar.scss'
 import SidebarRow from './SidebarRow'
+import { useStateValue } from '../StateProvider'
 
 export default function Sidebar() {
+  const [{ user }, dispatch] = useStateValue()
   return (
     <div className='sidebar`'>
-      <SidebarRow
-        src='https://pbs.twimg.com/profile_images/1277454851195179009/-p_CRLYU_400x400.jpg'
-        title='William Simms'
-      />
+      <SidebarRow src={user.photoURL} title={user.displayName} />
       <SidebarRow Icon={LocalHospitalIcon} title='COVID-19 Information Center' />
       <SidebarRow Icon={EmojiFlagsIcon} title='Pages' />
       <SidebarRow Icon={PeopleIcon} title='Find Friends' />
