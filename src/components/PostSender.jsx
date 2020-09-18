@@ -5,13 +5,16 @@ import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary'
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
 import './PostSender.scss'
 
-const handleSubmit = (e) => {
-  e.preventDefault()
-}
-
 export default function PostSender() {
   const [input, setInput] = useState('')
-  const [image, setImage] = useState('')
+  const [imageUrl, setImageUrl] = useState('')
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    setImageUrl('')
+    setInput('')
+  }
 
   return (
     <div className='postSender'>
@@ -29,8 +32,8 @@ export default function PostSender() {
             type='text'
             placeholder='Image URL (Optional)'
             className='postSender__topImageinput'
-            value={image}
-            onChange={(e) => setImage(e.target.value)}
+            value={imageUrl}
+            onChange={(e) => setImageUrl(e.target.value)}
           />
           <button onClick={handleSubmit} type='submit'>
             Submit
