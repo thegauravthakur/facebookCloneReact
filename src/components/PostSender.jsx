@@ -3,8 +3,10 @@ import { Avatar } from '@material-ui/core'
 import VideocamIcon from '@material-ui/icons/Videocam'
 import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary'
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
+import firebase from 'firebase'
 import './PostSender.scss'
 import { useStateValue } from '../StateProvider'
+import { db } from '../firebase'
 
 export default function PostSender() {
   const [{ user }, dispatch] = useStateValue()
@@ -14,6 +16,14 @@ export default function PostSender() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    db.collection('posts').add({
+      message: input,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      profileImage: user.photoURL,
+      username: user.displayName,
+      image: imageUrl,
+    })
 
     setImageUrl('')
     setInput('')
