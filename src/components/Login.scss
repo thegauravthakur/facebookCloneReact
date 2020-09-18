@@ -1,0 +1,33 @@
+@import '../mixins';
+@import '../variables';
+
+.login {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+
+  &__logo {
+    display: flex;
+    flex-direction: column;
+
+    & > img {
+      object-fit: contain;
+      height: 15rem;
+    }
+
+    &__button {
+      width: 30rem !important;
+      background-color: $blue !important;
+      color: $lightGray !important;
+      font-weight: 800 !important;
+      font-size: 1.5rem !important;
+      text-transform: capitalize !important;
+      transition: 0.2s ease-in-out;
+
+      &:hover {
+        color: $blue !important;
+        background-color: $white !important;
+      }
+    }
+  }
+}

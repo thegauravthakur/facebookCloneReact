@@ -4,16 +4,17 @@ import './App.scss'
 import Sidebar from './components/Sidebar'
 import Feed from './components/Feed'
 import Widgets from './components/Widgets'
+import Login from './components/Login'
 
 function App() {
-  const user = 1
+  const user = undefined
 
   return (
     <div className='app'>
       {!user ? (
-        <h1>Login</h1>
+        <Login />
       ) : (
-        <>
+        <Login>
           <Navbar />
 
           <div className='app__body'>
@@ -21,7 +22,7 @@ function App() {
             <Feed />
             <Widgets />
           </div>
-        </>
+        </Login>
       )}
     </div>
   )
