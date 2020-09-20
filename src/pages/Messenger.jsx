@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button } from '@material-ui/core'
+import Message from '../components/Message'
 import './Messenger.scss'
 
 export default function Messenger() {
   const [input, setInput] = useState('')
   const [messages, setMessages] = useState([])
+  const [username, setUsername] = useState('')
 
   const sendMessage = (e) => {
     e.preventDefault()
@@ -28,7 +30,7 @@ export default function Messenger() {
         </Button>
       </form>
       {messages.map((message) => (
-        <p>{message}</p>
+        <Message message={message} />
       ))}
     </div>
   )
