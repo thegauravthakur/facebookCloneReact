@@ -3,4 +3,11 @@
 
 .messenger {
   background-color: #fff;
+
+  &__button {
+    background-color: $blue !important;
+    color: #fff !important;
+    font-size: 1.3rem !important;
+    text-transform: capitalize !important;
+  }
 }

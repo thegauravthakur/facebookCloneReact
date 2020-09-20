@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Button } from '@material-ui/core'
 import './Messenger.scss'
 
 export default function Messenger() {
@@ -6,6 +7,7 @@ export default function Messenger() {
   const [messages, setMessages] = useState([])
 
   const sendMessage = (e) => {
+    e.preventDefault()
     setMessages([...messages, input])
 
     setInput('')
@@ -13,10 +15,20 @@ export default function Messenger() {
 
   return (
     <div className='messenger'>
-      <input type='text' onChange={(e) => setInput(e.target.value)} value={input} />
-      <button onClick={sendMessage}>Send Message</button>
+      <form>
+        <input type='text' onChange={(e) => setInput(e.target.value)} value={input} />
+        <Button
+          disabled={!input}
+          className='messenger__button'
+          type='submit'
+          onClick={sendMessage}
+          variant='contained'
+          disableElevation>
+          Send Message
+        </Button>
+      </form>
       {messages.map((message) => (
-        <p>message</p>
+        <p>{message}</p>
       ))}
     </div>
   )
