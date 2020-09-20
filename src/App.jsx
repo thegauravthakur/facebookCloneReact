@@ -7,6 +7,7 @@ import Widgets from './components/Widgets'
 import Login from './components/Login'
 import { useStateValue } from './StateProvider'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import Messenger from './pages/Messenger'
 
 function App() {
   const [{ user }, dispatch] = useStateValue()
@@ -16,7 +17,10 @@ function App() {
     <div className='app'>
       <BrowserRouter>
         <Switch>
-          <Route path='/messenger'></Route>
+          <Route path='/messenger'>
+            <Messenger />
+          </Route>
+
           <Route path='/'>
             {!user ? (
               <Login />

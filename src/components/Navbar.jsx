@@ -10,6 +10,7 @@ import AddIcon from '@material-ui/icons/Add'
 import ForumIcon from '@material-ui/icons/Forum'
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
+import { Link } from 'react-router-dom'
 import './Navbar.scss'
 import { useStateValue } from '../StateProvider'
 
@@ -19,10 +20,12 @@ export default function Navbar() {
   return (
     <div className='navbar'>
       <div className='navbar__left'>
-        <img
-          src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png'
-          alt='Facebook Logo'
-        />
+        <Link to='/'>
+          <img
+            src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png'
+            alt='Facebook Logo'
+          />
+        </Link>
 
         <div className='navbar__left__input'>
           <SearchIcon className='navbar__left__input__icon' />
