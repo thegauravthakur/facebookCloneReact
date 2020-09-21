@@ -8,6 +8,10 @@ export default function Messenger() {
   const [messages, setMessages] = useState([])
   const [username, setUsername] = useState('')
 
+  useEffect(() => {
+    setUsername(prompt('Please Enter Your Name'))
+  }, [])
+
   const sendMessage = (e) => {
     e.preventDefault()
     setMessages([...messages, input])
