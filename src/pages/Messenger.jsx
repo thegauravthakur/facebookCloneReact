@@ -3,13 +3,19 @@ import { Button } from '@material-ui/core'
 import Message from '../components/Message'
 import './Messenger.scss'
 import { db } from '../firebase'
+import FlipMove from 'react-flip-move'
 import firebase from 'firebase'
 
 export default function Messenger() {
   const [input, setInput] = useState('')
   const [messages, setMessages] = useState([])
-
   const [username, setUsername] = useState('')
+
+  useEffect(() => {
+    document.title = 'Messenger'
+    const favicon = document.getElementById('favicon')
+    favicon.href = 'https://static.xx.fbcdn.net/rsrc.php/yg/r/4_vfHVmZ5XD.ico'
+  }, [])
 
   useEffect(() => {
     setUsername(prompt('Please Enter Your Name'))
@@ -19,7 +25,7 @@ export default function Messenger() {
     db.collection('messages')
       .orderBy('timestamp', 'asc')
       .onSnapshot((snapshot) => {
-        setMessages(snapshot.docs.map((doc) => doc.data()))
+        setMessages(snapshot.docs.map((doc) => ({ id: doc.id, message: doc.data() })))
       })
   }, [])
 
@@ -49,9 +55,11 @@ export default function Messenger() {
         </Button>
       </form>
 
-      {messages.map((message) => (
-        <Message message={message} username={username} />
-      ))}
+      <FlipMove>
+        {messages.map(({ message, id }) => (
+          <Message key={id} message={message} username={username} />
+        ))}
+      </FlipMove>
     </div>
   )
 }

@@ -27,7 +27,6 @@ function App() {
             ) : (
               <>
                 <Navbar />
-
                 <div className='app__body'>
                   <Sidebar />
                   <Feed />
