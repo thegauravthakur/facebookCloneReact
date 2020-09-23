@@ -2,4 +2,20 @@
 @import '../variables';
 
 .message {
+  padding: 1rem;
+  margin: 1rem;
+  width: fit-content;
+
+  &__user {
+    margin-left: auto;
+    color: white;
+
+    &Card {
+      background-color: $dark-blue !important;
+    }
+  }
+
+  &__guestCard {
+    background-color: $cream !important;
+  }
 }

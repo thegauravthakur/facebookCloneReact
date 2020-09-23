@@ -40,7 +40,7 @@ export default function Messenger() {
         </Button>
       </form>
       {messages.map((message) => (
-        <Message message={message.text} username={message.username} />
+        <Message message={message} username={username} />
       ))}
     </div>
   )
