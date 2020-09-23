@@ -1,10 +1,12 @@
 import React from 'react'
 import './Message.scss'
 
-export default function Message({ message }) {
+export default function Message({ message, username }) {
   return (
     <div className='message'>
-      <p>{message}</p>
+      <h2>
+        {username} : {message}
+      </h2>
     </div>
   )
 }
