@@ -16,9 +16,11 @@ export default function Messenger() {
   }, [])
 
   useEffect(() => {
-    db.collection('messages').onSnapshot((snapshot) => {
-      setMessages(snapshot.docs.map((doc) => doc.data()))
-    })
+    db.collection('messages')
+      .orderBy('timestamp', 'asc')
+      .onSnapshot((snapshot) => {
+        setMessages(snapshot.docs.map((doc) => doc.data()))
+      })
   }, [])
 
   const sendMessage = (e) => {
@@ -46,6 +48,7 @@ export default function Messenger() {
           Send Message
         </Button>
       </form>
+
       {messages.map((message) => (
         <Message message={message} username={username} />
       ))}
