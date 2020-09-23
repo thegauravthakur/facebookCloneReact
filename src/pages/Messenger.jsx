@@ -45,7 +45,7 @@ export default function Messenger() {
       <img src='https://facebookbrand.com/wp-content/uploads/2018/09/Header-e1538151782912.png?w=100&h=100' alt='' />
       <h2>Welcome {username}</h2>
       <form className='messenger__form'>
-        <input type='text' onChange={(e) => setInput(e.target.value)} value={input} />
+        <input placeholder='Enter a Message' type='text' onChange={(e) => setInput(e.target.value)} value={input} />
         <Button
           disabled={!input}
           className='messenger__button'
