@@ -10,4 +10,11 @@
     font-size: 1.3rem !important;
     text-transform: capitalize !important;
   }
+
+  &__form {
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    background-color: $cream;
+  }
 }
