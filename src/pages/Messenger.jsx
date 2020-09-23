@@ -3,14 +3,11 @@ import { Button } from '@material-ui/core'
 import Message from '../components/Message'
 import './Messenger.scss'
 import { db } from '../firebase'
+import firebase from 'firebase'
 
 export default function Messenger() {
   const [input, setInput] = useState('')
-  const [messages, setMessages] = useState([
-    { username: 'Willam', message: 'Hello Brother' },
-    { username: 'Simms', message: 'Hello Brother' },
-    { username: 'Willam', message: 'Hello Brother' },
-  ])
+  const [messages, setMessages] = useState([])
 
   const [username, setUsername] = useState('')
 
@@ -26,8 +23,11 @@ export default function Messenger() {
 
   const sendMessage = (e) => {
     e.preventDefault()
-    setMessages([...messages, { username: username, message: input }])
-
+    db.collection('messages').add({
+      message: input,
+      username: username,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    })
     setInput('')
   }
 
