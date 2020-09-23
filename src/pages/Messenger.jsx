@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { Button } from '@material-ui/core'
+import { Button, IconButton } from '@material-ui/core'
 import Message from '../components/Message'
-import './Messenger.scss'
+import SendIcon from '@material-ui/icons/Send'
 import { db } from '../firebase'
 import FlipMove from 'react-flip-move'
 import firebase from 'firebase'
+import './Messenger.scss'
 
 export default function Messenger() {
   const [input, setInput] = useState('')
