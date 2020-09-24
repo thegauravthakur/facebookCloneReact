@@ -23,11 +23,16 @@ export default function Messenger() {
   }, [])
 
   useEffect(() => {
-    db.collection('messages')
+    const unsubscribe = db
+      .collection('messages')
       .orderBy('timestamp', 'asc')
       .onSnapshot((snapshot) => {
         setMessages(snapshot.docs.map((doc) => ({ id: doc.id, message: doc.data() })))
       })
+
+    return () => {
+      unsubscribe()
+    }
   }, [])
 
   const sendMessage = (e) => {
