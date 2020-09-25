@@ -9,11 +9,11 @@
   &__container {
     margin: auto;
     max-width: 100rem;
+    color: #737373;
 
     & > p {
       padding-top: 1rem;
       font-size: 1.1rem;
-      color: #737373;
     }
   }
 
@@ -30,7 +30,6 @@
     margin-bottom: 0.7rem;
 
     & > li {
-      color: #737373;
       margin-right: 1rem;
       font-size: 1.2rem;
 
@@ -50,5 +49,9 @@
     &__icon {
       color: #4b4f56;
     }
+  }
+
+  &__error__container {
+    color: $error-blue !important    ;
   }
 }
