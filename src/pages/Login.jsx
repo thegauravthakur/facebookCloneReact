@@ -49,14 +49,11 @@ export default function Login() {
         <form className='login__form'>
           <input type='text' value={email} onChange={(e) => setEmail(e.target.value)} />
           <input type='text' value={password} onChange={(e) => setPassword(e.target.value)} />
-          <button>Log In</button>
+          <button className='login__form__button login__form__login'>Log In</button>
           <p>Forgot Password?</p>
           <hr />
-          <button className='login__form__button'>Create New Account</button>
+          <button className='login__form__button login__form__signup'>Create New Account</button>
         </form>
-        <p>
-          <span>Create a page </span>for a celebrity, band or business
-        </p>
       </div>
     </div>
   )

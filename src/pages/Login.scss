@@ -46,7 +46,19 @@
   &__form__container {
     background-color: $white;
     padding: 2rem;
-    &__form {
+    width: 40rem;
+    box-shadow: 0 2px 4px rgba($black, 0.1), 0 8px 16px rgba($black, 0.1);
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    & > input {
+      margin-bottom: 2rem;
+      padding: 2rem;
+      border-radius: 0.4rem;
+      border: 1px solid $border-color;
     }
   }
 }
