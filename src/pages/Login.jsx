@@ -47,8 +47,13 @@ export default function Login() {
       </div>
       <div className='login__form__container'>
         <form className='login__form'>
-          <input type='text' value={email} onChange={(e) => setEmail(e.target.value)} />
-          <input type='text' value={password} onChange={(e) => setPassword(e.target.value)} />
+          <input
+            type='text'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder='Email or Phone Number'
+          />
+          <input type='text' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' />
           <button className='login__form__button login__form__login'>Log In</button>
           <p>Forgot Password?</p>
           <hr />
