@@ -3,4 +3,34 @@
 
 .footer {
   background-color: $white;
+  margin: auto;
+  padding-top: 2rem;
+
+  &__container {
+    margin: auto;
+    max-width: 100rem;
+  }
+
+  &__line {
+    border: none;
+    border-bottom: 1px solid #737373;
+    opacity: 0.5;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
+    & > li {
+      color: #737373;
+      margin-right: 1rem;
+      font-size: 1.2rem;
+
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
 }

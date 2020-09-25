@@ -40,26 +40,29 @@ export default function Login() {
   }
 
   return (
-    <div className='login'>
-      <div className='login__logo'>
-        <img src='https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg' alt='Facebook Logo' />
-        <h2>Connect with friends and the world around you on Facebook.</h2>
+    <>
+      <div className='login'>
+        <div className='login__logo'>
+          <img src='https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg' alt='Facebook Logo' />
+          <h2>Connect with friends and the world around you on Facebook.</h2>
+        </div>
+        <div className='login__form__container'>
+          <form className='login__form'>
+            <input
+              type='text'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder='Email or Phone Number'
+            />
+            <input type='text' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' />
+            <button className='login__form__button login__form__loginButton'>Log In</button>
+            <p className='login__form__forgot'>Forgot Password?</p>
+            <hr className='login__form__line' />
+            <button className='login__form__button login__form__signupButton'>Create New Account</button>
+          </form>
+        </div>
       </div>
-      <div className='login__form__container'>
-        <form className='login__form'>
-          <input
-            type='text'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder='Email or Phone Number'
-          />
-          <input type='text' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' />
-          <button className='login__form__button login__form__loginButton'>Log In</button>
-          <p className='login__form__forgot'>Forgot Password?</p>
-          <hr className='login__form__line' />
-          <button className='login__form__button login__form__signupButton'>Create New Account</button>
-        </form>
-      </div>
-    </div>
+      <Footer />
+    </>
   )
 }
