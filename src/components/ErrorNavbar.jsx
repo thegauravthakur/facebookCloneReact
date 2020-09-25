@@ -9,8 +9,13 @@ export default function ErrorNavbar() {
     <div className='errorNavbar'>
       <div className='errorNavbar__container'>
         <div className='errorNavbar__logo'>
-          <img className='errorNavbar__logo__img' src={facebookIcon} alt='Facebook Logo' />
-          <Link to='/home'>Sign Up</Link>
+          <Link to='/'>
+            <img className='errorNavbar__logo__img' src={facebookIcon} alt='Facebook Logo' />
+          </Link>
+
+          <Link className='errorNavbar__logo__link' to='/home'>
+            Sign Up
+          </Link>
         </div>
 
         <div className='errorNavbar__text'>

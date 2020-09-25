@@ -11,18 +11,43 @@
     align-items: center;
     margin: auto;
     color: $white;
-    padding: 2rem;
+    padding: 2.5rem;
   }
 
   &__logo {
-    & > img {
+    display: flex;
+    align-items: center;
+
+    & > a > img {
       height: 3.5rem;
+      margin-right: 2rem;
     }
 
-    & > a {
+    &__link {
       color: $white;
       background-color: $button-green;
-      padding: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 0.3rem;
+      font-size: 1.4rem;
+      transition: 0.2s ease-in-out;
+
+      &:hover {
+        background-color: darken($button-green, 3);
+      }
+    }
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &__icon {
+      font-size: 2rem !important;
+      margin-left: 0.1rem;
+    }
+
+    & > p {
       font-size: 1.2rem;
     }
   }
