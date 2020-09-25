@@ -1,0 +1,51 @@
+@import '../mixins';
+@import '../variables';
+
+.loginDropDown {
+  box-shadow: 0 3px 8px rgba($black, 0.3);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 26rem;
+  padding: 2rem;
+  background-color: #fff;
+  top: 20rem;
+  right: 40rem;
+  border-radius: 0.5rem;
+
+  & > p {
+    color: $error-blue;
+    font-size: 1.2rem;
+    padding-top: 0.5rem;
+    cursor: pointer;
+    text-align: right;
+    margin-bottom: 1rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  & > input {
+    border: 1px solid rgb(211, 214, 219);
+    padding: 0.5rem;
+    font-size: 1.4rem;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  & > input:first-of-type {
+    margin-bottom: 0.5rem;
+  }
+
+  &__label {
+    letter-spacing: 0.3px;
+    color: #606770;
+    font-size: 1.2rem;
+    font-family: Arial, Arial, Helvetica, sans-serif;
+    margin-bottom: 0.2rem;
+  }
+}

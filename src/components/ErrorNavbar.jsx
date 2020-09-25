@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 import './ErrorNavbar.scss'
+import LoginDropDown from './LoginDropDown'
 import facebookIcon from '../img/facebook.png'
 
 export default function ErrorNavbar() {
@@ -22,6 +23,8 @@ export default function ErrorNavbar() {
           <p>Join or Log into Facebook </p>
           <ArrowDropDownIcon className='errorNavbar__text__icon' />
         </div>
+
+        <LoginDropDown />
       </div>
     </div>
   )
