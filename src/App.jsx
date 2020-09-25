@@ -8,10 +8,10 @@ import Login from './pages/Login'
 import { useStateValue } from './StateProvider'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Messenger from './pages/Messenger'
+import ErrorPage from './pages/ErrorPage'
 
 function App() {
   const [{ user }, dispatch] = useStateValue()
-  console.log(user)
 
   return (
     <div className='app'>
@@ -21,23 +21,27 @@ function App() {
             <Messenger />
           </Route>
 
-          <Route path='/login'>
+          <Route path='/home'>
             <Login />
           </Route>
 
-          <Route path='/'>
+          <Route path='/' exact>
             {!user ? (
-              <Redirect to='/login' />
+              <Redirect to='/home' />
             ) : (
-              <Redirect>
+              <>
                 <Navbar />
                 <div className='app__body'>
                   <Sidebar />
                   <Feed />
                   <Widgets />
                 </div>
-              </Redirect>
+              </>
             )}
+          </Route>
+
+          <Route path=''>
+            <ErrorPage />
           </Route>
         </Switch>
       </BrowserRouter>

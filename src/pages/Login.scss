@@ -74,7 +74,7 @@
     }
     &__loginButton {
       background-color: $button-blue;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
       width: 100%;
 
       &:hover {
@@ -92,6 +92,15 @@
       }
     }
 
+    &__loginGoogle {
+      margin-bottom: 1rem;
+      width: 100%;
+      background-color: $red;
+
+      &:hover {
+        background-color: darken($red, 3);
+      }
+    }
     &__forgot {
       color: $button-blue;
       text-align: center;

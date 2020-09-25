@@ -25,7 +25,7 @@ export default function Login() {
 
   const [state, dispatch] = useStateValue()
 
-  const signIn = () => {
+  const googleSignIn = () => {
     auth
       .signInWithPopup(provider)
       .then((result) => {
@@ -56,6 +56,9 @@ export default function Login() {
             />
             <input type='text' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' />
             <button className='login__form__button login__form__loginButton'>Log In</button>
+            <button className='login__form__button login__form__loginGoogle' onClick={googleSignIn}>
+              Log In with Google
+            </button>
             <p className='login__form__forgot'>Forgot Password?</p>
             <hr className='login__form__line' />
             <button className='login__form__button login__form__signupButton'>Create New Account</button>

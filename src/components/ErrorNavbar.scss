@@ -1,0 +1,10 @@
+@import '../mixins';
+@import '../variables';
+
+.errorNavbar {
+  background-color: $blue;
+  &__container {
+    max-width: 100rem;
+    display: flex;
+  }
+}
