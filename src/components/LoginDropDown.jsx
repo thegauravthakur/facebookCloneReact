@@ -20,9 +20,9 @@ function LoginDropDown() {
 
       <p>Forgot Account?</p>
 
-      <button className='loginDropDown__login'>Log In</button>
-      <p>Do you want to join Facebook?</p>
-      <button className='loginDropDown__signup'>Sign Up</button>
+      <button className='loginDropDown__button loginDropDown__button__login'>Log In</button>
+      <p className='loginDropDown__question'>Do you want to join Facebook?</p>
+      <button className='loginDropDown__button loginDropDown__button__signup'>Sign Up</button>
     </div>
   )
 }

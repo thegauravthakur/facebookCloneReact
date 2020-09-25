@@ -48,4 +48,38 @@
     font-family: Arial, Arial, Helvetica, sans-serif;
     margin-bottom: 0.2rem;
   }
+
+  &__question {
+    color: #7f7f7f !important ;
+    font-size: 1.2rem !important;
+    text-align: center !important;
+  }
+
+  &__button {
+    border: none;
+    padding: 0.7rem;
+    border-radius: 0.4rem;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+    color: $white;
+    font-weight: 600;
+
+    &__signup {
+      background-color: #42b72a;
+      width: 50%;
+
+      &:hover {
+        background-color: darken(#42b72a, 3);
+      }
+    }
+
+    &__login {
+      background-color: #4267b2;
+      margin-bottom: 2.5rem;
+
+      &:hover {
+        background-color: darken(#4267b2, 3);
+      }
+    }
+  }
 }
