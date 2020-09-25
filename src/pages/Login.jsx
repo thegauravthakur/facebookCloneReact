@@ -54,10 +54,10 @@ export default function Login() {
             placeholder='Email or Phone Number'
           />
           <input type='text' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' />
-          <button className='login__form__button login__form__login'>Log In</button>
+          <button className='login__form__button login__form__loginButton'>Log In</button>
           <p>Forgot Password?</p>
           <hr />
-          <button className='login__form__button login__form__signup'>Create New Account</button>
+          <button className='login__form__button login__form__signupButton'>Create New Account</button>
         </form>
       </div>
     </div>

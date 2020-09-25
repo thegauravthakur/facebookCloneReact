@@ -26,21 +26,6 @@
       height: 10rem;
       margin-left: -3.4rem;
     }
-
-    &__button {
-      width: 30rem !important;
-      background-color: $blue !important;
-      color: $lightGray !important;
-      font-weight: 800 !important;
-      font-size: 1.5rem !important;
-      text-transform: capitalize !important;
-      transition: 0.2s ease-in-out;
-
-      &:hover {
-        color: $blue !important;
-        background-color: $white !important;
-      }
-    }
   }
 
   &__form__container {
@@ -65,6 +50,14 @@
         outline: none;
         border: 1px solid $blue;
       }
+    }
+
+    &__loginButton {
+      background-color: $button-blue;
+    }
+
+    &__signupButton {
+      background-color: $button-green;
     }
   }
 }
