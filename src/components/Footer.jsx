@@ -23,6 +23,23 @@ export default function Footer() {
           </button>
         </ul>
         <hr className='footer__line' />
+
+        <ul className='footer__list'>
+          <li>Sign Up</li>
+          <li> Log In</li>
+          <li>Messenger</li>
+          <li>Facebook Lite</li>
+          <li>Watch</li>
+          <li>People</li>
+          <li>Pages</li>
+          <li>Page Categories</li>
+          <li>Places</li>
+          <li>Games</li>
+          <li>Locations</li>
+          <li>Marketplace</li>
+          <li>Facebook Pay</li>
+          <li>Groups</li>
+        </ul>
       </div>
     </div>
   )
