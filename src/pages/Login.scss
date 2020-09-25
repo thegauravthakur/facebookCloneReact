@@ -51,13 +51,39 @@
         border: 1px solid $blue;
       }
     }
-
+    &__button {
+      border: none;
+      color: $white;
+      font-weight: 700;
+      font-size: 2rem;
+      padding: 1rem;
+      border-radius: 0.4rem;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
     &__loginButton {
       background-color: $button-blue;
+      margin-bottom: 1rem;
+
+      &:hover {
+        background-color: #166fe5;
+      }
     }
 
     &__signupButton {
       background-color: $button-green;
+      font-size: 1.7rem;
+
+      &:hover {
+        background-color: #36a420;
+      }
+    }
+
+    &__forgot {
+      color: $button-blue;
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
     }
   }
 }

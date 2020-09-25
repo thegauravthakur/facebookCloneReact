@@ -55,7 +55,7 @@ export default function Login() {
           />
           <input type='text' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' />
           <button className='login__form__button login__form__loginButton'>Log In</button>
-          <p>Forgot Password?</p>
+          <p className='login__form__forgot'>Forgot Password?</p>
           <hr />
           <button className='login__form__button login__form__signupButton'>Create New Account</button>
         </form>
