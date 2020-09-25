@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import ErrorBody from '../components/ErrorBody'
 import ErrorNavbar from '../components/ErrorNavbar'
 import Footer from '../components/Footer'
 import './ErrorPage.scss'
@@ -17,6 +18,7 @@ export default function ErrorPage() {
   return (
     <div className='.errorPage'>
       <ErrorNavbar />
+      <ErrorBody />
       <Footer isErrorFooter />
     </div>
   )
