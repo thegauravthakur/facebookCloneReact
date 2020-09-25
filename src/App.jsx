@@ -6,7 +6,7 @@ import Feed from './components/Feed'
 import Widgets from './components/Widgets'
 import Login from './components/Login'
 import { useStateValue } from './StateProvider'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Messenger from './pages/Messenger'
 
 function App() {
@@ -21,18 +21,22 @@ function App() {
             <Messenger />
           </Route>
 
+          <Route path='/login'>
+            <Login />
+          </Route>
+
           <Route path='/'>
             {!user ? (
-              <Login />
+              <Redirect to='/login' />
             ) : (
-              <>
+              <Redirect>
                 <Navbar />
                 <div className='app__body'>
                   <Sidebar />
                   <Feed />
                   <Widgets />
                 </div>
-              </>
+              </Redirect>
             )}
           </Route>
         </Switch>

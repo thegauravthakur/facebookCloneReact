@@ -1,5 +1,4 @@
-import React from 'react'
-import { Button } from '@material-ui/core'
+import React, { useEffect, useState } from 'react'
 import './Login.scss'
 import { auth, db } from '../firebase'
 import firebase from 'firebase'
@@ -7,6 +6,16 @@ import { useStateValue } from '../StateProvider'
 import { actionTypes } from '../reducer'
 
 export default function Login() {
+  useEffect(() => {
+    const favicon = document.getElementById('favicon')
+    favicon.href = 'https://static.xx.fbcdn.net/rsrc.php/yo/r/iRmz9lCMBD2.ico'
+
+    document.title = 'Facebook - Log In or Sign Up'
+
+    document.body.style.overflowY = 'hidden'
+    document.documentElement.scrollTop = 0
+  }, [])
+
   const provider = new firebase.auth.GoogleAuthProvider()
 
   const [state, dispatch] = useStateValue()
@@ -28,15 +37,21 @@ export default function Login() {
   return (
     <div className='login'>
       <div className='login__logo'>
-        <img
-          src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png'
-          alt=''
-        />
-        <img src='https://www.logo.wine/a/logo/Facebook/Facebook-Logo.wine.svg' alt='' />
-
-        <Button className='login__logo__button' onClick={signIn}>
-          Sign In
-        </Button>
+        <img src='https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg' alt='Facebook Logo' />
+        <h2>Connect with friends and the world around you on Facebook.</h2>
+      </div>
+      <div className='login__form'>
+        <form>
+          <input type='text' />
+          <input type='text' />
+          <button>Log In</button>
+          <p>Forgot Password?</p>
+          <hr />
+          <button>Create New Account</button>
+        </form>
+        <p>
+          <span>Create a page </span>for a celebrity, band or business
+        </p>
       </div>
     </div>
   )
