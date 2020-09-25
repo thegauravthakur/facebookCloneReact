@@ -33,11 +33,20 @@
     padding: 2rem;
     width: 40rem;
     box-shadow: 0 2px 4px rgba($black, 0.1), 0 8px 16px rgba($black, 0.1);
+    border-radius: 0.7rem;
   }
 
   &__form {
     display: flex;
     flex-direction: column;
+    align-items: center;
+
+    &__line {
+      margin-bottom: 2rem;
+      border: none;
+      border-bottom: 1.5px solid #dadde1;
+      width: 100%;
+    }
 
     & > input {
       margin-bottom: 2rem;
@@ -45,6 +54,7 @@
       border-radius: 0.4rem;
       border: 1px solid $border-color;
       font-size: 1.7rem;
+      width: 100%;
 
       &:focus {
         outline: none;
@@ -64,6 +74,7 @@
     &__loginButton {
       background-color: $button-blue;
       margin-bottom: 1rem;
+      width: 100%;
 
       &:hover {
         background-color: #166fe5;
@@ -73,6 +84,7 @@
     &__signupButton {
       background-color: $button-green;
       font-size: 1.7rem;
+      width: 55%;
 
       &:hover {
         background-color: #36a420;
@@ -82,8 +94,13 @@
     &__forgot {
       color: $button-blue;
       text-align: center;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
       font-size: 1.4rem;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
