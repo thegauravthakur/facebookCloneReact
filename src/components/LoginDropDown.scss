@@ -7,6 +7,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 26rem;
   padding: 2rem;
   background-color: #fff;
@@ -14,12 +15,12 @@
   right: 40rem;
   border-radius: 0.5rem;
 
-  & > p {
+  &__forgot {
+    align-self: flex-end;
     color: $error-blue;
     font-size: 1.2rem;
     padding-top: 0.5rem;
     cursor: pointer;
-    text-align: right;
     margin-bottom: 1rem;
 
     &:hover {
@@ -31,6 +32,7 @@
     border: 1px solid rgb(211, 214, 219);
     padding: 0.5rem;
     font-size: 1.4rem;
+    width: 100%;
 
     &:focus {
       outline: none;
@@ -42,6 +44,7 @@
   }
 
   &__label {
+    align-self: flex-start;
     letter-spacing: 0.3px;
     color: #606770;
     font-size: 1.2rem;
@@ -50,9 +53,9 @@
   }
 
   &__question {
-    color: #7f7f7f !important ;
-    font-size: 1.2rem !important;
-    text-align: center !important;
+    color: #7f7f7f;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
   }
 
   &__button {
@@ -69,16 +72,17 @@
       width: 50%;
 
       &:hover {
-        background-color: darken(#42b72a, 3);
+        background-color: darken(#42b72a, 5);
       }
     }
 
     &__login {
       background-color: #4267b2;
       margin-bottom: 2.5rem;
+      width: 100%;
 
       &:hover {
-        background-color: darken(#4267b2, 3);
+        background-color: darken(#4267b2, 5);
       }
     }
   }

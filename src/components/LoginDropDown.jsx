@@ -18,7 +18,7 @@ function LoginDropDown() {
       </label>
       <input type='text' id='password' value={password} onChange={(e) => setPassword(e.target.value)} />
 
-      <p>Forgot Account?</p>
+      <p className='loginDropDown__forgot'>Forgot Account?</p>
 
       <button className='loginDropDown__button loginDropDown__button__login'>Log In</button>
       <p className='loginDropDown__question'>Do you want to join Facebook?</p>
