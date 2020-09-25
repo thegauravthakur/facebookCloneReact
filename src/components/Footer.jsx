@@ -40,6 +40,31 @@ export default function Footer() {
           <li>Facebook Pay</li>
           <li>Groups</li>
         </ul>
+
+        <ul className='footer__list'>
+          <li>Oculus</li>
+          <li>Portal</li>
+          <li>Instagram</li>
+          <li>Local</li>
+          <li>Fundraiser</li>
+          <li>Services</li>
+          <li>Voting Information Center</li>
+          <li>About</li>
+          <li>Create Ad</li>
+          <li>Create Page</li>
+          <li>Developers</li>
+          <li>Careers</li>
+          <li>Privacy</li>
+        </ul>
+
+        <ul className='footer__list'>
+          <li>Cookies</li>
+          <li>Ad Choices</li>
+          <li>Terms</li>
+          <li>Help</li>
+        </ul>
+
+        <p>Facebook &copy; 2020</p>
       </div>
     </div>
   )
