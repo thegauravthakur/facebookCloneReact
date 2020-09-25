@@ -8,6 +8,10 @@ import facebookIcon from '../img/facebook.png'
 export default function ErrorNavbar() {
   const [dropDownOpen, setDropDownOpen] = useState(false)
 
+  const dropDownClickHandler = () => {
+    setDropDownOpen()
+  }
+
   return (
     <div className='errorNavbar'>
       <div className='errorNavbar__container'>
@@ -26,7 +30,7 @@ export default function ErrorNavbar() {
           <ArrowDropDownIcon className='errorNavbar__text__icon' />
         </div>
 
-        <LoginDropDown />
+        <LoginDropDown isModalOpen={dropDownOpen} />
       </div>
     </div>
   )
