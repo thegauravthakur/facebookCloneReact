@@ -4,6 +4,7 @@ import { auth, db } from '../firebase'
 import firebase from 'firebase'
 import { useStateValue } from '../StateProvider'
 import { actionTypes } from '../reducer'
+import validateEmail from '../utilities/validateEmail'
 
 export default function Login() {
   useEffect(() => {
@@ -15,6 +16,9 @@ export default function Login() {
     document.body.style.overflowY = 'hidden'
     document.documentElement.scrollTop = 0
   }, [])
+
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   const provider = new firebase.auth.GoogleAuthProvider()
 
@@ -42,12 +46,12 @@ export default function Login() {
       </div>
       <div className='login__form'>
         <form>
-          <input type='text' />
+          <input type='text' value={email} />
           <input type='text' />
           <button>Log In</button>
           <p>Forgot Password?</p>
           <hr />
-          <button>Create New Account</button>
+          <button className='login__form__button'>Create New Account</button>
         </form>
         <p>
           <span>Create a page </span>for a celebrity, band or business
