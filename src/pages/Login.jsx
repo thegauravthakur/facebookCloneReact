@@ -4,6 +4,7 @@ import { auth, db } from '../firebase'
 import firebase from 'firebase'
 import { useStateValue } from '../StateProvider'
 import { actionTypes } from '../reducer'
+import Footer from '../components/Footer'
 import validateEmail from '../utilities/validateEmail'
 
 export default function Login() {
@@ -44,10 +45,10 @@ export default function Login() {
         <img src='https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg' alt='Facebook Logo' />
         <h2>Connect with friends and the world around you on Facebook.</h2>
       </div>
-      <div className='login__form'>
-        <form>
-          <input type='text' value={email} />
-          <input type='text' />
+      <div className='login__form__container'>
+        <form className='login__form'>
+          <input type='text' value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input type='text' value={password} onChange={(e) => setPassword(e.target.value)} />
           <button>Log In</button>
           <p>Forgot Password?</p>
           <hr />

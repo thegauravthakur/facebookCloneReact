@@ -42,4 +42,11 @@
       }
     }
   }
+
+  &__form__container {
+    background-color: $white;
+    padding: 2rem;
+    &__form {
+    }
+  }
 }
