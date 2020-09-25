@@ -1,4 +1,4 @@
-# Facebook Clone
+# Facebook Clone ( Firebase Authentication, React Hooks, Firebase Storage, SASS & Firebase Hosting)
 
 ## Available Scripts
 
