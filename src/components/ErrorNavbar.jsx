@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown'
 import './ErrorNavbar.scss'
@@ -6,6 +6,8 @@ import LoginDropDown from './LoginDropDown'
 import facebookIcon from '../img/facebook.png'
 
 export default function ErrorNavbar() {
+  const [dropDownOpen, setDropDownOpen] = useState(false)
+
   return (
     <div className='errorNavbar'>
       <div className='errorNavbar__container'>

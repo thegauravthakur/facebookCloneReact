@@ -8,6 +8,7 @@ function LoginDropDown() {
 
   return (
     <div className='loginDropDown'>
+      <ArrowDropUpIcon className='loginDropDown__arrow' />
       <label className='loginDropDown__label' htmlFor='email'>
         Email
       </label>

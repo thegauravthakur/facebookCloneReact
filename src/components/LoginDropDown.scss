@@ -11,9 +11,18 @@
   width: 26rem;
   padding: 2rem;
   background-color: #fff;
-  top: 20rem;
-  right: 40rem;
+  top: 7rem;
+  right: 45rem;
   border-radius: 0.5rem;
+  display: none;
+
+  &__arrow {
+    position: absolute;
+    color: $white !important;
+    font-size: 5rem !important;
+    top: -2.8rem;
+    right: 2rem;
+  }
 
   &__forgot {
     align-self: flex-end;
@@ -85,5 +94,9 @@
         background-color: darken(#4267b2, 5);
       }
     }
+  }
+
+  &__Open {
+    display: flex !important;
   }
 }
