@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import CloseIcon from '@material-ui/icons/Close'
 import './SignUp.scss'
 
 function SignUp() {

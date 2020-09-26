@@ -8,6 +8,7 @@ import Login from './pages/Login'
 import { useStateValue } from './StateProvider'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Messenger from './pages/Messenger'
+import LoginFail from './components/LoginFail'
 import ErrorPage from './pages/ErrorPage'
 
 function App() {
@@ -21,13 +22,13 @@ function App() {
             <Messenger />
           </Route>
 
-          <Route path='/home'>
-            <Login />
+          <Route path='/login'>
+            <LoginFail />
           </Route>
 
-          <Route path='/' exact>
+          <Route path='/home'>
             {!user ? (
-              <Redirect to='/home' />
+              <Redirect to='/' />
             ) : (
               <>
                 <Navbar />
@@ -38,6 +39,10 @@ function App() {
                 </div>
               </>
             )}
+          </Route>
+
+          <Route path='/' exact>
+            <Login />
           </Route>
 
           <Route path=''>
