@@ -10,8 +10,20 @@ function SignUp() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [birthdayYear, setBirthdayYear] = useState('')
-  const [customGender, setCustomGender] = useState('')
-  const [customOpen, setCustomOpen] = useState('')
+
+  const customSectionRef = useRef(null)
+
+  const normalSelectChangeHandler = (e) => {
+    if (e.target.value !== 'Custom' && e.target.checked) {
+      customSectionRef.current.style.display = 'none'
+    }
+  }
+
+  const customChangeHandler = (e) => {
+    if (e.target.value === 'Custom' && e.target.checked) {
+      customSectionRef.current.style.display = 'block'
+    }
+  }
 
   return (
     <div className='signUp'>
@@ -159,27 +171,21 @@ function SignUp() {
             <div className='signUp__form__gender__container'>
               <label className='signUp__form__gender__option signUp__form__gender__option__female' htmlFor='female'>
                 Female
-                <input type='radio' name='gender' id='female' />
+                <input onChange={normalSelectChangeHandler} value='Female' type='radio' name='gender' id='female' />
               </label>
 
               <label className='signUp__form__gender__option signUp__form__gender__option__male' htmlFor='male'>
-                Male <input type='radio' name='gender' id='male' />
+                Male <input onChange={normalSelectChangeHandler} value='Male' type='radio' name='gender' id='male' />
               </label>
 
               <label className='signUp__form__gender__option signUp__form__gender__option__custom' htmlFor='custom'>
                 Custom
-                <input
-                  value={customGender}
-                  onChange={(e) => setCustomGender(e.target.value)}
-                  type='radio'
-                  name='gender'
-                  id='custom'
-                />
+                <input value='Custom' onChange={customChangeHandler} type='radio' name='gender' id='custom' />
               </label>
             </div>
           </div>
 
-          <div className='signUp__form__custom'>
+          <div className='signUp__form__custom' ref={customSectionRef}>
             <select name='pronoun' id='pronoun' className='signUp__form__custom__select'>
               <option value='Select your pronoun'>Select your pronoun</option>
               <option value='She: "Wish her a happy birthday!"'>She: "Wish her a happy birthday!"</option>

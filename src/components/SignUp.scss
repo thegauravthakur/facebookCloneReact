@@ -190,9 +190,6 @@
       &__male {
         margin-right: 1.5rem;
       }
-
-      &__custom {
-      }
     }
   }
 
@@ -213,7 +210,7 @@
 
   &__form__custom {
     width: 100%;
-
+    display: none;
     &__select {
       width: 100%;
       margin-bottom: 0.5rem;
