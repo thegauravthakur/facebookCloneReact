@@ -6,4 +6,4 @@ const validateName = (name) => {
   }
 }
 
-export default true
+export default validateName

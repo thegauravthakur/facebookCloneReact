@@ -16,6 +16,7 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
   const [birthdayYear, setBirthdayYear] = useState('')
 
   const customSectionRef = useRef(null)
+  const lastNameRef = useRef(null)
 
   const normalSelectChangeHandler = (e) => {
     if (e.target.value !== 'Custom' && e.target.checked) {
@@ -29,7 +30,13 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
     }
   }
 
-  const blurInputHandler = (e) => {}
+  const blurInputLastNameHandler = () => {
+    if (validateName(lastName)) {
+      lastNameRef.current.style.border = '1px solid ##ccd0d5'
+    } else {
+      lastNameRef.current.style.border = '1px solid red'
+    }
+  }
 
   return (
     <div className={`signUp ${isFormOpen && 'signUp__Open'}`}>
@@ -51,7 +58,6 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
               placeholder='First name'
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
-              onBlur={blurInputHandler}
             />
             <input
               className='signUp__form__input'
@@ -59,7 +65,8 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
               placeholder='Last name'
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
-              onBlur={blurInputHandler}
+              onBlur={blurInputLastNameHandler}
+              ref={lastNameRef}
             />
           </div>
 
