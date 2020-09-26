@@ -99,6 +99,7 @@
 
   &__form__birthday {
     width: 100%;
+    margin-bottom: 1.5rem;
 
     &__text {
       display: flex;
@@ -123,9 +124,16 @@
 
     &__select {
       width: 33.3%;
-      appearance: none;
-      -moz-appearance: none;
-      -webkit-appearance: none;
+      border: 1px solid #ccd0d5;
+      padding: 0.7rem;
+      font-size: 1.5rem;
+      background-color: #f5f6f7;
+      border-radius: 0.4rem;
+      color: #1c1e21;
+
+      &:focus {
+        outline: none;
+      }
 
       &__month {
         margin-right: 1.5rem;

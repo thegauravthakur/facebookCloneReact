@@ -9,6 +9,7 @@ function SignUp() {
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [birthdayYear, setBirthdayYear] = useState('')
 
   return (
     <div className='signUp'>
@@ -63,24 +64,24 @@ function SignUp() {
 
             <div className='signUp__form__birthday__select__container'>
               <select name='month' className='signUp__form__birthday__select signUp__form__birthday__select__month'>
-                <option value='January'>January</option>
-                <option value='February'>February</option>
-                <option value='March'>March</option>
-                <option value='April'>April</option>
+                <option value='Month'>Month</option>
+                <option value='January'>Jan</option>
+                <option value='February'>Feb</option>
+                <option value='March'>Mar</option>
+                <option value='April'>Apr</option>
                 <option value='May'>May</option>
-                <option value='June'>June</option>
-                <option value='July'>July</option>
-                <option value='August'>August</option>
-                <option value='September'>September</option>
-                <option value='October'>October</option>
-                <option value='November'>November</option>
-                <option value='December'>December</option>
+                <option value='June'>Jun</option>
+                <option value='July'>Jul</option>
+                <option value='August'>Aug</option>
+                <option value='September'>Sep</option>
+                <option value='October'>Oct</option>
+                <option value='November'>Nov</option>
+                <option value='December'>Dec</option>
               </select>
 
               <select name='day' className='signUp__form__birthday__select signUp__form__birthday__select__day'>
-                <option value='1' defaultChecked>
-                  1
-                </option>
+                <option value='Day'>Day</option>
+                <option value='1'>1</option>
                 <option value='2'>2</option>
                 <option value='3'>3</option>
                 <option value='4'>4</option>
@@ -113,7 +114,12 @@ function SignUp() {
                 <option value='31'>31</option>
               </select>
 
-              <select name='year' className='signUp__form__birthday__select signUp__form__birthday__select__year'>
+              <select
+                name='year'
+                className='signUp__form__birthday__select signUp__form__birthday__select__year'
+                value={birthdayYear}
+                onChange={(e) => setBirthdayYear(e.target.value)}>
+                <option value='Year'>Year</option>
                 <option value='2020'>2020</option>
                 <option value='2019'>2019</option>
                 <option value='2018'>2018</option>
