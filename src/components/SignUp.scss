@@ -3,7 +3,7 @@
 
 .signUp {
   max-height: 65rem;
-  box-shadow: $box-shadow;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
   border-radius: 0.6rem;
   min-width: 40rem;
   max-width: 43rem;
@@ -13,9 +13,11 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  top: 30%;
-  left: 40%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 2;
+  display: none;
 
   &__form__container {
     padding: 0 2rem 2.3rem 2rem;
@@ -68,7 +70,7 @@
     border-bottom: 1px solid #1c1e21;
     width: 100%;
     margin-bottom: 2rem;
-    opacity: 0.3;
+    opacity: 0.25;
   }
 
   &__header {
@@ -264,4 +266,8 @@
       background-color: darken(#00a400, 4);
     }
   }
+}
+
+.signUp__Open {
+  display: flex;
 }

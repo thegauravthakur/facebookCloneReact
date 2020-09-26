@@ -4,7 +4,7 @@ import HelpIcon from '@material-ui/icons/Help'
 import CloseIcon from '@material-ui/icons/Close'
 import './SignUp.scss'
 
-function SignUp() {
+function SignUp({ closeFormHandler, isFormOpen }) {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
@@ -26,11 +26,11 @@ function SignUp() {
   }
 
   return (
-    <div className='signUp'>
+    <div className={`signUp ${isFormOpen && 'signUp__Open'}`}>
       <div className='signUp__header'>
         <h3>Sign Up</h3>
         <p>It's quick and easy</p>
-        <CloseIcon className='signUp__header__close' />
+        <CloseIcon onClick={closeFormHandler} className='signUp__header__close' />
       </div>
 
       <hr className='signUp__line' />

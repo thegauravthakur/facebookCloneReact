@@ -1,8 +1,8 @@
 import React from 'react'
 import './SignUpBackdrop.scss'
 
-function SignUpBackdrop() {
-  return <div className='signupBackDrop'></div>
+function SignUpBackdrop({ modalOpen }) {
+  return <div className={`signupBackDrop ${modalOpen && 'signupBackDrop__Open'}`}></div>
 }
 
 export default SignUpBackdrop

@@ -8,7 +8,6 @@ import Footer from '../components/Footer'
 import validateEmail from '../utilities/validateEmail'
 import SignUp from '../components/SignUp'
 import SignUpBackDrop from '../components/SignUpBackdrop'
-import { SingleBed } from '@material-ui/icons'
 
 export default function Login() {
   useEffect(() => {
@@ -23,6 +22,17 @@ export default function Login() {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
+  const [signUpOpen, setSignUpOpen] = useState(false)
+
+  const closeFormHandler = () => {
+    setSignUpOpen(false)
+  }
+
+  const openFormHandler = (e) => {
+    e.preventDefault()
+    setSignUpOpen(true)
+  }
 
   const provider = new firebase.auth.GoogleAuthProvider()
 
@@ -64,11 +74,14 @@ export default function Login() {
             </button>
             <p className='login__form__forgot'>Forgot Password?</p>
             <hr className='login__form__line' />
-            <button className='login__form__button login__form__signupButton'>Create New Account</button>
+            <button className='login__form__button login__form__signupButton' onClick={openFormHandler}>
+              Create New Account
+            </button>
           </form>
         </div>
       </div>
-      <SignUp />
+      <SignUp closeFormHandler={closeFormHandler} isFormOpen={signUpOpen} />
+      <SignUpBackDrop modalOpen={signUpOpen} />
       <Footer />
     </>
   )
