@@ -62,7 +62,7 @@ function SignUp() {
             </p>
 
             <div className='signUp__form__birthday__select__container'>
-              <select name='month'>
+              <select name='month' className='signUp__form__birthday__select signUp__form__birthday__select__month'>
                 <option value='January'>January</option>
                 <option value='February'>February</option>
                 <option value='March'>March</option>
@@ -71,15 +71,13 @@ function SignUp() {
                 <option value='June'>June</option>
                 <option value='July'>July</option>
                 <option value='August'>August</option>
-                <option value='September' defaultChecked>
-                  September
-                </option>
+                <option value='September'>September</option>
                 <option value='October'>October</option>
                 <option value='November'>November</option>
                 <option value='December'>December</option>
               </select>
 
-              <select name='day'>
+              <select name='day' className='signUp__form__birthday__select signUp__form__birthday__select__day'>
                 <option value='1' defaultChecked>
                   1
                 </option>
@@ -115,7 +113,7 @@ function SignUp() {
                 <option value='31'>31</option>
               </select>
 
-              <select name='year'>
+              <select name='year' className='signUp__form__birthday__select signUp__form__birthday__select__year'>
                 <option value='2020'>2020</option>
                 <option value='2019'>2019</option>
                 <option value='2018'>2018</option>
