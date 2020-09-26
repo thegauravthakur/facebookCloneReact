@@ -1,2 +1,37 @@
 @import '../mixins';
 @import '../variables';
+
+.loginFail {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  &__logo {
+    height: 8.5rem;
+    width: 24rem;
+    margin-bottom: 2rem;
+  }
+
+  &__form__container {
+    background-color: #fff;
+    max-width: 40rem;
+    width: 40rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+  }
+
+  &__form {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > h4 {
+      color: #1c1e21;
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+    }
+  }
+}
