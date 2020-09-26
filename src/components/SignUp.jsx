@@ -25,7 +25,50 @@ function SignUp() {
         <input type='text' placeholder='New Password' />
 
         <div className='signUp__form__birthday'>
-          <select name='birthday'></select>
+          <select name='month'>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+          </select>
+
+          <select name='day'>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+          </select>
+
+          <select name='year'>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+            <option value=''></option>
+          </select>
         </div>
       </div>
     </div>
