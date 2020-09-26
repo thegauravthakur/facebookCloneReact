@@ -10,6 +10,8 @@ function SignUp() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [birthdayYear, setBirthdayYear] = useState('')
+  const [customGender, setCustomGender] = useState('')
+  const [customOpen, setCustomOpen] = useState('')
 
   return (
     <div className='signUp'>
@@ -165,14 +167,24 @@ function SignUp() {
               </label>
 
               <label className='signUp__form__gender__option signUp__form__gender__option__custom' htmlFor='custom'>
-                Custom <input type='radio' name='gender' id='custom' />
+                Custom
+                <input
+                  value={customGender}
+                  onChange={(e) => setCustomGender(e.target.value)}
+                  type='radio'
+                  name='gender'
+                  id='custom'
+                />
               </label>
             </div>
           </div>
 
           <p className='signUp__form__footerText'>
-            By clicking Sign Up, you agree to our <span> Terms, Data Policy </span> and <span> Cookies Policy</span>.
-            You may receive SMS Notifications from us and can opt out any time.
+            By clicking Sign Up, you agree to our
+            <span className='signUp__form__footerText__blue'> Terms</span>,
+            <span className='signUp__form__footerText__blue'> Data Policy </span> and
+            <span className='signUp__form__footerText__blue'> Cookies Policy</span>. You may receive SMS Notifications
+            from us and can opt out any time.
           </p>
 
           <button className='signUp__form__Button'>Sign Up</button>

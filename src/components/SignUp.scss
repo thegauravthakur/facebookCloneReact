@@ -18,7 +18,7 @@
   z-index: 2;
 
   &__form__container {
-    padding: 0 2rem 2rem 2rem;
+    padding: 0 2rem 2.3rem 2rem;
   }
 
   &__form {
@@ -189,6 +189,21 @@
 
       &__male {
         margin-right: 1.5rem;
+      }
+    }
+  }
+
+  &__form__footerText {
+    font-size: 1.1rem;
+    color: #777777;
+    margin-bottom: 2rem;
+
+    &__blue {
+      color: $error-blue;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
       }
     }
   }
