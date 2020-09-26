@@ -21,7 +21,7 @@ function SignUp() {
 
       <hr className='signUp__line' />
 
-      <div className='signUp__form__container'>
+      <form className='signUp__form__container'>
         <div className='signUp__form'>
           <div className='signUp__form__name'>
             <input
@@ -151,33 +151,33 @@ function SignUp() {
           </div>
 
           <div className='signUp__form__gender'>
-            <p>Gender</p>
-            <div>
-              <div>
-                <label htmlFor='female'>Female</label>
+            <p className='signUp__form__gender__text'>
+              Gender <HelpIcon titleAccess='Click for more information' className='signUp__form__gender__text__icon' />
+            </p>
+            <div className='signUp__form__gender__container'>
+              <label className='signUp__form__gender__option signUp__form__gender__option__female' htmlFor='female'>
+                Female
                 <input type='radio' name='gender' id='female' />
-              </div>
+              </label>
 
-              <div>
-                <label htmlFor='male'>Female</label>
-                <input type='radio' name='gender' id='male' />
-              </div>
+              <label className='signUp__form__gender__option signUp__form__gender__option__male' htmlFor='male'>
+                Male <input type='radio' name='gender' id='male' />
+              </label>
 
-              <div>
-                <label htmlFor='custom'>Custom</label>
-                <input type='radio' name='gender' id='custom' />
-              </div>
+              <label className='signUp__form__gender__option signUp__form__gender__option__custom' htmlFor='custom'>
+                Custom <input type='radio' name='gender' id='custom' />
+              </label>
             </div>
           </div>
 
-          <p>
+          <p className='signUp__form__footerText'>
             By clicking Sign Up, you agree to our <span> Terms, Data Policy </span> and <span> Cookies Policy</span>.
             You may receive SMS Notifications from us and can opt out any time.
           </p>
 
-          <button>Sign Up</button>
+          <button className='signUp__form__Button'>Sign Up</button>
         </div>
-      </div>
+      </form>
     </div>
   )
 }

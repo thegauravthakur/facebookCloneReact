@@ -89,6 +89,7 @@
     & > h3 {
       color: #1c1e21;
       font-size: 3.2rem;
+      margin-bottom: 0.2rem;
     }
 
     & > p {
@@ -142,8 +143,52 @@
       &__day {
         margin-right: 1.5rem;
       }
+    }
+  }
 
-      &__year {
+  &__form__gender {
+    width: 100%;
+    margin-bottom: 1rem;
+
+    &__text {
+      display: flex;
+      align-items: center;
+      color: #606770;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+
+      &__icon {
+        cursor: pointer;
+        margin-left: 0.5rem;
+        font-size: 1.4rem !important;
+        transform: translateY(0.1rem);
+      }
+    }
+
+    &__container {
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    &__option {
+      background-color: #f5f6f7;
+      color: #1c1e21;
+      width: 33.3%;
+      border: 1px solid #ccd0d5;
+      padding: 0.7rem;
+      border-radius: 0.4rem;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &__female {
+        margin-right: 1.5rem;
+      }
+
+      &__male {
+        margin-right: 1.5rem;
       }
     }
   }
