@@ -2,9 +2,16 @@
 @import '../variables';
 
 .signUp {
+  box-shadow: $box-shadow;
+  border-radius: 0.4rem;
+  min-width: 40rem;
+  position: absolute;
+  background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   padding: 2rem;
+  top: 50%;
+  left: 50%;
 }

@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import ErrorIcon from '@material-ui/icons/Error'
+import HelpIcon from '@material-ui/icons/Help'
 import CloseIcon from '@material-ui/icons/Close'
 import './SignUp.scss'
 
@@ -13,6 +15,7 @@ function SignUp() {
       <div className='signUp__header'>
         <h3>Sign Up</h3>
         <p>It's quick and easy</p>
+        <CloseIcon className='signUp__header__close' />
       </div>
 
       <div className='signUp__form'>
@@ -31,6 +34,7 @@ function SignUp() {
         <input type='text' placeholder='New Password' value={password} onChange={(e) => setPassword(e.target.value)} />
 
         <div className='signUp__form__birthday'>
+          <p className='signUp__form__birthday__text'>Birthday</p>
           <select name='month'>
             <option value='January'>January</option>
             <option value='February'>February</option>
@@ -113,6 +117,33 @@ function SignUp() {
             <option value='1995'>1995</option>
           </select>
         </div>
+
+        <div className='signUp__form__gender'>
+          <p>Gender</p>
+          <div>
+            <div>
+              <label htmlFor='female'>Female</label>
+              <input type='radio' name='gender' id='female' />
+            </div>
+
+            <div>
+              <label htmlFor='male'>Female</label>
+              <input type='radio' name='gender' id='male' />
+            </div>
+
+            <div>
+              <label htmlFor='custom'>Custom</label>
+              <input type='radio' name='gender' id='custom' />
+            </div>
+          </div>
+        </div>
+
+        <p>
+          By clicking Sign Up, you agree to our <span> Terms, Data Policy </span> and <span> Cookies Policy</span>. You
+          may receive SMS Notifications from us and can opt out any time.
+        </p>
+
+        <button>Sign Up</button>
       </div>
     </div>
   )

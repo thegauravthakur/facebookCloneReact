@@ -8,6 +8,7 @@ import Footer from '../components/Footer'
 import validateEmail from '../utilities/validateEmail'
 import SignUp from '../components/SignUp'
 import SignUpBackDrop from '../components/SignUpBackdrop'
+import { SingleBed } from '@material-ui/icons'
 
 export default function Login() {
   useEffect(() => {
@@ -67,6 +68,7 @@ export default function Login() {
           </form>
         </div>
       </div>
+      <SignUp />
       <Footer />
     </>
   )
