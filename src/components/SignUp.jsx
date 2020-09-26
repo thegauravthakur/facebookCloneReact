@@ -8,7 +8,7 @@ import validateYear from '../utilities/validateYear'
 import validateName from '../utilities/validateName'
 import './SignUp.scss'
 
-function SignUp({ closeFormHandler, isFormOpen }) {
+function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
@@ -45,7 +45,7 @@ function SignUp({ closeFormHandler, isFormOpen }) {
         <div className='signUp__form'>
           <div className='signUp__form__name'>
             <input
-              autoFocus
+              ref={signUpFirstNameInputRef}
               className='signUp__form__input signUp__form__input__first'
               type='text'
               placeholder='First name'

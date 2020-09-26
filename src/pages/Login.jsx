@@ -25,6 +25,8 @@ export default function Login() {
 
   const [signUpOpen, setSignUpOpen] = useState(false)
 
+  const signUpFirstNameInputRef = useRef(null)
+
   const closeFormHandler = () => {
     setSignUpOpen(false)
   }
@@ -32,6 +34,10 @@ export default function Login() {
   const openFormHandler = (e) => {
     e.preventDefault()
     setSignUpOpen(true)
+
+    setTimeout(() => {
+      signUpFirstNameInputRef.current.focus()
+    }, 0)
   }
 
   const provider = new firebase.auth.GoogleAuthProvider()
@@ -80,7 +86,11 @@ export default function Login() {
           </form>
         </div>
       </div>
-      <SignUp closeFormHandler={closeFormHandler} isFormOpen={signUpOpen} />
+      <SignUp
+        closeFormHandler={closeFormHandler}
+        isFormOpen={signUpOpen}
+        signUpFirstNameInputRef={signUpFirstNameInputRef}
+      />
       <SignUpBackDrop modalOpen={signUpOpen} />
       <Footer />
     </>
