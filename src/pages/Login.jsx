@@ -6,6 +6,8 @@ import { useStateValue } from '../StateProvider'
 import { actionTypes } from '../reducer'
 import Footer from '../components/Footer'
 import validateEmail from '../utilities/validateEmail'
+import SignUp from '../components/SignUp'
+import SignUpBackDrop from '../components/SignUpBackdrop'
 
 export default function Login() {
   useEffect(() => {
