@@ -265,6 +265,10 @@
     &:hover {
       background-color: darken(#00a400, 4);
     }
+
+    &:focus {
+      outline: none;
+    }
   }
 }
 

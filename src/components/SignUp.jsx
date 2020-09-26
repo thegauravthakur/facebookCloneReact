@@ -2,6 +2,10 @@ import React, { useState, useRef } from 'react'
 import ErrorIcon from '@material-ui/icons/Error'
 import HelpIcon from '@material-ui/icons/Help'
 import CloseIcon from '@material-ui/icons/Close'
+import validateEmail from '../utilities/validateEmail'
+import validatePassword from '../utilities/validatePassword'
+import validateYear from '../utilities/validateYear'
+import validateName from '../utilities/validateName'
 import './SignUp.scss'
 
 function SignUp({ closeFormHandler, isFormOpen }) {
@@ -25,6 +29,8 @@ function SignUp({ closeFormHandler, isFormOpen }) {
     }
   }
 
+  const blurInputHandler = (e) => {}
+
   return (
     <div className={`signUp ${isFormOpen && 'signUp__Open'}`}>
       <div className='signUp__header'>
@@ -39,11 +45,13 @@ function SignUp({ closeFormHandler, isFormOpen }) {
         <div className='signUp__form'>
           <div className='signUp__form__name'>
             <input
+              autoFocus
               className='signUp__form__input signUp__form__input__first'
               type='text'
               placeholder='First name'
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
+              onBlur={blurInputHandler}
             />
             <input
               className='signUp__form__input'
@@ -51,6 +59,7 @@ function SignUp({ closeFormHandler, isFormOpen }) {
               placeholder='Last name'
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
+              onBlur={blurInputHandler}
             />
           </div>
 

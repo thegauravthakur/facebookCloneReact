@@ -71,6 +71,10 @@
       border-radius: 0.4rem;
       cursor: pointer;
       transition: 0.2s ease;
+
+      &:focus {
+        outline: none;
+      }
     }
     &__loginButton {
       background-color: $button-blue;
