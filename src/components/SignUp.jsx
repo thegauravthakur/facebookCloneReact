@@ -186,6 +186,7 @@ function SignUp() {
               <option value='He: "Wish him a happy birthday!"'>He: "Wish him a happy birthday!"</option>
               <option value='Them: "Wish them a happy birthday!"'>Them: "Wish them a happy birthday!"</option>
             </select>
+
             <p className='signUp__form__custom__text'>Your pronoun is visible to everyone</p>
 
             <input type='text' className='signUp__form__custom__input' placeholder='Gender (optional)' />
@@ -199,7 +200,7 @@ function SignUp() {
             from us and can opt out any time.
           </p>
 
-          <button className='signUp__form__Button'>Sign Up</button>
+          <button className='signUp__form__button'>Sign Up</button>
         </div>
       </form>
     </div>

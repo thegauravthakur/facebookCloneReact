@@ -2,7 +2,7 @@
 @import '../variables';
 
 .signUp {
-  max-height: 55rem;
+  max-height: 65rem;
   box-shadow: $box-shadow;
   border-radius: 0.6rem;
   min-width: 40rem;
@@ -248,6 +248,23 @@
       &:focus {
         outline: none;
       }
+    }
+  }
+
+  &__form__button {
+    color: #fff;
+    border: none;
+    width: 50%;
+    background-color: #00a400;
+    font-weight: 600;
+    font-size: 1.8rem;
+    border-radius: 0.6rem;
+    padding: 0.6rem 0;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken(#00a400, 4);
     }
   }
 }
