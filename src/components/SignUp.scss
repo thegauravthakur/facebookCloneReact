@@ -105,7 +105,7 @@
       align-items: center;
       color: #606770;
       font-size: 1.2rem;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.5rem;
 
       &__icon {
         cursor: pointer;
@@ -123,11 +123,16 @@
 
     &__select {
       width: 33.3%;
+      appearance: none;
+      -moz-appearance: none;
+      -webkit-appearance: none;
 
       &__month {
+        margin-right: 1.5rem;
       }
 
       &__day {
+        margin-right: 1.5rem;
       }
 
       &__year {
