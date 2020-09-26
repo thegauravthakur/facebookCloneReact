@@ -39,7 +39,7 @@ export default function LoginFail() {
             <button type='submit' className='loginFail__form__button'>
               Log In
             </button>
-            <p className='loginFail__form__text'>Forgot Password</p>
+            <p className='loginFail__form__text'>Forgot Password?</p>
           </form>
         </div>
       </div>
