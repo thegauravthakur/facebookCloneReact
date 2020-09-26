@@ -39,12 +39,23 @@
       margin-right: 1rem;
     }
 
+    &__input__email {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    &__input__password {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
     &__input {
       border: 1px solid #ccd0d5;
       color: rgb(28, 30, 33);
       background-color: #f5f6f7;
       padding: 1rem;
       border-radius: 0.4rem;
+      font-size: 1.4rem;
 
       &:focus {
         outline: none;
@@ -83,6 +94,25 @@
     & > p {
       color: #606770;
       font-size: 1.5rem;
+    }
+  }
+
+  &__form__birthday {
+    width: 100%;
+
+    &__text {
+      display: flex;
+      align-items: center;
+      color: #606770;
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+
+      &__icon {
+        cursor: pointer;
+        margin-left: 0.5rem;
+        font-size: 1.4rem !important;
+        transform: translateY(0.1rem);
+      }
     }
   }
 }
