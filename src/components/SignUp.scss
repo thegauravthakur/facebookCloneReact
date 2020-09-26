@@ -2,7 +2,7 @@
 @import '../variables';
 
 .signUp {
-  max-height: 50rem;
+  max-height: 55rem;
   box-shadow: $box-shadow;
   border-radius: 0.6rem;
   min-width: 40rem;
@@ -148,7 +148,7 @@
 
   &__form__gender {
     width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 
     &__text {
       display: flex;
@@ -190,6 +190,9 @@
       &__male {
         margin-right: 1.5rem;
       }
+
+      &__custom {
+      }
     }
   }
 
@@ -204,6 +207,46 @@
 
       &:hover {
         text-decoration: underline;
+      }
+    }
+  }
+
+  &__form__custom {
+    width: 100%;
+
+    &__select {
+      width: 100%;
+      margin-bottom: 0.5rem;
+      border: 1px solid #ccd0d5;
+      padding: 0.7rem;
+      font-size: 1.5rem;
+      background-color: #f5f6f7;
+      border-radius: 0.4rem;
+      color: #1c1e21;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &__text {
+      font-size: 1.2rem;
+      color: #606770;
+      margin-bottom: 1rem;
+    }
+
+    &__input {
+      margin-bottom: 1rem;
+      width: 100%;
+      border: 1px solid #ccd0d5;
+      padding: 1rem;
+      font-size: 1.5rem;
+      background-color: #f5f6f7;
+      border-radius: 0.4rem;
+      color: #1c1e21;
+
+      &:focus {
+        outline: none;
       }
     }
   }

@@ -179,6 +179,18 @@ function SignUp() {
             </div>
           </div>
 
+          <div className='signUp__form__custom'>
+            <select name='pronoun' id='pronoun' className='signUp__form__custom__select'>
+              <option value='Select your pronoun'>Select your pronoun</option>
+              <option value='She: "Wish her a happy birthday!"'>She: "Wish her a happy birthday!"</option>
+              <option value='He: "Wish him a happy birthday!"'>He: "Wish him a happy birthday!"</option>
+              <option value='Them: "Wish them a happy birthday!"'>Them: "Wish them a happy birthday!"</option>
+            </select>
+            <p className='signUp__form__custom__text'>Your pronoun is visible to everyone</p>
+
+            <input type='text' className='signUp__form__custom__input' placeholder='Gender (optional)' />
+          </div>
+
           <p className='signUp__form__footerText'>
             By clicking Sign Up, you agree to our
             <span className='signUp__form__footerText__blue'> Terms</span>,
