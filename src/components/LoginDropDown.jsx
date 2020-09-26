@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp'
 import './LoginDropDown.scss'
 
-function LoginDropDown({ isModalOpen }) {
+function LoginDropDown({ Open }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   return (
-    <div className='loginDropDown'>
+    <div className={`loginDropDown ${Open && 'loginDropDown__Open'}`}>
       <ArrowDropUpIcon className='loginDropDown__arrow' />
       <label className='loginDropDown__label' htmlFor='email'>
         Email
