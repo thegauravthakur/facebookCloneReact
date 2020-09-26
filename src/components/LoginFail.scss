@@ -15,6 +15,7 @@
   }
 
   &__form__container {
+    border-radius: 0.6rem;
     background-color: #fff;
     max-width: 40rem;
     width: 40rem;
@@ -32,6 +33,44 @@
       color: #1c1e21;
       font-size: 1.8rem;
       margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
+    &__error {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 2rem;
+      border: 1px solid #dd3c10;
+      padding: 1rem 0;
+      background-color: #ffebe8;
+
+      & > h6 {
+        font-size: 1.4rem;
+        color: #333333;
+      }
+
+      & > p {
+        font-size: 1.2rem;
+        color: #1c1e21;
+      }
+    }
+
+    & > input {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 1.5rem;
+      border-radius: 0.6rem;
+      border: 1px solid rgb(221, 223, 226);
+      color: #1d2129;
+      font-size: 1.7rem;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    & > input:last-of-type {
+      margin-bottom: 1.5rem;
     }
   }
 }

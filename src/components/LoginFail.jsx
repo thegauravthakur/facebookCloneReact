@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Footer from './Footer'
 import './LoginFail.scss'
 
@@ -12,6 +12,9 @@ export default function LoginFail() {
     document.body.style.overflowY = 'hidden'
     document.documentElement.scrollTop = 0
   }, [])
+
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   return (
     <>
@@ -31,10 +34,12 @@ export default function LoginFail() {
               <p>Invalid username or password</p>
             </div>
 
-            <input type='text' />
-            <input type='text' />
-            <button type='submit'></button>
-            <p>Forgot Password</p>
+            <input type='text' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input type='text' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
+            <button type='submit' className='loginFail__form__button'>
+              Log In
+            </button>
+            <p className='loginFail__form__text'>Forgot Password</p>
           </form>
         </div>
       </div>
