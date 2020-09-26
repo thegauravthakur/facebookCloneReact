@@ -18,6 +18,8 @@ function SignUp() {
         <CloseIcon className='signUp__header__close' />
       </div>
 
+      <hr className='signUp__line' />
+
       <div className='signUp__form'>
         <div className='signUp__form__name'>
           <input
