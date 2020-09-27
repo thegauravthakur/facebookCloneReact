@@ -19,6 +19,9 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
   const lastNameRef = useRef(null)
   const emailRef = useRef(null)
   const passwordRef = useRef(null)
+  const daySelectRef = useRef(null)
+  const monthSelectRef = useRef(null)
+  const yearSelectRef = useRef(null)
 
   const normalSelectChangeHandler = (e) => {
     if (e.target.value !== 'Custom' && e.target.checked) {
@@ -42,6 +45,24 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
 
   const focusInput = (ref) => {
     ref.current.style.border = '1px solid #ccd0d5'
+  }
+
+  const blurSelect = () => {
+    if (validateYear(birthdayYear)) {
+      daySelectRef.current.style.border = '1px solid #ccd0d5'
+      monthSelectRef.current.style.border = '1px solid #ccd0d5'
+      yearSelectRef.current.style.border = '1px solid #ccd0d5'
+    } else {
+      daySelectRef.current.style.border = '1px solid red'
+      monthSelectRef.current.style.border = '1px solid red'
+      yearSelectRef.current.style.border = '1px solid red'
+    }
+  }
+
+  const focusSelect = () => {
+    daySelectRef.current.style.border = '1px solid #ccd0d5'
+    monthSelectRef.current.style.border = '1px solid #ccd0d5'
+    yearSelectRef.current.style.border = '1px solid #ccd0d5'
   }
 
   return (
@@ -108,7 +129,11 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
             </p>
 
             <div className='signUp__form__birthday__select__container'>
-              <select name='month' className='signUp__form__birthday__select signUp__form__birthday__select__month'>
+              <select
+                name='month'
+                className='signUp__form__birthday__select signUp__form__birthday__select__month'
+                title='Month'
+                ref={monthSelectRef}>
                 <option value='Month'>Month</option>
                 <option value='January'>Jan</option>
                 <option value='February'>Feb</option>
@@ -124,7 +149,11 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
                 <option value='December'>Dec</option>
               </select>
 
-              <select name='day' className='signUp__form__birthday__select signUp__form__birthday__select__day'>
+              <select
+                name='day'
+                className='signUp__form__birthday__select signUp__form__birthday__select__day'
+                title='Day'
+                ref={daySelectRef}>
                 <option value='Day'>Day</option>
                 <option value='1'>1</option>
                 <option value='2'>2</option>
@@ -163,7 +192,11 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
                 name='year'
                 className='signUp__form__birthday__select signUp__form__birthday__select__year'
                 value={birthdayYear}
-                onChange={(e) => setBirthdayYear(e.target.value)}>
+                onChange={(e) => setBirthdayYear(e.target.value)}
+                title='Year'
+                onBlur={blurSelect}
+                onFocus={focusSelect}
+                ref={yearSelectRef}>
                 <option value='Year'>Year</option>
                 <option value='2020'>2020</option>
                 <option value='2019'>2019</option>
