@@ -139,6 +139,8 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
               />
             </label>
 
+            <ErrorNotification text="What's your name?" lastName />
+
             <input
               className='signUp__form__input'
               type='text'
@@ -154,6 +156,11 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
               <ErrorIcon className='signUp__form__lastName__errorIcon signUp__form__errorIcon' ref={lastNameErrorRef} />
             </label>
           </div>
+
+          <ErrorNotification
+            text="You'll use this when you log in and if you ever need to reset your password."
+            email
+          />
 
           <input
             type='text'

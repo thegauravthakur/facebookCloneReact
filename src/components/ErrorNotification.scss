@@ -21,3 +21,29 @@
     font-size: 5rem !important;
   }
 }
+
+.errorNotification__lastName {
+  right: 8rem;
+  top: 16.5rem;
+  z-index: 2;
+
+  & > .MuiSvgIcon-root {
+    color: $error !important;
+    transform: rotate(-90deg);
+    top: -3rem;
+    right: 9rem;
+  }
+}
+
+.errorNotification__email {
+  right: 43rem;
+  top: 16rem;
+  z-index: 2;
+  width: 33rem;
+
+  & > .MuiSvgIcon-root {
+    color: $error !important;
+    top: -5%;
+    right: -3rem;
+  }
+}
