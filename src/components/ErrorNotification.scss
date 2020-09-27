@@ -12,6 +12,7 @@
   width: fit-content;
   height: fit-content;
   box-shadow: 0 0 0 1px rgba(139, 3, 0, 0.75), 0 1px 10px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
 
   &__arrow {
     color: $error !important;
@@ -78,10 +79,39 @@
 }
 
 .errorNotification__birthday {
+  right: 43rem;
+  top: 27.3rem;
+  z-index: 2;
+  width: 33rem;
+  padding: 1.3rem;
+
+  & > .MuiSvgIcon-root {
+    color: $error !important;
+    top: -5%;
+    right: -3rem;
+  }
+}
+
+.errorNotification__gender {
   right: 33rem;
   top: 34.3rem;
   z-index: 2;
   width: 33rem;
+  padding: 1.3rem;
+  display: none;
+
+  & > .MuiSvgIcon-root {
+    color: $error !important;
+    top: -5%;
+    right: -3rem;
+  }
+}
+
+.errorNotification__pronoun {
+  right: 43rem;
+  top: 39.5rem;
+  z-index: 2;
+  width: fit-content;
   padding: 1.3rem;
 
   & > .MuiSvgIcon-root {

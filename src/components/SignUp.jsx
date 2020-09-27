@@ -38,6 +38,13 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
   const birthdayErrorRef = useRef(null)
   const genderErrorRef = useRef(null)
   const pronounErrorRef = useRef(null)
+  const firstNameNotificationErrorRef = useRef(null)
+  const lastNameNotificationErrorRef = useRef(null)
+  const emailNotificationErrorRef = useRef(null)
+  const passwordNotificationErrorRef = useRef(null)
+  const birthdayNotificationErrorRef = useRef(null)
+  const genderNotificationErrorRef = useRef(null)
+  const pronounNotificationErrorRef = useRef(null)
 
   const normalSelectChangeHandler = (e) => {
     if (e.target.value !== 'Custom' && e.target.checked) {
@@ -119,7 +126,7 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
       <form className='signUp__form__container' ref={formRef}>
         <div className='signUp__form'>
           <div className='signUp__form__name'>
-            <ErrorNotification text="What's your name?" />
+            <ErrorNotification text="What's your name?" ref={firstNameNotificationErrorRef} />
 
             <input
               ref={signUpFirstNameInputRef}
@@ -139,7 +146,7 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
               />
             </label>
 
-            <ErrorNotification text="What's your name?" lastName />
+            <ErrorNotification text="What's your name?" lastName ref={lastNameNotificationErrorRef} />
 
             <input
               className='signUp__form__input'
@@ -160,6 +167,7 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
           <ErrorNotification
             text="You'll use this when you log in and if you ever need to reset your password."
             email
+            ref={emailNotificationErrorRef}
           />
 
           <input
@@ -180,6 +188,7 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
           <ErrorNotification
             text='Enter a combination of at least six numbers, letters and punctuation marks (like ! and &).'
             password
+            ref={passwordNotificationErrorRef}
           />
 
           <input
@@ -206,6 +215,7 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
             <ErrorNotification
               text='It looks like you entered the wrong info. Please be sure to use your real birthday.'
               birthday
+              ref={birthdayNotificationErrorRef}
             />
 
             <ErrorIcon className='signUp__form__birthday__errorIcon signUp__form__errorIcon' ref={birthdayErrorRef} />
@@ -314,7 +324,11 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
             </div>
           </div>
 
-          <ErrorNotification text='Please choose a gender. You can chnage who can see this later' gender />
+          <ErrorNotification
+            text='Please choose a gender. You can change who can see this later'
+            gender
+            ref={genderNotificationErrorRef}
+          />
 
           <ErrorIcon className='signUp__form__gender__errorIcon signUp__form__errorIcon' ref={genderErrorRef} />
 
@@ -373,6 +387,8 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
               <option value='He: "Wish him a happy birthday!"'>He: "Wish him a happy birthday!"</option>
               <option value='Them: "Wish them a happy birthday!"'>Them: "Wish them a happy birthday!"</option>
             </select>
+
+            <ErrorNotification text='Please select a pronoun' pronoun ref={pronounNotificationErrorRef} />
 
             <ErrorIcon className='signUp__form__pronoun__errorIcon signUp__form__errorIcon' ref={pronounErrorRef} />
 
