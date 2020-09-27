@@ -64,6 +64,8 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
               placeholder='First name'
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
+              onBlur={() => blurInput(signUpFirstNameInputRef, firstName, validateName)}
+              onFocus={() => focusInput(signUpFirstNameInputRef)}
             />
             <input
               className='signUp__form__input'
@@ -84,6 +86,8 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
             onChange={(e) => setEmail(e.target.value)}
             className='signUp__form__input__email signUp__form__input'
             ref={emailRef}
+            onBlur={() => blurInput(emailRef, email, validateEmail)}
+            onFocus={() => focusInput(emailRef)}
           />
 
           <input
@@ -92,6 +96,9 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className='signUp__form__input__password signUp__form__input'
+            ref={passwordRef}
+            onBlur={() => blurInput(passwordRef, email, validatePassword)}
+            onFocus={() => focusInput(passwordRef)}
           />
 
           <div className='signUp__form__birthday'>
