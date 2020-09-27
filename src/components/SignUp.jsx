@@ -92,17 +92,27 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
       daySelectRef.current.style.border = '1px solid #ccd0d5'
       monthSelectRef.current.style.border = '1px solid #ccd0d5'
       yearSelectRef.current.style.border = '1px solid #ccd0d5'
+      birthdayErrorRef.current.style.opacity = 0
     } else {
       daySelectRef.current.style.border = '1px solid red'
       monthSelectRef.current.style.border = '1px solid red'
       yearSelectRef.current.style.border = '1px solid red'
+      birthdayErrorRef.current.style.opacity = 1
     }
+
+    birthdayNotificationErrorRef.current.style.display = 'none'
   }
 
   const focusSelect = () => {
     daySelectRef.current.style.border = '1px solid #ccd0d5'
     monthSelectRef.current.style.border = '1px solid #ccd0d5'
     yearSelectRef.current.style.border = '1px solid #ccd0d5'
+
+    if (validateYear(birthdayYear)) {
+      birthdayNotificationErrorRef.current.style.display = 'none'
+    } else {
+      birthdayNotificationErrorRef.current.style.display = 'block'
+    }
   }
 
   return (
@@ -132,7 +142,14 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
               customSectionRef,
               setPronoun,
               setGender,
-              firstRender
+              firstRender,
+              firstNameErrorRef,
+              lastNameErrorRef,
+              emailErrorRef,
+              passwordErrorRef,
+              birthdayErrorRef,
+              genderErrorRef,
+              pronounErrorRef
             )
           }
           className='signUp__header__close'
@@ -270,7 +287,8 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
                 title='Month'
                 ref={monthSelectRef}
                 onChange={(e) => setBirthdayMonth(e.target.value)}
-                value={birthdayMonth}>
+                value={birthdayMonth}
+                onFocus={focusSelect}>
                 <option value='Month'>Month</option>
                 <option value='January'>Jan</option>
                 <option value='February'>Feb</option>
@@ -292,7 +310,8 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
                 title='Day'
                 ref={daySelectRef}
                 onChange={(e) => setBirthdayDay(e.target.value)}
-                value={birthdayDay}>
+                value={birthdayDay}
+                onFocus={focusSelect}>
                 <option value='Day'>Day</option>
                 <option value='1'>1</option>
                 <option value='2'>2</option>

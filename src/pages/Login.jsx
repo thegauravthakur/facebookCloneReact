@@ -48,7 +48,14 @@ export default function Login() {
     customSectionRef,
     setPronoun,
     setGender,
-    firstRender
+    firstRender,
+    firstNameErrorRef,
+    lastNameErrorRef,
+    emailErrorRef,
+    passwordErrorRef,
+    birthdayErrorRef,
+    genderErrorRef,
+    pronounErrorRef
   ) => {
     setFirstName('')
     signUpFirstNameInputRef.current.style.border = '1px solid #ccd0d5'
@@ -84,6 +91,20 @@ export default function Login() {
     setGender('')
 
     firstRender.current = true
+
+    firstNameErrorRef.current.style.opacity = 0
+
+    lastNameErrorRef.current.style.opacity = 0
+
+    emailErrorRef.current.style.opacity = 0
+
+    passwordErrorRef.current.style.opacity = 0
+
+    birthdayErrorRef.current.style.opacity = 0
+
+    genderErrorRef.current.style.opacity = 0
+
+    pronounErrorRef.current.style.opacity = 0
 
     setSignUpOpen(false)
   }
