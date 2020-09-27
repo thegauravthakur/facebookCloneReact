@@ -6,6 +6,7 @@ import validateEmail from '../utilities/validateEmail'
 import validatePassword from '../utilities/validatePassword'
 import validateYear from '../utilities/validateYear'
 import validateName from '../utilities/validateName'
+import ErrorNotification from './ErrorNotification'
 import './SignUp.scss'
 
 function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
@@ -118,6 +119,8 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
       <form className='signUp__form__container' ref={formRef}>
         <div className='signUp__form'>
           <div className='signUp__form__name'>
+            <ErrorNotification text="What's your name?" />
+
             <input
               ref={signUpFirstNameInputRef}
               className='signUp__form__input signUp__form__input__first'

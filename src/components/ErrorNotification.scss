@@ -2,8 +2,22 @@
 @import '../variables';
 
 .errorNotification {
+  position: absolute;
+  padding: 1.5rem;
+  border-radius: 0.3rem;
+  font-size: 1.3rem;
+  right: 43rem;
   color: $white;
   background-color: $error;
   width: fit-content;
   height: fit-content;
+  box-shadow: 0 0 0 1px rgba(139, 3, 0, 0.75), 0 1px 10px rgba(0, 0, 0, 0.35);
+
+  &__arrow {
+    color: $error !important;
+    position: absolute;
+    top: 2%;
+    right: -3rem;
+    font-size: 5rem !important;
+  }
 }
