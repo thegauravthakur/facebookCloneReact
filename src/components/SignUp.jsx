@@ -177,6 +177,11 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
             <ErrorIcon className='signUp__form__email__errorIcon signUp__form__errorIcon' ref={emailErrorRef} />
           </label>
 
+          <ErrorNotification
+            text='Enter a combination of at least six numbers, letters and punctuation marks (like ! and &).'
+            password
+          />
+
           <input
             type='text'
             placeholder='New password'
@@ -197,6 +202,11 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
               Birthday
               <HelpIcon titleAccess='Click for more information' className='signUp__form__birthday__text__icon' />
             </p>
+
+            <ErrorNotification
+              text='It looks like you entered the wrong info. Please be sure to use your real birthday.'
+              birthday
+            />
 
             <ErrorIcon className='signUp__form__birthday__errorIcon signUp__form__errorIcon' ref={birthdayErrorRef} />
 
@@ -303,6 +313,8 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
               </select>
             </div>
           </div>
+
+          <ErrorNotification text='Please choose a gender. You can chnage who can see this later' gender />
 
           <ErrorIcon className='signUp__form__gender__errorIcon signUp__form__errorIcon' ref={genderErrorRef} />
 
