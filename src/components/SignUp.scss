@@ -271,6 +271,27 @@
       outline: none;
     }
   }
+  &__form__errorIcon {
+    color: #be5a58 !important ;
+    position: absolute;
+    font-size: 2rem !important;
+  }
+  &__form__firstName__errorIcon {
+    top: 11.5rem;
+    right: 23rem;
+  }
+  &__form__lastName__errorIcon {
+    top: 11.5rem;
+    right: 3rem;
+  }
+  &__form__email__errorIcon {
+    top: 16.9rem;
+    right: 3rem;
+  }
+  &__form__password__errorIcon {
+    top: 21.6rem;
+    right: 3rem;
+  }
 }
 
 .signUp__Open {

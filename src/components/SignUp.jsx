@@ -30,6 +30,10 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
   const femaleSelectRef = useRef(null)
   const maleSelectRef = useRef(null)
   const customSelectRef = useRef(null)
+  const firstNameErrorRef = useRef(null)
+  const lastNameErrorRef = useRef(null)
+  const emailErrorRef = useRef(null)
+  const passwordErrorRef = useRef(null)
 
   const normalSelectChangeHandler = (e) => {
     if (e.target.value !== 'Custom' && e.target.checked) {
@@ -120,7 +124,15 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
               onChange={(e) => setFirstName(e.target.value)}
               onBlur={() => blurInput(signUpFirstNameInputRef, firstName, validateName)}
               onFocus={() => focusInput(signUpFirstNameInputRef)}
+              id='firstName'
             />
+            <label htmlFor='firstName'>
+              <ErrorIcon
+                className='signUp__form__firstName__errorIcon signUp__form__errorIcon'
+                ref={firstNameErrorRef}
+              />
+            </label>
+
             <input
               className='signUp__form__input'
               type='text'
@@ -130,7 +142,11 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
               onBlur={() => blurInput(lastNameRef, lastName, validateName)}
               onFocus={() => focusInput(lastNameRef)}
               ref={lastNameRef}
+              id='lastName'
             />
+            <label htmlFor='lastName'>
+              <ErrorIcon className='signUp__form__lastName__errorIcon signUp__form__errorIcon' ref={lastNameErrorRef} />
+            </label>
           </div>
 
           <input
@@ -142,7 +158,11 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
             ref={emailRef}
             onBlur={() => blurInput(emailRef, email, validateEmail)}
             onFocus={() => focusInput(emailRef)}
+            id='email'
           />
+          <label htmlFor='email'>
+            <ErrorIcon className='signUp__form__email__errorIcon signUp__form__errorIcon' ref={emailErrorRef} />
+          </label>
 
           <input
             type='text'
@@ -153,7 +173,11 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
             ref={passwordRef}
             onBlur={() => blurInput(passwordRef, email, validatePassword)}
             onFocus={() => focusInput(passwordRef)}
+            id='password'
           />
+          <label htmlFor='password'>
+            <ErrorIcon className='signUp__form__password__errorIcon signUp__form__errorIcon' ref={passwordErrorRef} />
+          </label>
 
           <div className='signUp__form__birthday'>
             <p className='signUp__form__birthday__text'>
