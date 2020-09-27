@@ -288,7 +288,8 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
                 ref={monthSelectRef}
                 onChange={(e) => setBirthdayMonth(e.target.value)}
                 value={birthdayMonth}
-                onFocus={focusSelect}>
+                onFocus={focusSelect}
+                onBlur={blurSelect}>
                 <option value='Month'>Month</option>
                 <option value='January'>Jan</option>
                 <option value='February'>Feb</option>
@@ -311,7 +312,8 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
                 ref={daySelectRef}
                 onChange={(e) => setBirthdayDay(e.target.value)}
                 value={birthdayDay}
-                onFocus={focusSelect}>
+                onFocus={focusSelect}
+                onBlur={blurSelect}>
                 <option value='Day'>Day</option>
                 <option value='1'>1</option>
                 <option value='2'>2</option>
@@ -354,7 +356,8 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
                 title='Year'
                 onBlur={blurSelect}
                 onFocus={focusSelect}
-                ref={yearSelectRef}>
+                ref={yearSelectRef}
+                id='years'>
                 <option value='Year'>Year</option>
                 <option value='2020'>2020</option>
                 <option value='2019'>2019</option>
