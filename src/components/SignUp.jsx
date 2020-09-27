@@ -13,15 +13,23 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [birthdayDay, setBirthdayDay] = useState('')
+  const [birthdayMonth, setBirthdayMonth] = useState('')
   const [birthdayYear, setBirthdayYear] = useState('')
+  const [pronoun, setPronoun] = useState('')
+  const [gender, setGender] = useState('')
 
   const customSectionRef = useRef(null)
+  const formRef = useRef(null)
   const lastNameRef = useRef(null)
   const emailRef = useRef(null)
   const passwordRef = useRef(null)
   const daySelectRef = useRef(null)
   const monthSelectRef = useRef(null)
   const yearSelectRef = useRef(null)
+  const femaleSelectRef = useRef(null)
+  const maleSelectRef = useRef(null)
+  const customSelectRef = useRef(null)
 
   const normalSelectChangeHandler = (e) => {
     if (e.target.value !== 'Custom' && e.target.checked) {
@@ -70,12 +78,35 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
       <div className='signUp__header'>
         <h3>Sign Up</h3>
         <p>It's quick and easy</p>
-        <CloseIcon onClick={closeFormHandler} className='signUp__header__close' />
+        <CloseIcon
+          onClick={() =>
+            closeFormHandler(
+              lastNameRef,
+              emailRef,
+              passwordRef,
+              setFirstName,
+              setLastName,
+              setEmail,
+              setPassword,
+              setBirthdayDay,
+              daySelectRef,
+              setBirthdayMonth,
+              monthSelectRef,
+              setBirthdayYear,
+              yearSelectRef,
+              femaleSelectRef,
+              maleSelectRef,
+              customSelectRef,
+              customSectionRef
+            )
+          }
+          className='signUp__header__close'
+        />
       </div>
 
       <hr className='signUp__line' />
 
-      <form className='signUp__form__container'>
+      <form className='signUp__form__container' ref={formRef}>
         <div className='signUp__form'>
           <div className='signUp__form__name'>
             <input
@@ -133,7 +164,9 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
                 name='month'
                 className='signUp__form__birthday__select signUp__form__birthday__select__month'
                 title='Month'
-                ref={monthSelectRef}>
+                ref={monthSelectRef}
+                onChange={(e) => setBirthdayMonth(e.target.value)}
+                value={birthdayMonth}>
                 <option value='Month'>Month</option>
                 <option value='January'>Jan</option>
                 <option value='February'>Feb</option>
@@ -153,7 +186,9 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
                 name='day'
                 className='signUp__form__birthday__select signUp__form__birthday__select__day'
                 title='Day'
-                ref={daySelectRef}>
+                ref={daySelectRef}
+                onChange={(e) => setBirthdayDay(e.target.value)}
+                value={birthdayDay}>
                 <option value='Day'>Day</option>
                 <option value='1'>1</option>
                 <option value='2'>2</option>
@@ -235,22 +270,49 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
             <div className='signUp__form__gender__container'>
               <label className='signUp__form__gender__option signUp__form__gender__option__female' htmlFor='female'>
                 Female
-                <input onChange={normalSelectChangeHandler} value='Female' type='radio' name='gender' id='female' />
+                <input
+                  ref={femaleSelectRef}
+                  onChange={normalSelectChangeHandler}
+                  value='Female'
+                  type='radio'
+                  name='gender'
+                  id='female'
+                />
               </label>
 
               <label className='signUp__form__gender__option signUp__form__gender__option__male' htmlFor='male'>
-                Male <input onChange={normalSelectChangeHandler} value='Male' type='radio' name='gender' id='male' />
+                Male
+                <input
+                  ref={maleSelectRef}
+                  onChange={normalSelectChangeHandler}
+                  value='Male'
+                  type='radio'
+                  name='gender'
+                  id='male'
+                />
               </label>
 
               <label className='signUp__form__gender__option signUp__form__gender__option__custom' htmlFor='custom'>
                 Custom
-                <input value='Custom' onChange={customChangeHandler} type='radio' name='gender' id='custom' />
+                <input
+                  ref={customSelectRef}
+                  value='Custom'
+                  onChange={customChangeHandler}
+                  type='radio'
+                  name='gender'
+                  id='custom'
+                />
               </label>
             </div>
           </div>
 
           <div className='signUp__form__custom' ref={customSectionRef}>
-            <select name='pronoun' id='pronoun' className='signUp__form__custom__select'>
+            <select
+              name='pronoun'
+              id='pronoun'
+              className='signUp__form__custom__select'
+              value={pronoun}
+              onChange={(e) => setPronoun(e.target.value)}>
               <option value='Select your pronoun'>Select your pronoun</option>
               <option value='She: "Wish her a happy birthday!"'>She: "Wish her a happy birthday!"</option>
               <option value='He: "Wish him a happy birthday!"'>He: "Wish him a happy birthday!"</option>
@@ -259,7 +321,13 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
 
             <p className='signUp__form__custom__text'>Your pronoun is visible to everyone</p>
 
-            <input type='text' className='signUp__form__custom__input' placeholder='Gender (optional)' />
+            <input
+              type='text'
+              className='signUp__form__custom__input'
+              placeholder='Gender (optional)'
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+            />
           </div>
 
           <p className='signUp__form__footerText'>

@@ -27,7 +27,54 @@ export default function Login() {
 
   const signUpFirstNameInputRef = useRef(null)
 
-  const closeFormHandler = () => {
+  const closeFormHandler = (
+    lastNameRef,
+    emailRef,
+    passwordRef,
+    setFirstName,
+    setLastName,
+    setEmail,
+    setPassword,
+    setBirthdayDay,
+    birthdayDayRef,
+    setBirthdayMonth,
+    birthdayMonthRef,
+    setBirthdayYear,
+    birthdayYearRef,
+    femaleSelectRef,
+    maleSelectRef,
+    customSelectRef,
+    customSectionRef
+  ) => {
+    setFirstName('')
+    signUpFirstNameInputRef.current.style.border = '1px solid #ccd0d5'
+
+    setLastName('')
+    lastNameRef.current.style.border = '1px solid #ccd0d5'
+
+    setEmail('')
+    emailRef.current.style.border = '1px solid #ccd0d5'
+
+    setPassword('')
+    passwordRef.current.style.border = '1px solid #ccd0d5'
+
+    setBirthdayDay('Day')
+    birthdayDayRef.current.style.border = '1px solid #ccd0d5'
+
+    setBirthdayMonth('Month')
+    birthdayMonthRef.current.style.border = '1px solid #ccd0d5'
+
+    setBirthdayYear('Year')
+    birthdayYearRef.current.style.border = '1px solid #ccd0d5'
+
+    femaleSelectRef.current.checked = false
+
+    maleSelectRef.current.checked = false
+
+    customSelectRef.current.checked = false
+
+    customSectionRef.current.style.display = 'none'
+
     setSignUpOpen(false)
   }
 
