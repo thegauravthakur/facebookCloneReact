@@ -97,7 +97,9 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
               femaleSelectRef,
               maleSelectRef,
               customSelectRef,
-              customSectionRef
+              customSectionRef,
+              setPronoun,
+              setGender
             )
           }
           className='signUp__header__close'

@@ -44,7 +44,9 @@ export default function Login() {
     femaleSelectRef,
     maleSelectRef,
     customSelectRef,
-    customSectionRef
+    customSectionRef,
+    setPronoun,
+    setGender
   ) => {
     setFirstName('')
     signUpFirstNameInputRef.current.style.border = '1px solid #ccd0d5'
@@ -74,6 +76,10 @@ export default function Login() {
     customSelectRef.current.checked = false
 
     customSectionRef.current.style.display = 'none'
+
+    setPronoun('Select your pronoun')
+
+    setGender('')
 
     setSignUpOpen(false)
   }
