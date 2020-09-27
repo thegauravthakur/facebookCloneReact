@@ -34,6 +34,9 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
   const lastNameErrorRef = useRef(null)
   const emailErrorRef = useRef(null)
   const passwordErrorRef = useRef(null)
+  const birthdayErrorRef = useRef(null)
+  const genderErrorRef = useRef(null)
+  const pronounErrorRef = useRef(null)
 
   const normalSelectChangeHandler = (e) => {
     if (e.target.value !== 'Custom' && e.target.checked) {
@@ -185,6 +188,8 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
               <HelpIcon titleAccess='Click for more information' className='signUp__form__birthday__text__icon' />
             </p>
 
+            <ErrorIcon className='signUp__form__birthday__errorIcon signUp__form__errorIcon' ref={birthdayErrorRef} />
+
             <div className='signUp__form__birthday__select__container'>
               <select
                 name='month'
@@ -289,6 +294,8 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
             </div>
           </div>
 
+          <ErrorIcon className='signUp__form__gender__errorIcon signUp__form__errorIcon' ref={genderErrorRef} />
+
           <div className='signUp__form__gender'>
             <p className='signUp__form__gender__text'>
               Gender <HelpIcon titleAccess='Click for more information' className='signUp__form__gender__text__icon' />
@@ -344,6 +351,8 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
               <option value='He: "Wish him a happy birthday!"'>He: "Wish him a happy birthday!"</option>
               <option value='Them: "Wish them a happy birthday!"'>Them: "Wish them a happy birthday!"</option>
             </select>
+
+            <ErrorIcon className='signUp__form__pronoun__errorIcon signUp__form__errorIcon' ref={pronounErrorRef} />
 
             <p className='signUp__form__custom__text'>Your pronoun is visible to everyone</p>
 

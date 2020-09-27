@@ -2,4 +2,8 @@
 @import '../variables';
 
 .errorNotification {
+  color: $white;
+  background-color: $error;
+  width: fit-content;
+  height: fit-content;
 }
