@@ -13,11 +13,12 @@
   height: fit-content;
   box-shadow: 0 0 0 1px rgba(139, 3, 0, 0.75), 0 1px 10px rgba(0, 0, 0, 0.35);
   pointer-events: none;
+  display: none;
 
   &__arrow {
     color: $error !important;
     position: absolute;
-    top: 2%;
+    top: 0.4%;
     right: -3rem;
     font-size: 5rem !important;
   }
@@ -98,7 +99,6 @@
   z-index: 2;
   width: 33rem;
   padding: 1.3rem;
-  display: none;
 
   & > .MuiSvgIcon-root {
     color: $error !important;

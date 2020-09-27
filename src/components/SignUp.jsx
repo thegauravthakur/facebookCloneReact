@@ -45,6 +45,7 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
   const birthdayNotificationErrorRef = useRef(null)
   const genderNotificationErrorRef = useRef(null)
   const pronounNotificationErrorRef = useRef(null)
+  const firstRender = useRef(true)
 
   const normalSelectChangeHandler = (e) => {
     if (e.target.value !== 'Custom' && e.target.checked) {
@@ -58,16 +59,32 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
     }
   }
 
-  const blurInput = (ref, inputValue, validator) => {
+  const blurInput = (ref, inputValue, validator, errorIconRef, errorNotificationRef) => {
     if (validator(inputValue)) {
       ref.current.style.border = '1px solid #ccd0d5'
+      errorIconRef.current.style.opacity = 0
     } else {
       ref.current.style.border = '1px solid red'
+      errorIconRef.current.style.opacity = 1
     }
+    errorNotificationRef.current.style.display = 'none'
   }
 
-  const focusInput = (ref) => {
+  const focusInput = (ref, inputValue, validator, errorIconRef, errorNotificationRef, render = false) => {
     ref.current.style.border = '1px solid #ccd0d5'
+
+    errorIconRef.current.style.opacity = 0
+
+    if (render) {
+      errorNotificationRef.current.style.display = 'none'
+      firstRender.current = false
+    } else {
+      if (validator(inputValue)) {
+        errorNotificationRef.current.style.display = 'none'
+      } else {
+        errorNotificationRef.current.style.display = 'block'
+      }
+    }
   }
 
   const blurSelect = () => {
@@ -114,7 +131,8 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
               customSelectRef,
               customSectionRef,
               setPronoun,
-              setGender
+              setGender,
+              firstRender
             )
           }
           className='signUp__header__close'
@@ -126,7 +144,7 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
       <form className='signUp__form__container' ref={formRef}>
         <div className='signUp__form'>
           <div className='signUp__form__name'>
-            <ErrorNotification text="What's your name?" ref={firstNameNotificationErrorRef} />
+            <ErrorNotification text="What's your name?" reference={firstNameNotificationErrorRef} />
 
             <input
               ref={signUpFirstNameInputRef}
@@ -135,8 +153,25 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
               placeholder='First name'
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
-              onBlur={() => blurInput(signUpFirstNameInputRef, firstName, validateName)}
-              onFocus={() => focusInput(signUpFirstNameInputRef)}
+              onBlur={() =>
+                blurInput(
+                  signUpFirstNameInputRef,
+                  firstName,
+                  validateName,
+                  firstNameErrorRef,
+                  firstNameNotificationErrorRef
+                )
+              }
+              onFocus={() =>
+                focusInput(
+                  signUpFirstNameInputRef,
+                  firstName,
+                  validateName,
+                  firstNameErrorRef,
+                  firstNameNotificationErrorRef,
+                  firstRender.current
+                )
+              }
               id='firstName'
             />
             <label htmlFor='firstName'>
@@ -146,7 +181,7 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
               />
             </label>
 
-            <ErrorNotification text="What's your name?" lastName ref={lastNameNotificationErrorRef} />
+            <ErrorNotification text="What's your name?" lastName reference={lastNameNotificationErrorRef} />
 
             <input
               className='signUp__form__input'
@@ -154,8 +189,12 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
               placeholder='Last name'
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
-              onBlur={() => blurInput(lastNameRef, lastName, validateName)}
-              onFocus={() => focusInput(lastNameRef)}
+              onBlur={() =>
+                blurInput(lastNameRef, lastName, validateName, lastNameErrorRef, lastNameNotificationErrorRef)
+              }
+              onFocus={() =>
+                focusInput(lastNameRef, lastName, validateName, lastNameErrorRef, lastNameNotificationErrorRef)
+              }
               ref={lastNameRef}
               id='lastName'
             />
@@ -167,7 +206,7 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
           <ErrorNotification
             text="You'll use this when you log in and if you ever need to reset your password."
             email
-            ref={emailNotificationErrorRef}
+            reference={emailNotificationErrorRef}
           />
 
           <input
@@ -177,8 +216,8 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
             onChange={(e) => setEmail(e.target.value)}
             className='signUp__form__input__email signUp__form__input'
             ref={emailRef}
-            onBlur={() => blurInput(emailRef, email, validateEmail)}
-            onFocus={() => focusInput(emailRef)}
+            onBlur={() => blurInput(emailRef, email, validateEmail, emailErrorRef, emailNotificationErrorRef)}
+            onFocus={() => focusInput(emailRef, email, validateEmail, emailErrorRef, emailNotificationErrorRef)}
             id='email'
           />
           <label htmlFor='email'>
@@ -188,7 +227,7 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
           <ErrorNotification
             text='Enter a combination of at least six numbers, letters and punctuation marks (like ! and &).'
             password
-            ref={passwordNotificationErrorRef}
+            reference={passwordNotificationErrorRef}
           />
 
           <input
@@ -198,8 +237,12 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
             onChange={(e) => setPassword(e.target.value)}
             className='signUp__form__input__password signUp__form__input'
             ref={passwordRef}
-            onBlur={() => blurInput(passwordRef, email, validatePassword)}
-            onFocus={() => focusInput(passwordRef)}
+            onBlur={() =>
+              blurInput(passwordRef, password, validatePassword, passwordErrorRef, passwordNotificationErrorRef)
+            }
+            onFocus={() =>
+              focusInput(passwordRef, password, validatePassword, passwordErrorRef, passwordNotificationErrorRef)
+            }
             id='password'
           />
           <label htmlFor='password'>
@@ -215,7 +258,7 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
             <ErrorNotification
               text='It looks like you entered the wrong info. Please be sure to use your real birthday.'
               birthday
-              ref={birthdayNotificationErrorRef}
+              reference={birthdayNotificationErrorRef}
             />
 
             <ErrorIcon className='signUp__form__birthday__errorIcon signUp__form__errorIcon' ref={birthdayErrorRef} />
@@ -327,7 +370,7 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
           <ErrorNotification
             text='Please choose a gender. You can change who can see this later'
             gender
-            ref={genderNotificationErrorRef}
+            reference={genderNotificationErrorRef}
           />
 
           <ErrorIcon className='signUp__form__gender__errorIcon signUp__form__errorIcon' ref={genderErrorRef} />
@@ -388,7 +431,7 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
               <option value='Them: "Wish them a happy birthday!"'>Them: "Wish them a happy birthday!"</option>
             </select>
 
-            <ErrorNotification text='Please select a pronoun' pronoun ref={pronounNotificationErrorRef} />
+            <ErrorNotification text='Please select a pronoun' pronoun reference={pronounNotificationErrorRef} />
 
             <ErrorIcon className='signUp__form__pronoun__errorIcon signUp__form__errorIcon' ref={pronounErrorRef} />
 
