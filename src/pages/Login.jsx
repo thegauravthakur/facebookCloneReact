@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from 'react'
 import './Login.scss'
 import { auth, db } from '../firebase'
 import firebase from 'firebase'
-import { useStateValue } from '../StateProvider'
 import { actionTypes } from '../reducer'
 import Footer from '../components/Footer'
 import validateEmail from '../utilities/validateEmail'
@@ -120,16 +119,11 @@ export default function Login() {
 
   const provider = new firebase.auth.GoogleAuthProvider()
 
-  const [state, dispatch] = useStateValue()
-
   const googleSignIn = () => {
     auth
       .signInWithPopup(provider)
       .then((result) => {
-        dispatch({
-          type: actionTypes.SET_USER,
-          user: result.user,
-        })
+        // dispatch
       })
       .catch((error) => {
         console.log(error)

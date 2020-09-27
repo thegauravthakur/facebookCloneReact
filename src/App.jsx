@@ -5,14 +5,13 @@ import Sidebar from './components/Sidebar'
 import Feed from './components/Feed'
 import Widgets from './components/Widgets'
 import Login from './pages/Login'
-import { useStateValue } from './StateProvider'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Messenger from './pages/Messenger'
 import LoginFail from './components/LoginFail'
 import ErrorPage from './pages/ErrorPage'
 
 function App() {
-  const [{ user }, dispatch] = useStateValue()
+  const user = null
 
   return (
     <div className='app'>

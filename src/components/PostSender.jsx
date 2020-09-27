@@ -5,11 +5,14 @@ import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary'
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
 import firebase from 'firebase'
 import './PostSender.scss'
-import { useStateValue } from '../StateProvider'
 import { db } from '../firebase'
 
 export default function PostSender() {
-  const [{ user }, dispatch] = useStateValue()
+  const user = {
+    profileImage: null,
+    username: null,
+    image: null,
+  }
 
   const [input, setInput] = useState('')
   const [imageUrl, setImageUrl] = useState('')

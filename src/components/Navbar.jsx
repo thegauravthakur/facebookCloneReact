@@ -12,11 +12,8 @@ import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import { Link } from 'react-router-dom'
 import './Navbar.scss'
-import { useStateValue } from '../StateProvider'
 
 export default function Navbar() {
-  const [{ user }, dispatch] = useStateValue()
-
   return (
     <div className='navbar'>
       <div className='navbar__left'>
@@ -55,8 +52,8 @@ export default function Navbar() {
       </div>
       <div className='navbar__right'>
         <div className='navbar__right__info'>
-          <Avatar src={user.photoURL} />
-          <h4>{user.displayName}</h4>
+          <Avatar />
+          <h4>William Simms</h4>
 
           <IconButton>
             <AddIcon className='navbar__right__icon' />
