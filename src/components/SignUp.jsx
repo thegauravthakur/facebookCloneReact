@@ -62,6 +62,7 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
   const birthdayNotificationErrorRef = useRef(null)
   const genderNotificationErrorRef = useRef(null)
   const pronounNotificationErrorRef = useRef(null)
+  const pronounRef = useRef(null)
   const firstRender = useRef(true)
 
   const normalSelectChangeHandler = (e) => {
@@ -132,6 +133,23 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
     }
   }
 
+  const focusPronoun = () => {
+    pronounNotificationErrorRef.current.display = 'block'
+    pronounRef.current.style.border = '1px solid 1px solid #ccd0d5 '
+    pronounErrorRef.current.style.opacity = 0
+  }
+
+  const blurPronoun = () => {
+    if (pronoun !== 'Select your pronoun') {
+      pronounNotificationErrorRef.current.display = 'none'
+      pronounRef.current.style.border = '1px solid #ccd0d5 '
+    } else {
+      pronounNotificationErrorRef.current.display = 'none'
+      pronounRef.current.style.border = '1px solid red '
+      pronounErrorRef.current.style.opacity = 1
+    }
+  }
+
   const signUpWithEmailAndPassword = (e) => {
     if (!validateName(firstName)) {
       signUpFirstNameInputRef.current.style.border = '1px solid red'
@@ -144,12 +162,25 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
     }
 
     if (!validateEmail(email)) {
+      emailRef.current.style.border = '1px solid red'
+      emailErrorRef.current.style.opacity = 1
     }
 
     if (!validatePassword(password)) {
+      passwordRef.current.style.border = '1px solid red'
+      passwordErrorRef.current.style.opacity = 1
     }
 
     if (!validateYear(birthdayYear)) {
+      daySelectRef.current.style.border = '1px solid red'
+      monthSelectRef.current.style.border = '1px solid red'
+      yearSelectRef.current.style.border = '1px solid red'
+      birthdayErrorRef.current.style.opacity = 1
+    }
+
+    if (pronoun === 'Select your pronoun') {
+      pronounRef.current.style.border = '1px solid red'
+      pronounErrorRef.current.style.opacity = 1
     }
 
     auth
@@ -511,11 +542,14 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
 
           <div className='signUp__form__custom' ref={customSectionRef}>
             <select
+              ref={pronounRef}
               name='pronoun'
               id='pronoun'
               className='signUp__form__custom__select'
               value={pronoun}
-              onChange={(e) => setPronoun(e.target.value)}>
+              onChange={(e) => setPronoun(e.target.value)}
+              onFocus={focusPronoun}
+              onBlur={blurPronoun}>
               <option value='Select your pronoun'>Select your pronoun</option>
               <option value='She: "Wish her a happy birthday!"'>She: "Wish her a happy birthday!"</option>
               <option value='He: "Wish him a happy birthday!"'>He: "Wish him a happy birthday!"</option>
