@@ -199,13 +199,26 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
     ) {
       auth
         .createUserWithEmailAndPassword(email, password)
-        .then((auth) => {
+        .then((user) => {
           // history.push('/home')
-          console.log(auth)
+
+          // user.updateProfile({
+          //   displayName: `${firstName.trim()} ${lastName.trim()}`,
+          // })
+
+          console.log(user)
         })
         .catch((e) => {
           console.log(e)
         })
+
+      const user = auth.currentUser
+
+      user.updateProfile({
+        displayName: `${firstName.trim()} ${lastName.trim()}`,
+      })
+
+      console.log(user)
     } else {
       if (!validateName(firstName)) {
         signUpFirstNameInputRef.current.style.border = '1px solid red'
