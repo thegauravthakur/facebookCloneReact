@@ -25,6 +25,14 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
   const [birthdayToolTipOpen, setBirthdayToolTipOpen] = useState(false)
   const [genderToolTipOpen, setGenderToolTipOpen] = useState(false)
 
+  const openToolTip = (setState) => {
+    setState(true)
+  }
+
+  const closeToolTip = (setState) => {
+    setState(false)
+  }
+
   const customSectionRef = useRef(null)
   const formRef = useRef(null)
   const lastNameRef = useRef(null)
@@ -120,6 +128,10 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
     }
   }
 
+  const submitForm = (e) => {
+    e.preventDefault()
+  }
+
   return (
     <div className={`signUp ${isFormOpen && 'signUp__Open'}`}>
       <div className='signUp__header'>
@@ -163,7 +175,7 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
 
       <hr className='signUp__line' />
 
-      <form className='signUp__form__container' ref={formRef}>
+      <form className='signUp__form__container' ref={formRef} onSubmit={submitForm}>
         <div className='signUp__form'>
           <div className='signUp__form__name'>
             <ErrorNotification text="What's your name?" reference={firstNameNotificationErrorRef} />
@@ -271,12 +283,20 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
             <ErrorIcon className='signUp__form__password__errorIcon signUp__form__errorIcon' ref={passwordErrorRef} />
           </label>
 
-          <BirthdayToolTip />
+          <BirthdayToolTip
+            toolTipOpen={birthdayToolTipOpen}
+            closeToolTip={closeToolTip}
+            setBirthdayToolTipOpen={setBirthdayToolTipOpen}
+          />
 
           <div className='signUp__form__birthday'>
             <p className='signUp__form__birthday__text'>
               Birthday
-              <HelpIcon titleAccess='Click for more information' className='signUp__form__birthday__text__icon' />
+              <HelpIcon
+                titleAccess='Click for more information'
+                className='signUp__form__birthday__text__icon'
+                onClick={() => openToolTip(setBirthdayToolTipOpen)}
+              />
             </p>
 
             <ErrorNotification

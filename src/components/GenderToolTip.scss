@@ -1,5 +1,56 @@
 @import '../mixins';
 @import '../variables';
 
-.genderToolTip {
+@import '../mixins';
+@import '../variables';
+
+.gendertooltip {
+  background-color: $white;
+  color: #1c1e21;
+  padding: 1rem;
+  position: absolute;
+  width: 30rem;
+  top: 23.3rem;
+  right: 37.7rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(28, 30, 33, 0.2);
+
+  &__line {
+    margin-bottom: 0.7rem;
+    border: none;
+    border-bottom: 1px solid rgba(28, 30, 33, 0.3);
+  }
+
+  &__arrow {
+    position: absolute;
+    color: $white !important;
+    font-size: 4rem !important;
+    right: -2.3rem;
+  }
+
+  &__info {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    &__button {
+      background-color: #4267b2;
+      transition: 0.2s ease-in-out;
+      cursor: pointer;
+      color: #fff;
+      border: none;
+      padding: 0.4rem;
+      border-radius: 0.2rem;
+      font-weight: 600;
+
+      &:hover {
+        background-color: darken(#4267b2, 3);
+      }
+    }
+  }
 }
