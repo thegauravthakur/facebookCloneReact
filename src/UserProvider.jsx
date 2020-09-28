@@ -15,11 +15,11 @@ export const UserProvider = ({ children }) => {
   }
 
   const addError = (error) => {
-    dispatch({ type: actionTypes.REMOVE_USER, payload: error })
+    dispatch({ type: actionTypes.ADD_ERROR, payload: error })
   }
 
   const removeError = () => {
-    dispatch({ type: actionTypes.REMOVE_USER })
+    dispatch({ type: actionTypes.REMOVE_ERROR })
   }
 
   return (

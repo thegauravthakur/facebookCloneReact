@@ -1,9 +1,14 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useContext } from 'react'
 import Footer from './Footer'
+import UserContext from '../UserProvider'
 import './LoginFail.scss'
 
 export default function LoginFail() {
   const errorSectionRef = useRef(null)
+
+  const { state, removeError } = useContext(UserContext)
+
+  console.log(state.error)
 
   useEffect(() => {
     const favicon = document.getElementById('favicon')
@@ -39,7 +44,7 @@ export default function LoginFail() {
 
             <div className='loginFail__form__error' ref={errorSectionRef}>
               <h6>Wrong Credentails</h6>
-              <p>Invalid username or password</p>
+              <p>{state.error || 'Invalid username or password'}</p>
             </div>
 
             <input type='text' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />

@@ -14,8 +14,6 @@ import './Login.scss'
 export default function Login() {
   const { state, addUser, removeUser, addError, removeError } = useContext(UserContext)
 
-  console.log(state)
-
   const history = useHistory()
 
   useEffect(() => {
@@ -132,13 +130,13 @@ export default function Login() {
     auth
       .signInWithPopup(provider)
       .then((result) => {
-        // addUser(result.user)
-        // removeError()
+        console.log(result.user)
+        addUser(result.user)
+        removeError()
       })
       .catch((error) => {
-        console.log(error)
-        // addError(error.message)
-        // history.push('/login')
+        addError(error.message)
+        history.push('/login')
       })
   }
 
