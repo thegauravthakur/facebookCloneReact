@@ -16,7 +16,7 @@ import UserContext from './UserProvider'
 function Application() {
   const { state, addUser, removeUser } = useContext(UserContext)
 
-  const user = state.user
+  const user = true // !TODO CHANGE BACK TO STATE.USER
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((authUser) => {

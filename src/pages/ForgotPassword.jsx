@@ -29,6 +29,16 @@ function ForgotPassword() {
       })
   }
 
+  const sendPasswordResetMail = (e) => {
+    e.preventDefault()
+    auth
+      .sendPasswordResetEmail(emailToUpdate)
+      .then(() => {})
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+
   return (
     <div className='forgotPassword'>
       <Navbar
@@ -38,7 +48,11 @@ function ForgotPassword() {
         setPassword={setPassword}
         login={emailAndPasswordLogin}
       />
-      <Body emailToUpdate={emailToUpdate} setEmailToUpdate={setEmailToUpdate} />
+      <Body
+        emailToUpdate={emailToUpdate}
+        setEmailToUpdate={setEmailToUpdate}
+        sendPasswordResetEmail={sendPasswordResetMail}
+      />
       <Footer forgotPassword />
     </div>
   )

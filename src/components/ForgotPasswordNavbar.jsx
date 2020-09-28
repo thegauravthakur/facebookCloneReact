@@ -35,7 +35,7 @@ function ForgotPasswordNavbar({ email, setEmail, password, setPassword, login })
             <label className='forgotPasswordNavbar__form__field__label' htmlFor='password'>
               Password
             </label>
-            <input id='password' type='text' value={password} onChange={(e) => setPassword(e.target.value)} />
+            <input id='password' type='password' value={password} onChange={(e) => setPassword(e.target.value)} />
           </div>
 
           <button type='submit' onClick={login}>

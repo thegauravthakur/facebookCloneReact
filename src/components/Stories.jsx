@@ -30,6 +30,11 @@ export default function Stories() {
         profileImage='https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/SKorolow.jpg/220px-SKorolow.jpg'
         title='Sergei Korolev'
       />
+      <Story
+        image='https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
+        profileImage='https://qph.fs.quoracdn.net/main-qimg-21fbefa33bcfb0a1537b51ac5c3a6992'
+        title='John McCarthy'
+      />
     </div>
   )
 }
