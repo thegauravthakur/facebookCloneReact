@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import facebookIcon from '../img/facebook.png'
 import { Link } from 'react-router-dom'
 import './ForgotPasswordNavbar.scss'
 
-function ForgotPasswordNavbar() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-
+function ForgotPasswordNavbar({ email, setEmail, password, setPassword }) {
   useEffect(() => {
     const favicon = document.getElementById('favicon')
     favicon.href = 'https://static.xx.fbcdn.net/rsrc.php/yo/r/iRmz9lCMBD2.ico'
@@ -40,6 +37,8 @@ function ForgotPasswordNavbar() {
             </label>
             <input id='password' type='text' value={password} onChange={(e) => setPassword(e.target.value)} />
           </div>
+
+          <button>Log In</button>
         </form>
       </div>
     </div>
