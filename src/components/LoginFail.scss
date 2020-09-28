@@ -43,10 +43,12 @@
       border: 1px solid #dd3c10;
       padding: 1rem 0;
       background-color: #ffebe8;
+      display: none;
 
       & > h6 {
         font-size: 1.4rem;
         color: #333333;
+        margin-bottom: 0.3rem;
       }
 
       & > p {

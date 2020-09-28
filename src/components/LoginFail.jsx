@@ -8,8 +8,6 @@ export default function LoginFail() {
 
   const { state, removeError } = useContext(UserContext)
 
-  console.log(state.error)
-
   useEffect(() => {
     const favicon = document.getElementById('favicon')
     favicon.href = 'https://static.xx.fbcdn.net/rsrc.php/yo/r/iRmz9lCMBD2.ico'
@@ -24,11 +22,17 @@ export default function LoginFail() {
   const [password, setPassword] = useState('')
 
   useEffect(() => {
-    setTimeout(() => {
+    if (state.error) {
+      errorSectionRef.current.style.display = 'block'
+
+      setTimeout(() => {
+        errorSectionRef.current.style.display = 'none'
+        removeError()
+      }, 4000)
+    } else {
       errorSectionRef.current.style.display = 'none'
-      removeError()
-    }, 4000)
-  }, [])
+    }
+  }, [removeError, state.error])
 
   return (
     <>

@@ -5,8 +5,6 @@ import { auth } from '../firebase'
 import { actionTypes } from '../reducer'
 import UserContext from '../UserProvider'
 import Footer from '../components/Footer'
-import validateEmail from '../utilities/validateEmail'
-import validatePassword from '../utilities/validatePassword'
 import SignUp from '../components/SignUp'
 import SignUpBackDrop from '../components/SignUpBackdrop'
 import './Login.scss'
@@ -132,10 +130,23 @@ export default function Login() {
       .then((result) => {
         console.log(result.user)
         addUser(result.user)
-        removeError()
       })
       .catch((error) => {
         addError(error.message)
+        history.push('/login')
+      })
+  }
+
+  const emailAndPasswordLogin = (e) => {
+    e.preventDefault()
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((user) => {
+        history.push('/home')
+      })
+      .catch((e) => {
+        console.log(e)
+        addError(e.message)
         history.push('/login')
       })
   }
@@ -155,8 +166,15 @@ export default function Login() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder='Email or Phone Number'
             />
-            <input type='text' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' />
-            <button className='login__form__button login__form__loginButton'>Log In</button>
+            <input
+              type='password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder='Password'
+            />
+            <button className='login__form__button login__form__loginButton' onClick={emailAndPasswordLogin}>
+              Log In
+            </button>
             <button className='login__form__button login__form__loginGoogle' onClick={googleSignIn}>
               Log In with Google
             </button>

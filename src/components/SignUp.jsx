@@ -261,7 +261,7 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
           />
 
           <input
-            type='text'
+            type='password'
             placeholder='New password'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
