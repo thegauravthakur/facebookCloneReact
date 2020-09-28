@@ -12,7 +12,9 @@ import SignUpBackDrop from '../components/SignUpBackdrop'
 import './Login.scss'
 
 export default function Login() {
-  const { user, addUser, removeUser } = useContext(UserContext)
+  const { state, addUser, removeUser, addError, removeError } = useContext(UserContext)
+
+  console.log(state)
 
   const history = useHistory()
 
@@ -130,10 +132,13 @@ export default function Login() {
     auth
       .signInWithPopup(provider)
       .then((result) => {
-        addUser(result.user)
+        // addUser(result.user)
+        // removeError()
       })
       .catch((error) => {
-        history.push('/login')
+        console.log(error)
+        // addError(error.message)
+        // history.push('/login')
       })
   }
 

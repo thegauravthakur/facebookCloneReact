@@ -11,27 +11,32 @@ export const actionTypes = {
 }
 
 const reducer = (state, action) => {
+  console.log(action.payload)
   switch (action.type) {
     case actionTypes.ADD_USER:
       return {
         ...state,
         user: action.payload,
       }
+
     case actionTypes.REMOVE_USER:
       return {
         ...state,
         user: null,
       }
+
     case actionTypes.ADD_ERROR:
       return {
         ...state,
         error: action.payload,
       }
+
     case actionTypes.REMOVE_ERROR:
       return {
         ...state,
         error: null,
       }
+
     default:
       return state
   }
