@@ -3,7 +3,7 @@ import facebookIcon from '../img/facebook.png'
 import { Link } from 'react-router-dom'
 import './ForgotPasswordNavbar.scss'
 
-function ForgotPasswordNavbar({ email, setEmail, password, setPassword }) {
+function ForgotPasswordNavbar({ email, setEmail, password, setPassword, login }) {
   useEffect(() => {
     const favicon = document.getElementById('favicon')
     favicon.href = 'https://static.xx.fbcdn.net/rsrc.php/yo/r/iRmz9lCMBD2.ico'
@@ -38,7 +38,9 @@ function ForgotPasswordNavbar({ email, setEmail, password, setPassword }) {
             <input id='password' type='text' value={password} onChange={(e) => setPassword(e.target.value)} />
           </div>
 
-          <button>Log In</button>
+          <button type='submit' onClick={login}>
+            Log In
+          </button>
         </form>
       </div>
     </div>

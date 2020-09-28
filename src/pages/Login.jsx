@@ -147,7 +147,6 @@ export default function Login() {
         history.push('/home')
       })
       .catch((e) => {
-        console.log(e)
         addError(e.message)
         history.push('/login')
       })
