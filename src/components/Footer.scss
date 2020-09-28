@@ -53,10 +53,15 @@
   }
 
   &__error__container {
-    color: $error-blue !important    ;
+    color: $error-blue !important ;
   }
 
   &__login__container {
     padding-top: 5rem !important;
+  }
+
+  &__forgot__container {
+    color: $error-blue !important ;
+    padding-top: 20rem !important;
   }
 }

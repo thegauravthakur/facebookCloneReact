@@ -2,13 +2,13 @@ import React from 'react'
 import AddIcon from '@material-ui/icons/Add'
 import './Footer.scss'
 
-export default function Footer({ isErrorFooter, isLoginFooter }) {
+export default function Footer({ isErrorFooter, isLoginFooter, forgotPassword }) {
   return (
     <div className='footer'>
       <div
         className={`footer__container ${isErrorFooter && 'footer__error__container'} ${
           isLoginFooter && 'footer__login__container'
-        }`}>
+        } ${forgotPassword && 'footer__forgot__container'}`}>
         <ul className='footer__list'>
           <li>English (US)</li>
           <li>Français (France)</li>
