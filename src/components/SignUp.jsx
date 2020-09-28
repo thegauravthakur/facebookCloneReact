@@ -428,7 +428,12 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
 
           <div className='signUp__form__gender'>
             <p className='signUp__form__gender__text'>
-              Gender <HelpIcon titleAccess='Click for more information' className='signUp__form__gender__text__icon' />
+              Gender{' '}
+              <HelpIcon
+                titleAccess='Click for more information'
+                className='signUp__form__gender__text__icon'
+                onClick={() => openToolTip(setGenderToolTipOpen)}
+              />
             </p>
             <div className='signUp__form__gender__container'>
               <label className='signUp__form__gender__option signUp__form__gender__option__female' htmlFor='female'>
