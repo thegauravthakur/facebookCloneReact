@@ -159,6 +159,7 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
     maleSelectContainerRef.current.style = '1px solid #ccd0d5'
     customSelectContainerRef.current.style = '1px solid #ccd0d5'
     genderErrorRef.current.style.opacity = 0
+    genderNotificationErrorRef.current.style.display = 'none'
   }
 
   const blurGender = () => {
@@ -179,6 +180,10 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
     }
 
     genderNotificationErrorRef.current.style.display = 'none'
+  }
+
+  const clickGenderErrorHandler = () => {
+    genderNotificationErrorRef.current.style.display = 'block'
   }
 
   const signUpWithEmailAndPassword = (e) => {
@@ -536,7 +541,11 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
             reference={genderNotificationErrorRef}
           />
 
-          <ErrorIcon className='signUp__form__gender__errorIcon signUp__form__errorIcon' ref={genderErrorRef} />
+          <ErrorIcon
+            className='signUp__form__gender__errorIcon signUp__form__errorIcon'
+            ref={genderErrorRef}
+            onClick={clickGenderErrorHandler}
+          />
 
           <GenderToolTip
             toolTipOpen={genderToolTipOpen}
