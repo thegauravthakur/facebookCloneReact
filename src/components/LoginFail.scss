@@ -107,16 +107,19 @@
     display: flex;
     align-items: center;
     width: 100%;
+    justify-content: center;
   }
 
   &__line {
     background-color: #96999e;
     height: 1px;
-    width: 40%;
+    width: 100%;
+    opacity: 0.6;
   }
 
   &__line__text {
     color: #96999e;
     font-size: 1.2rem;
+    margin: 0 1.5rem;
   }
 }
