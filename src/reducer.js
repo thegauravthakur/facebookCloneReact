@@ -11,7 +11,6 @@ export const actionTypes = {
 }
 
 const reducer = (state, action) => {
-  console.log(action.payload)
   switch (action.type) {
     case actionTypes.ADD_USER:
       return {

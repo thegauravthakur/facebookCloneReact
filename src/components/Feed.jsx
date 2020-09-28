@@ -14,7 +14,6 @@ export default function Feed() {
       .onSnapshot((snapshot) => setPosts(snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))))
   }, [])
 
-  console.log(posts)
   return (
     <div className='feed'>
       <Stories />

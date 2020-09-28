@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useContext } from 'react'
 import Navbar from './components/Navbar'
 import './Application.scss'
 import Sidebar from './components/Sidebar'
@@ -9,9 +9,28 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Messenger from './pages/Messenger'
 import LoginFail from './components/LoginFail'
 import ErrorPage from './pages/ErrorPage'
+import ForgotPasswordPage from './pages/ForgotPassword'
+import { auth } from './firebase'
+import UserContext from './UserProvider'
 
 function Application() {
-  const user = null
+  const { state, addUser, removeUser } = useContext(UserContext)
+
+  const user = state.user
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        addUser(authUser)
+      } else {
+        removeUser()
+      }
+    })
+
+    return () => {
+      unsubscribe()
+    }
+  }, [])
 
   return (
     <div className='app'>
@@ -25,6 +44,10 @@ function Application() {
             <LoginFail />
           </Route>
 
+          <Route path='/forgot'>
+            <ForgotPasswordPage />
+          </Route>
+
           <Route path='/home'>
             {!user ? (
               <Redirect to='/' />
@@ -34,7 +57,7 @@ function Application() {
                 <div className='app__body'>
                   <Sidebar />
                   <Feed />
-                  <Widgets />
+                  {/* <Widgets /> */}
                 </div>
               </>
             )}

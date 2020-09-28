@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import SearchIcon from '@material-ui/icons/Search'
 import HomeIcon from '@material-ui/icons/Home'
 import SubscriptionsOutlinedIcon from '@material-ui/icons/SubscriptionsOutlined'
@@ -14,6 +14,13 @@ import { Link } from 'react-router-dom'
 import './Navbar.scss'
 
 export default function Navbar() {
+  useEffect(() => {
+    const favicon = document.getElementById('favicon')
+    favicon.href = 'https://static.xx.fbcdn.net/rsrc.php/yD/r/d4ZIVX-5C-b.ico'
+    document.title = 'Facebook'
+    document.body.style.overflowY = 'scroll'
+  }, [])
+
   return (
     <div className='navbar'>
       <div className='navbar__left'>

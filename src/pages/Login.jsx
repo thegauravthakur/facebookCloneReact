@@ -134,8 +134,8 @@ export default function Login() {
     auth
       .signInWithPopup(provider)
       .then((result) => {
-        console.log(result.user)
         addUser(result.user)
+        history.push('/home')
       })
       .catch((error) => {
         addError(error.message)

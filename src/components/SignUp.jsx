@@ -201,15 +201,9 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
         .createUserWithEmailAndPassword(email, password)
         .then((user) => {
           // history.push('/home')
-
-          // user.updateProfile({
-          //   displayName: `${firstName.trim()} ${lastName.trim()}`,
-          // })
-
-          console.log(user)
         })
         .catch((e) => {
-          console.log(e)
+          console.error(e)
         })
 
       const user = auth.currentUser
