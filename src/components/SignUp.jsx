@@ -7,6 +7,8 @@ import validatePassword from '../utilities/validatePassword'
 import validateYear from '../utilities/validateYear'
 import validateName from '../utilities/validateName'
 import ErrorNotification from './ErrorNotification'
+import BirthdayToolTip from './BirthdayToolTip'
+import GenderToolTip from './GenderToolTip'
 import './SignUp.scss'
 
 function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
@@ -19,6 +21,9 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
   const [birthdayYear, setBirthdayYear] = useState('')
   const [pronoun, setPronoun] = useState('')
   const [gender, setGender] = useState('')
+
+  const [birthdayToolTipOpen, setBirthdayToolTipOpen] = useState(false)
+  const [genderToolTipOpen, setGenderToolTipOpen] = useState(false)
 
   const customSectionRef = useRef(null)
   const formRef = useRef(null)
@@ -265,6 +270,8 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
           <label htmlFor='password'>
             <ErrorIcon className='signUp__form__password__errorIcon signUp__form__errorIcon' ref={passwordErrorRef} />
           </label>
+
+          <BirthdayToolTip />
 
           <div className='signUp__form__birthday'>
             <p className='signUp__form__birthday__text'>
