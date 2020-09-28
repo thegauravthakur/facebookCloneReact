@@ -14,7 +14,17 @@ export const UserProvider = ({ children }) => {
     dispatch({ type: actionTypes.REMOVE_USER })
   }
 
-  return <UserContext.Provider value={(state, addUser, removeUser)}>{children}</UserContext.Provider>
+  const addError = (error) => {
+    dispatch({ type: actionTypes.REMOVE_USER, payload: error })
+  }
+
+  const removeError = () => {
+    dispatch({ type: actionTypes.REMOVE_USER })
+  }
+
+  return (
+    <UserContext.Provider value={(state, addUser, removeUser, addError, removeError)}>{children}</UserContext.Provider>
+  )
 }
 
 export default UserContext
