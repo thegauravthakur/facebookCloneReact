@@ -1,15 +1,21 @@
-import React, { useEffect, useState, useRef } from 'react'
-import './Login.scss'
-import { auth, db } from '../firebase'
+import React, { useEffect, useState, useRef, useContext } from 'react'
+import { useHistory } from 'react-router-dom'
 import firebase from 'firebase'
+import { auth } from '../firebase'
 import { actionTypes } from '../reducer'
+import UserContext from '../UserProvider'
 import Footer from '../components/Footer'
 import validateEmail from '../utilities/validateEmail'
 import validatePassword from '../utilities/validatePassword'
 import SignUp from '../components/SignUp'
 import SignUpBackDrop from '../components/SignUpBackdrop'
+import './Login.scss'
 
 export default function Login() {
+  const { user, addUser, removeUser } = useContext(UserContext)
+
+  const history = useHistory()
+
   useEffect(() => {
     const favicon = document.getElementById('favicon')
     favicon.href = 'https://static.xx.fbcdn.net/rsrc.php/yo/r/iRmz9lCMBD2.ico'
@@ -119,14 +125,15 @@ export default function Login() {
 
   const provider = new firebase.auth.GoogleAuthProvider()
 
-  const googleSignIn = () => {
+  const googleSignIn = (e) => {
+    e.preventDefault()
     auth
       .signInWithPopup(provider)
       .then((result) => {
-        // dispatch
+        addUser(result.user)
       })
       .catch((error) => {
-        console.log(error)
+        history.push('/login')
       })
   }
 
