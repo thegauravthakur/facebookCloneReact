@@ -91,6 +91,10 @@
       &:hover {
         background-color: darken($button-blue, 3);
       }
+
+      &:focus {
+        outline: none;
+      }
     }
 
     &__text {
@@ -137,6 +141,10 @@
     padding: 1rem 0;
     cursor: pointer;
     transition: 0.2s ease-in-out;
+
+    &:focus {
+      outline: none;
+    }
 
     &:hover {
       background-color: darken($red, 4);

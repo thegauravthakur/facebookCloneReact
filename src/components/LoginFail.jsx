@@ -38,7 +38,7 @@ export default function LoginFail() {
     }
   }, [removeError, state.error])
 
-  const googleSignIn = (e) => {
+  const googleLogin = (e) => {
     e.preventDefault()
     auth
       .signInWithPopup(provider)
@@ -47,12 +47,13 @@ export default function LoginFail() {
         history.push('/home')
       })
       .catch((error) => {
-        addError(e.message)
+        addError(error.message)
         errorSectionRef.current.style.display = 'block'
 
         setTimeout(() => {
           errorSectionRef.current.style.display = 'none'
-        }, 3000)
+          removeError()
+        }, 6000)
       })
   }
 
@@ -63,13 +64,14 @@ export default function LoginFail() {
       .then((user) => {
         history.push('/home')
       })
-      .catch((e) => {
-        addError(e.message)
+      .catch((error) => {
+        addError(error.message)
         errorSectionRef.current.style.display = 'block'
 
         setTimeout(() => {
           errorSectionRef.current.style.display = 'none'
-        }, 3000)
+          removeError()
+        }, 4000)
       })
   }
 
@@ -92,8 +94,13 @@ export default function LoginFail() {
             </div>
 
             <input type='text' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
-            <input type='text' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
-            <button type='submit' className='loginFail__form__button'>
+            <input
+              type='password'
+              placeholder='Password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button type='submit' onClick={emailAndPasswordLogin} className='loginFail__form__button'>
               Log In
             </button>
             <p className='loginFail__form__text'>Forgot Password?</p>
@@ -104,7 +111,9 @@ export default function LoginFail() {
               <div className='loginFail__line loginFail__line__two'></div>
             </div>
 
-            <button className='loginFail__google'>Login With Google</button>
+            <button className='loginFail__google' onClick={googleLogin}>
+              Login With Google
+            </button>
           </form>
         </div>
       </div>
