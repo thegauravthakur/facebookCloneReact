@@ -10,10 +10,11 @@
   padding: 1rem;
   position: absolute;
   width: 30rem;
-  top: 23.3rem;
-  right: 37.7rem;
+  top: 30.3rem;
+  right: 38rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(28, 30, 33, 0.2);
+  display: none;
 
   &__line {
     margin-bottom: 0.7rem;
@@ -53,4 +54,8 @@
       }
     }
   }
+}
+
+.gendertooltip__Open {
+  display: block !important;
 }

@@ -2,9 +2,9 @@ import React from 'react'
 import ArrowRightIcon from '@material-ui/icons/ArrowRight'
 import './GenderToolTip.scss'
 
-function GenderToolTip() {
+function GenderToolTip({ toolTipOpen, closeToolTip, setGenderToolTipOpen }) {
   return (
-    <div className='gendertooltip'>
+    <div className={`gendertooltip ${toolTipOpen && 'gendertooltip__Open'}`}>
       <ArrowRightIcon className='gendertooltip__arrow' />
       <div className='gendertooltip__info'>
         <p>
@@ -14,7 +14,9 @@ function GenderToolTip() {
       </div>
       <hr className='gendertooltip__line' />
       <div className='gendertooltip__footer'>
-        <button className='gendertooltip__footer__button'>Close</button>
+        <button onClick={(e) => closeToolTip(setGenderToolTipOpen)} className='gendertooltip__footer__button'>
+          Close
+        </button>
       </div>
     </div>
   )

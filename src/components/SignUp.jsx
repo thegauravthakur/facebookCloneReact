@@ -128,10 +128,6 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
     }
   }
 
-  const submitForm = (e) => {
-    e.preventDefault()
-  }
-
   return (
     <div className={`signUp ${isFormOpen && 'signUp__Open'}`}>
       <div className='signUp__header'>
@@ -175,7 +171,7 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
 
       <hr className='signUp__line' />
 
-      <form className='signUp__form__container' ref={formRef} onSubmit={submitForm}>
+      <form className='signUp__form__container' ref={formRef} onSubmit={(e) => e.preventDefault()}>
         <div className='signUp__form'>
           <div className='signUp__form__name'>
             <ErrorNotification text="What's your name?" reference={firstNameNotificationErrorRef} />
@@ -423,6 +419,12 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
           />
 
           <ErrorIcon className='signUp__form__gender__errorIcon signUp__form__errorIcon' ref={genderErrorRef} />
+
+          <GenderToolTip
+            toolTipOpen={genderToolTipOpen}
+            closeToolTip={closeToolTip}
+            setGenderToolTipOpen={setGenderToolTipOpen}
+          />
 
           <div className='signUp__form__gender'>
             <p className='signUp__form__gender__text'>

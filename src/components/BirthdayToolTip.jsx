@@ -15,7 +15,7 @@ function BirthdayToolTip({ toolTipOpen, closeToolTip, setBirthdayToolTipOpen }) 
       </div>
       <hr className='birthdaytooltip__line' />
       <div className='birthdaytooltip__footer'>
-        <button onClick={() => closeToolTip(setBirthdayToolTipOpen)} className='birthdaytooltip__footer__button'>
+        <button onClick={(e) => closeToolTip(setBirthdayToolTipOpen)} className='birthdaytooltip__footer__button'>
           Close
         </button>
       </div>
