@@ -1,7 +1,9 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useContext } from 'react'
 import ErrorIcon from '@material-ui/icons/Error'
 import HelpIcon from '@material-ui/icons/Help'
 import CloseIcon from '@material-ui/icons/Close'
+import UserContext from '../UserProvider'
+import { auth } from '../firebase'
 import validateEmail from '../utilities/validateEmail'
 import validatePassword from '../utilities/validatePassword'
 import validateYear from '../utilities/validateYear'
@@ -12,6 +14,8 @@ import GenderToolTip from './GenderToolTip'
 import './SignUp.scss'
 
 function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
+  const { state, addError } = useContext(UserContext)
+
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
@@ -126,6 +130,37 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
     } else {
       birthdayNotificationErrorRef.current.style.display = 'block'
     }
+  }
+
+  const signUpWithEmailAndPassword = (e) => {
+    if (!validateName(firstName)) {
+      signUpFirstNameInputRef.current.style.border = '1px solid red'
+      firstNameErrorRef.current.style.opacity = 1
+    }
+
+    if (!validateName(lastName)) {
+      lastNameRef.current.style.border = '1px solid red'
+      lastNameErrorRef.current.style.opacity = 1
+    }
+
+    if (!validateEmail(email)) {
+    }
+
+    if (!validatePassword(password)) {
+    }
+
+    if (!validateYear(birthdayYear)) {
+    }
+
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth) => {
+        // history.push('/home')
+        console.log(auth)
+      })
+      .catch((e) => {
+        console.log(e)
+      })
   }
 
   return (
