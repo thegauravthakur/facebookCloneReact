@@ -134,20 +134,38 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
   }
 
   const focusPronoun = () => {
-    pronounNotificationErrorRef.current.display = 'block'
+    pronounNotificationErrorRef.current.style.display = 'block'
     pronounRef.current.style.border = '1px solid 1px solid #ccd0d5 '
     pronounErrorRef.current.style.opacity = 0
   }
 
   const blurPronoun = () => {
     if (pronoun !== 'Select your pronoun') {
-      pronounNotificationErrorRef.current.display = 'none'
+      pronounNotificationErrorRef.current.style.display = 'none'
       pronounRef.current.style.border = '1px solid #ccd0d5 '
     } else {
-      pronounNotificationErrorRef.current.display = 'none'
+      pronounNotificationErrorRef.current.style.display = 'none'
       pronounRef.current.style.border = '1px solid red '
       pronounErrorRef.current.style.opacity = 1
     }
+  }
+
+  const focusGender = () => {
+    femaleSelectRef.current.style = '1px solid #ccd0d5'
+    maleSelectRef.current.style = '1px solid #ccd0d5'
+    customSelectRef.current.style = '1px solid #ccd0d5'
+    genderNotificationErrorRef.current.style.display = 'block'
+    genderErrorRef.current.style.opacity = 0
+  }
+
+  const blurGender = () => {
+    if (!femaleSelectRef.current.checked || !maleSelectRef.current.checked || !customSelectRef.current.checked) {
+      femaleSelectRef.current.style = '1px solid red'
+      maleSelectRef.current.style = '1px solid red'
+      customSelectRef.current.style = '1px solid red'
+      genderErrorRef.current.style.opacity = 0
+    }
+    genderNotificationErrorRef.current.style.display = 'none'
   }
 
   const signUpWithEmailAndPassword = (e) => {
