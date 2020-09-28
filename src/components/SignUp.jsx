@@ -154,7 +154,6 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
     femaleSelectRef.current.style = '1px solid #ccd0d5'
     maleSelectRef.current.style = '1px solid #ccd0d5'
     customSelectRef.current.style = '1px solid #ccd0d5'
-    genderNotificationErrorRef.current.style.display = 'block'
     genderErrorRef.current.style.opacity = 0
   }
 
@@ -169,47 +168,64 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
   }
 
   const signUpWithEmailAndPassword = (e) => {
-    if (!validateName(firstName)) {
-      signUpFirstNameInputRef.current.style.border = '1px solid red'
-      firstNameErrorRef.current.style.opacity = 1
-    }
+    e.preventDefault()
 
-    if (!validateName(lastName)) {
-      lastNameRef.current.style.border = '1px solid red'
-      lastNameErrorRef.current.style.opacity = 1
-    }
+    if (
+      validateName(firstName) &&
+      validateName(lastName) &&
+      validateEmail(email) &&
+      validatePassword(password) &&
+      validateYear(birthdayYear) &&
+      (femaleSelectRef.current.checked || maleSelectRef.current.checked || customSelectRef.current.checked)
+    ) {
+      auth
+        .createUserWithEmailAndPassword(email, password)
+        .then((auth) => {
+          // history.push('/home')
+          console.log(auth)
+        })
+        .catch((e) => {
+          console.log(e)
+        })
+    } else {
+      if (!validateName(firstName)) {
+        signUpFirstNameInputRef.current.style.border = '1px solid red'
+        firstNameErrorRef.current.style.opacity = 1
+      }
 
-    if (!validateEmail(email)) {
-      emailRef.current.style.border = '1px solid red'
-      emailErrorRef.current.style.opacity = 1
-    }
+      if (!validateName(lastName)) {
+        lastNameRef.current.style.border = '1px solid red'
+        lastNameErrorRef.current.style.opacity = 1
+      }
 
-    if (!validatePassword(password)) {
-      passwordRef.current.style.border = '1px solid red'
-      passwordErrorRef.current.style.opacity = 1
-    }
+      if (!validateEmail(email)) {
+        emailRef.current.style.border = '1px solid red'
+        emailErrorRef.current.style.opacity = 1
+      }
 
-    if (!validateYear(birthdayYear)) {
-      daySelectRef.current.style.border = '1px solid red'
-      monthSelectRef.current.style.border = '1px solid red'
-      yearSelectRef.current.style.border = '1px solid red'
-      birthdayErrorRef.current.style.opacity = 1
-    }
+      if (!validatePassword(password)) {
+        passwordRef.current.style.border = '1px solid red'
+        passwordErrorRef.current.style.opacity = 1
+      }
 
-    if (pronoun === 'Select your pronoun') {
-      pronounRef.current.style.border = '1px solid red'
-      pronounErrorRef.current.style.opacity = 1
-    }
+      if (!validateYear(birthdayYear)) {
+        daySelectRef.current.style.border = '1px solid red'
+        monthSelectRef.current.style.border = '1px solid red'
+        yearSelectRef.current.style.border = '1px solid red'
+        birthdayErrorRef.current.style.opacity = 1
+      }
 
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((auth) => {
-        // history.push('/home')
-        console.log(auth)
-      })
-      .catch((e) => {
-        console.log(e)
-      })
+      if (
+        femaleSelectRef.current.checked === false ||
+        maleSelectRef.current.checked === false ||
+        customSelectRef.current.checked === false
+      ) {
+        femaleSelectRef.current.style = '1px solid red'
+        maleSelectRef.current.style = '1px solid red'
+        customSelectRef.current.style = '1px solid red'
+        genderErrorRef.current.style.opacity = 1
+      }
+    }
   }
 
   return (
@@ -397,7 +413,6 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
                 value={birthdayMonth}
                 onFocus={focusSelect}
                 onBlur={blurSelect}>
-                <option value='Month'>Month</option>
                 <option value='January'>Jan</option>
                 <option value='February'>Feb</option>
                 <option value='March'>Mar</option>
@@ -421,7 +436,6 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
                 value={birthdayDay}
                 onFocus={focusSelect}
                 onBlur={blurSelect}>
-                <option value='Day'>Day</option>
                 <option value='1'>1</option>
                 <option value='2'>2</option>
                 <option value='3'>3</option>
@@ -463,9 +477,7 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
                 title='Year'
                 onBlur={blurSelect}
                 onFocus={focusSelect}
-                ref={yearSelectRef}
-                id='years'>
-                <option value='Year'>Year</option>
+                ref={yearSelectRef}>
                 <option value='2020'>2020</option>
                 <option value='2019'>2019</option>
                 <option value='2018'>2018</option>
@@ -529,6 +541,8 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
                   type='radio'
                   name='gender'
                   id='female'
+                  onFocus={focusGender}
+                  onBlur={blurGender}
                 />
               </label>
 
@@ -541,6 +555,8 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
                   type='radio'
                   name='gender'
                   id='male'
+                  onFocus={focusGender}
+                  onBlur={blurGender}
                 />
               </label>
 
@@ -553,6 +569,8 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
                   type='radio'
                   name='gender'
                   id='custom'
+                  onFocus={focusGender}
+                  onBlur={blurGender}
                 />
               </label>
             </div>
@@ -597,7 +615,9 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
             from us and can opt out any time.
           </p>
 
-          <button className='signUp__form__button'>Sign Up</button>
+          <button className='signUp__form__button' onClick={signUpWithEmailAndPassword}>
+            Sign Up
+          </button>
         </div>
       </form>
     </div>

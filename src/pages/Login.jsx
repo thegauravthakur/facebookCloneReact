@@ -72,13 +72,13 @@ export default function Login() {
     setPassword('')
     passwordRef.current.style.border = '1px solid #ccd0d5'
 
-    setBirthdayDay('Day')
+    setBirthdayDay('January')
     birthdayDayRef.current.style.border = '1px solid #ccd0d5'
 
-    setBirthdayMonth('Month')
+    setBirthdayMonth('1')
     birthdayMonthRef.current.style.border = '1px solid #ccd0d5'
 
-    setBirthdayYear('Year')
+    setBirthdayYear('2020')
     birthdayYearRef.current.style.border = '1px solid #ccd0d5'
 
     femaleSelectRef.current.checked = false
