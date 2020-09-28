@@ -63,6 +63,10 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
   const genderNotificationErrorRef = useRef(null)
   const pronounNotificationErrorRef = useRef(null)
   const pronounRef = useRef(null)
+  const femaleSelectContainerRef = useRef(null)
+  const maleSelectContainerRef = useRef(null)
+  const customSelectContainerRef = useRef(null)
+
   const firstRender = useRef(true)
 
   const normalSelectChangeHandler = (e) => {
@@ -151,19 +155,29 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
   }
 
   const focusGender = () => {
-    femaleSelectRef.current.style = '1px solid #ccd0d5'
-    maleSelectRef.current.style = '1px solid #ccd0d5'
-    customSelectRef.current.style = '1px solid #ccd0d5'
+    femaleSelectContainerRef.current.style = '1px solid #ccd0d5'
+    maleSelectContainerRef.current.style = '1px solid #ccd0d5'
+    customSelectContainerRef.current.style = '1px solid #ccd0d5'
     genderErrorRef.current.style.opacity = 0
   }
 
   const blurGender = () => {
-    if (!femaleSelectRef.current.checked || !maleSelectRef.current.checked || !customSelectRef.current.checked) {
-      femaleSelectRef.current.style = '1px solid red'
-      maleSelectRef.current.style = '1px solid red'
-      customSelectRef.current.style = '1px solid red'
+    if (
+      femaleSelectRef.current.checked === true ||
+      maleSelectRef.current.checked === true ||
+      customSelectRef.current.checked === true
+    ) {
+      femaleSelectContainerRef.current.style = '1px solid #ccd0d5'
+      maleSelectContainerRef.current.style = '1px solid #ccd0d5'
+      customSelectContainerRef.current.style = '1px solid #ccd0d5'
       genderErrorRef.current.style.opacity = 0
+    } else {
+      femaleSelectContainerRef.current.style = '1px solid red'
+      maleSelectContainerRef.current.style = '1px solid red'
+      customSelectContainerRef.current.style = '1px solid red'
+      genderErrorRef.current.style.opacity = 1
     }
+
     genderNotificationErrorRef.current.style.display = 'none'
   }
 
@@ -216,13 +230,18 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
       }
 
       if (
-        femaleSelectRef.current.checked === false ||
-        maleSelectRef.current.checked === false ||
-        customSelectRef.current.checked === false
+        femaleSelectRef.current.checked === true ||
+        maleSelectRef.current.checked === true ||
+        customSelectRef.current.checked === true
       ) {
-        femaleSelectRef.current.style = '1px solid red'
-        maleSelectRef.current.style = '1px solid red'
-        customSelectRef.current.style = '1px solid red'
+        femaleSelectContainerRef.current.style.border = '1px solid #ccd0d5'
+        maleSelectContainerRef.current.style.border = '1px solid #ccd0d5'
+        customSelectContainerRef.current.style.border = '1px solid #ccd0d5'
+        genderErrorRef.current.style.opacity = 0
+      } else {
+        femaleSelectContainerRef.current.style.border = '1px solid red'
+        maleSelectContainerRef.current.style.border = '1px solid red'
+        customSelectContainerRef.current.style.border = '1px solid red'
         genderErrorRef.current.style.opacity = 1
       }
     }
@@ -262,7 +281,10 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
               passwordErrorRef,
               birthdayErrorRef,
               genderErrorRef,
-              pronounErrorRef
+              pronounErrorRef,
+              femaleSelectContainerRef,
+              maleSelectContainerRef,
+              customSelectContainerRef
             )
           }
           className='signUp__header__close'
@@ -532,7 +554,10 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
               />
             </p>
             <div className='signUp__form__gender__container'>
-              <label className='signUp__form__gender__option signUp__form__gender__option__female' htmlFor='female'>
+              <label
+                className='signUp__form__gender__option signUp__form__gender__option__female'
+                htmlFor='female'
+                ref={femaleSelectContainerRef}>
                 Female
                 <input
                   ref={femaleSelectRef}
@@ -546,7 +571,10 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
                 />
               </label>
 
-              <label className='signUp__form__gender__option signUp__form__gender__option__male' htmlFor='male'>
+              <label
+                className='signUp__form__gender__option signUp__form__gender__option__male'
+                htmlFor='male'
+                ref={maleSelectContainerRef}>
                 Male
                 <input
                   ref={maleSelectRef}
@@ -560,7 +588,10 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
                 />
               </label>
 
-              <label className='signUp__form__gender__option signUp__form__gender__option__custom' htmlFor='custom'>
+              <label
+                className='signUp__form__gender__option signUp__form__gender__option__custom'
+                htmlFor='custom'
+                ref={customSelectContainerRef}>
                 Custom
                 <input
                   ref={customSelectRef}

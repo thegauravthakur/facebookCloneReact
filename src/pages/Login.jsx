@@ -58,7 +58,10 @@ export default function Login() {
     passwordErrorRef,
     birthdayErrorRef,
     genderErrorRef,
-    pronounErrorRef
+    pronounErrorRef,
+    femaleSelectContainerRef,
+    maleSelectContainerRef,
+    customSelectContainerRef
   ) => {
     setFirstName('')
     signUpFirstNameInputRef.current.style.border = '1px solid #ccd0d5'
@@ -82,10 +85,13 @@ export default function Login() {
     birthdayYearRef.current.style.border = '1px solid #ccd0d5'
 
     femaleSelectRef.current.checked = false
+    femaleSelectContainerRef.current.style.border = '1px solid #ccd0d5'
 
     maleSelectRef.current.checked = false
+    maleSelectContainerRef.current.style.border = '1px solid #ccd0d5'
 
     customSelectRef.current.checked = false
+    customSelectContainerRef.current.style.border = '1px solid #ccd0d5'
 
     customSectionRef.current.style.display = 'none'
 
