@@ -428,7 +428,7 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
 
           <div className='signUp__form__gender'>
             <p className='signUp__form__gender__text'>
-              Gender{' '}
+              Gender
               <HelpIcon
                 titleAccess='Click for more information'
                 className='signUp__form__gender__text__icon'

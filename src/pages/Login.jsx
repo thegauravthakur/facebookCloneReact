@@ -158,6 +158,7 @@ export default function Login() {
           </form>
         </div>
       </div>
+
       <SignUp
         closeFormHandler={closeFormHandler}
         isFormOpen={signUpOpen}

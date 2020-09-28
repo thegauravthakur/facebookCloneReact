@@ -40,6 +40,12 @@ export default function LoginFail() {
               Log In
             </button>
             <p className='loginFail__form__text'>Forgot Password?</p>
+
+            <div className='loginFail__lines__container'>
+              <div className='loginFail__line loginFail__line__one'></div>
+              <p className='loginFail__line__text'>or</p>
+              <div className='loginFail__line loginFail__line__two'></div>
+            </div>
           </form>
         </div>
       </div>
