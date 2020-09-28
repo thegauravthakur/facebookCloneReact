@@ -1,12 +1,16 @@
 import React, { useEffect, useState, useRef, useContext } from 'react'
+import { useHistory } from 'react-router-dom'
 import Footer from './Footer'
 import UserContext from '../UserProvider'
+import { auth, provider } from '../firebase'
 import './LoginFail.scss'
 
 export default function LoginFail() {
   const errorSectionRef = useRef(null)
 
-  const { state, removeError } = useContext(UserContext)
+  const history = useHistory()
+
+  const { state, removeError, addUser, addError } = useContext(UserContext)
 
   useEffect(() => {
     const favicon = document.getElementById('favicon')
@@ -33,6 +37,41 @@ export default function LoginFail() {
       errorSectionRef.current.style.display = 'none'
     }
   }, [removeError, state.error])
+
+  const googleSignIn = (e) => {
+    e.preventDefault()
+    auth
+      .signInWithPopup(provider)
+      .then((result) => {
+        addUser(result.user)
+        history.push('/home')
+      })
+      .catch((error) => {
+        addError(e.message)
+        errorSectionRef.current.style.display = 'block'
+
+        setTimeout(() => {
+          errorSectionRef.current.style.display = 'none'
+        }, 3000)
+      })
+  }
+
+  const emailAndPasswordLogin = (e) => {
+    e.preventDefault()
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((user) => {
+        history.push('/home')
+      })
+      .catch((e) => {
+        addError(e.message)
+        errorSectionRef.current.style.display = 'block'
+
+        setTimeout(() => {
+          errorSectionRef.current.style.display = 'none'
+        }, 3000)
+      })
+  }
 
   return (
     <>

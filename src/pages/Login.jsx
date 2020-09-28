@@ -1,8 +1,6 @@
 import React, { useEffect, useState, useRef, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
-import firebase from 'firebase'
-import { auth } from '../firebase'
-import { actionTypes } from '../reducer'
+import { auth, provider } from '../firebase'
 import UserContext from '../UserProvider'
 import Footer from '../components/Footer'
 import SignUp from '../components/SignUp'
@@ -126,8 +124,6 @@ export default function Login() {
       signUpFirstNameInputRef.current.focus()
     }, 0)
   }
-
-  const provider = new firebase.auth.GoogleAuthProvider()
 
   const googleSignIn = (e) => {
     e.preventDefault()
