@@ -123,4 +123,21 @@
     font-size: 1.2rem;
     margin: 0 1.5rem;
   }
+
+  &__google {
+    width: 100%;
+    background-color: $red;
+    color: $white;
+    font-size: 2rem;
+    border: none;
+    border-radius: 0.6rem;
+    font-weight: 600;
+    padding: 1rem 0;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      background-color: darken($red, 4);
+    }
+  }
 }
