@@ -26,6 +26,7 @@ export default function LoginFail() {
   useEffect(() => {
     setTimeout(() => {
       errorSectionRef.current.style.display = 'none'
+      removeError()
     }, 4000)
   }, [])
 
