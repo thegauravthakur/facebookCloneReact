@@ -1,4 +1,5 @@
 import React, { useState, useRef, useContext } from 'react'
+import { useHistory } from 'react-router-dom'
 import ErrorIcon from '@material-ui/icons/Error'
 import HelpIcon from '@material-ui/icons/Help'
 import CloseIcon from '@material-ui/icons/Close'
@@ -14,7 +15,9 @@ import GenderToolTip from './GenderToolTip'
 import './SignUp.scss'
 
 function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
-  const { state, addError } = useContext(UserContext)
+  const { state } = useContext(UserContext)
+
+  const history = useHistory()
 
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
@@ -200,7 +203,7 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
       auth
         .createUserWithEmailAndPassword(email, password)
         .then((user) => {
-          // history.push('/home')
+          history.push('/home')
         })
         .catch((e) => {
           console.error(e)
@@ -211,8 +214,6 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
       user.updateProfile({
         displayName: `${firstName.trim()} ${lastName.trim()}`,
       })
-
-      console.log(user)
     } else {
       if (!validateName(firstName)) {
         signUpFirstNameInputRef.current.style.border = '1px solid red'
