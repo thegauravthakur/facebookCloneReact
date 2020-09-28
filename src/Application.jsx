@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from './components/Navbar'
-import './App.scss'
+import './Application.scss'
 import Sidebar from './components/Sidebar'
 import Feed from './components/Feed'
 import Widgets from './components/Widgets'
@@ -10,7 +10,7 @@ import Messenger from './pages/Messenger'
 import LoginFail from './components/LoginFail'
 import ErrorPage from './pages/ErrorPage'
 
-function App() {
+function Application() {
   const user = null
 
   return (
@@ -53,4 +53,4 @@ function App() {
   )
 }
 
-export default App
+export default Application
