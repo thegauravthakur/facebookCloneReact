@@ -7,23 +7,13 @@
   padding: 0.7rem 1rem;
   color: $white;
   position: absolute;
-  top: 5.5rem;
+  top: 6.4rem;
   left: 4.3rem;
-  display: none !important;
+  display: none;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
 
   & > p {
     font-size: 1.2rem;
-  }
-
-  &__home,
-  &__friends,
-  &__watch,
-  &__groups,
-  &__gaming,
-  &__create,
-  &__messenger,
-  &__notifications,
-  &__account {
-    display: block !important;
   }
 }
