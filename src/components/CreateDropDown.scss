@@ -1,0 +1,11 @@
+@import '../mixins';
+@import '../variables';
+
+.createDropDown {
+  background-color: #fff;
+  position: absolute;
+  padding: 2rem;
+
+  &__container {
+  }
+}

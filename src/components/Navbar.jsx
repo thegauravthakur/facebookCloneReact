@@ -4,6 +4,7 @@ import { Avatar } from '@material-ui/core'
 import AddIcon from '@material-ui/icons/Add'
 import ArrowDropDownRoundedIcon from '@material-ui/icons/ArrowDropDownRounded'
 import { Link } from 'react-router-dom'
+import Tip from './Tip'
 import './Navbar.scss'
 
 export default function Navbar() {
