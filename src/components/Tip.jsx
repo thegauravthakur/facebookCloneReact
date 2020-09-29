@@ -1,7 +1,11 @@
 import React from 'react'
 
-function Tip() {
-  return <div className='tip'></div>
+function Tip({ text }) {
+  return (
+    <div className='tip'>
+      <p>{text}</p>
+    </div>
+  )
 }
 
 export default Tip
