@@ -7,9 +7,9 @@ import GroupRoundedIcon from '@material-ui/icons/GroupRounded'
 import DateRangeRoundedIcon from '@material-ui/icons/DateRangeRounded'
 import './CreateDropDown.scss'
 
-function CreateDropDown() {
+function CreateDropDown({ isDropDownOpen }) {
   return (
-    <div className='createDropDown'>
+    <div className={`createDropDown ${isDropDownOpen && 'createDropDown__Open'}`}>
       <div className='createDropDown__container'>
         <h4>Create</h4>
 

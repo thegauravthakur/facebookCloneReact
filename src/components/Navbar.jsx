@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import SearchIcon from '@material-ui/icons/Search'
 import { Avatar } from '@material-ui/core'
 import AddIcon from '@material-ui/icons/Add'
@@ -6,6 +6,8 @@ import ArrowDropDownRoundedIcon from '@material-ui/icons/ArrowDropDownRounded'
 import { Link } from 'react-router-dom'
 import CreateDropDown from './CreateDropDown'
 import NotificationsDropDown from './NotificationsDropDown'
+import MessengerDropDown from './MessengerDropDown'
+import DropDown from './DropDown'
 import Tip from './Tip'
 import './Navbar.scss'
 
@@ -16,6 +18,28 @@ export default function Navbar() {
     document.title = 'Facebook'
     document.body.style.overflowY = 'scroll'
   }, [])
+
+  const [createDropDownOpen, setCreateDropDownOpen] = useState(false)
+  const [messengerDropDownOpen, setMessengerDropDownOpen] = useState(false)
+  const [notificationDropDownOpen, setNotificationsDropDownOpen] = useState(false)
+  const [dropDownOpen, setDropDownOpen] = useState(false)
+
+  const toggleDropDownStatus = (setState, event) => {
+    event.stopPropagation()
+    setState((state) => !state)
+  }
+
+  window.addEventListener('click', (e) => {
+    if (
+      e.target.classList.contains('createDropDown') ||
+      e.target.classList.contains('createDropDown__option') ||
+      e.target.classList.contains('createDropDown__container')
+    ) {
+      setCreateDropDownOpen(true)
+    } else {
+      setCreateDropDownOpen(false)
+    }
+  })
 
   return (
     <div className='navbar'>
@@ -87,13 +111,13 @@ export default function Navbar() {
             <h4>William</h4>
           </div>
 
-          <button className='navbar__right__button'>
+          <button className='navbar__right__button' onClick={(e) => toggleDropDownStatus(setCreateDropDownOpen, e)}>
             <AddIcon className='navbar__right__icon' />
 
             <Tip text='Create' />
           </button>
 
-          <CreateDropDown />
+          <CreateDropDown isDropDownOpen={createDropDownOpen} />
 
           <Link to='/messenger' className='navbar__right__link'>
             <button className='navbar__right__button'>
