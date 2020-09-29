@@ -3,7 +3,7 @@ import Navbar from './components/Navbar'
 import './Application.scss'
 import Sidebar from './components/Sidebar'
 import Feed from './components/Feed'
-import Widgets from './components/Widgets'
+import Friends from './components/Friends'
 import Login from './pages/Login'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Messenger from './pages/Messenger'
@@ -57,7 +57,7 @@ function Application() {
                 <div className='app__body'>
                   <Sidebar />
                   <Feed />
-                  {/* <Widgets /> */}
+                  <Friends />
                 </div>
               </>
             )}
