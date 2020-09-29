@@ -11,6 +11,7 @@
   position: sticky;
   top: 0;
   box-shadow: 0 0.5rem 0.8rem -0.9rem rgba($black, 0.75);
+  max-height: 6rem;
 
   &__left {
     display: flex;
@@ -58,22 +59,21 @@
     flex: 1;
     justify-content: center;
     height: 100%;
+    margin-left: 1rem;
 
     &__option {
       display: flex;
       align-items: center;
-      padding: 0 3rem 0.5rem 3rem;
+      padding: 1.5rem 5rem;
       cursor: pointer;
       height: 100%;
       border-bottom: 0.4rem solid transparent;
-      margin-right: 3rem;
 
       &:hover {
         background-color: #eff2f5;
         border-radius: 1rem;
         align-items: center;
         border-bottom: none;
-        padding: 0 3rem;
       }
 
       &__option:last-of-type {
@@ -81,8 +81,8 @@
       }
 
       &__icon {
-        font-size: 3rem !important;
-        color: gray;
+        font-size: 2.8rem !important;
+        fill: gray;
       }
 
       &--active {
