@@ -5,9 +5,14 @@ import EmojiEventsRoundedIcon from '@material-ui/icons/EmojiEventsRounded'
 import FlagIcon from '@material-ui/icons/Flag'
 import GroupRoundedIcon from '@material-ui/icons/GroupRounded'
 import DateRangeRoundedIcon from '@material-ui/icons/DateRangeRounded'
+import onClickOutside from 'react-onclickoutside'
 import './CreateDropDown.scss'
 
-function CreateDropDown({ isDropDownOpen }) {
+function CreateDropDown({ isDropDownOpen, setCreateDropDownOpen }) {
+  CreateDropDown.handleClickOutside = () => {
+    setCreateDropDownOpen(false)
+  }
+
   return (
     <div className={`createDropDown ${isDropDownOpen && 'createDropDown__Open'}`}>
       <div className='createDropDown__container'>
@@ -85,4 +90,8 @@ function CreateDropDown({ isDropDownOpen }) {
   )
 }
 
-export default CreateDropDown
+const clickOutsideConfig = {
+  handleClickOutside: () => CreateDropDown.handleClickOutside,
+}
+
+export default onClickOutside(CreateDropDown, clickOutsideConfig)
