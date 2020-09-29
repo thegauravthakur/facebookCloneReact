@@ -162,6 +162,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
+
+      &:hover > .tip {
+        opacity: 1;
+        display: block;
+        left: -1rem;
+        top: 5.2rem;
+      }
 
       &:focus {
         outline: none;

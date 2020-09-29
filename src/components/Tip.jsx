@@ -3,7 +3,7 @@ import './Tip.scss'
 
 function Tip({ text }) {
   return (
-    <div className={'tip'}>
+    <div className={`tip`}>
       <p>{text}</p>
     </div>
   )
