@@ -6,16 +6,18 @@
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  width: 12rem;
+  width: 11rem;
   height: 20rem;
   box-shadow: $box-shadow;
   border-radius: 1rem;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
   transition: 0.1s ease-in-out;
   cursor: pointer;
+  overflow: hidden;
 
   &:hover {
-    transform: scale(1.07);
+    transform: scale(1.01);
+    filter: saturate(0.7);
   }
 
   &__avatar {
@@ -26,7 +28,7 @@
   &__title {
     position: absolute;
     bottom: 2rem;
-    left: 2rem;
+    left: 1rem;
     color: $white;
     font-size: 1.3rem;
   }
