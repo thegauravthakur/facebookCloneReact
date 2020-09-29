@@ -93,6 +93,8 @@ export default function Navbar() {
             <Tip text='Create' />
           </button>
 
+          <CreateDropDown />
+
           <Link to='/messenger' className='navbar__right__link'>
             <button className='navbar__right__button'>
               <svg viewBox='0 0 28 28' alt='' className='navbar__right__icon' height='20' width='20'>

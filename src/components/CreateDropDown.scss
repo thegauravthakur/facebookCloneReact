@@ -5,11 +5,35 @@
   background-color: #fff;
   position: absolute;
   padding: 2rem;
+  top: 20rem;
+  right: 20rem;
+  max-height: 41.2rem;
+  max-width: 36rem;
+  width: 36rem;
+  border-radius: 0.8rem;
+  box-shadow: rgba($black, 0.2) 0rem 1.2rem 2.8rem 0rem, rgba($black, 0.1) 0rem 0.2rem 0.4rem 0rem,
+    rgba($white, 0.5) 0rem 0rem 0rem 0.1rem inset;
+
+  &__option {
+    &__icon__container {
+      background-color: darken($lightGray, 4);
+      border-radius: 50%;
+      height: 3.6rem;
+      max-height: 3.6rem;
+      max-width: 3.6rem;
+      width: 3.6rem;
+    }
+    &__icon {
+      color: darken(gray, 15) !important;
+      font-size: 2.5rem !important;
+    }
+  }
 
   &__container {
     & > h4 {
       font-size: 2.4rem;
       font-weight: 600;
+      margin-bottom: 2rem;
     }
   }
 }

@@ -14,7 +14,10 @@ function CreateDropDown() {
         <h4>Create</h4>
 
         <div className='createDropDown__option'>
-          <CreateRoundedIcon className='createDropDown__option__icon' />
+          <div className='createDropDown__option__icon__container'>
+            <CreateRoundedIcon className='createDropDown__option__icon' />
+          </div>
+
           <div className='createDropDown__option__text'>
             <h5>Post</h5>
             <p>Share a post on News Feed.</p>
@@ -22,7 +25,10 @@ function CreateDropDown() {
         </div>
 
         <div className='createDropDown__option'>
-          <MenuBookRoundedIcon className='createDropDown__option__icon' />
+          <div className='createDropDown__option__icon__container'>
+            <MenuBookRoundedIcon className='createDropDown__option__icon' />
+          </div>
+
           <div className='createDropDown__option__text'>
             <h5>Story</h5>
             <p>Share a photo or write something.</p>
@@ -30,7 +36,10 @@ function CreateDropDown() {
         </div>
 
         <div className='createDropDown__option'>
-          <EmojiEventsRoundedIcon className='createDropDown__option__icon' />
+          <div className='createDropDown__option__icon__container'>
+            <EmojiEventsRoundedIcon className='createDropDown__option__icon' />
+          </div>
+
           <div className='createDropDown__option__text'>
             <h5>Life Event</h5>
             <p>Add a life event to your profile.</p>
@@ -40,7 +49,10 @@ function CreateDropDown() {
         <hr className='createDropDown__line' />
 
         <div className='createDropDown__option'>
-          <FlagIcon className='createDropDown__option__icon' />
+          <div className='createDropDown__option__icon__container'>
+            <FlagIcon className='createDropDown__option__icon' />
+          </div>
+
           <div className='createDropDown__option__text'>
             <h5>Page</h5>
             <p>Connect and share with customers or fans.</p>
@@ -48,7 +60,10 @@ function CreateDropDown() {
         </div>
 
         <div className='createDropDown__option'>
-          <GroupRoundedIcon className='createDropDown__option__icon' />
+          <div className='createDropDown__option__icon__container'>
+            <GroupRoundedIcon className='createDropDown__option__icon' />
+          </div>
+
           <div className='createDropDown__option__text'>
             <h5>Group</h5>
             <p>Connect with people who share your interests.</p>
@@ -56,7 +71,10 @@ function CreateDropDown() {
         </div>
 
         <div className='createDropDown__option'>
-          <DateRangeRoundedIcon className='createDropDown__option__icon' />
+          <div className='createDropDown__option__icon__container'>
+            <DateRangeRoundedIcon className='createDropDown__option__icon' />
+          </div>
+
           <div className='createDropDown__option__text'>
             <h5>Event</h5>
             <p>Bring people together with a public or private event.</p>
