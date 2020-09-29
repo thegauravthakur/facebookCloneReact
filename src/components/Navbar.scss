@@ -64,10 +64,11 @@
     &__option {
       display: flex;
       align-items: center;
-      padding: 1.5rem 5.3rem;
+      padding: 1.5rem 5.3rem 1.5rem 5.3rem;
       cursor: pointer;
       height: 100%;
       border-bottom: 0.4rem solid transparent;
+      position: relative;
 
       &:hover {
         background-color: #eff2f5;

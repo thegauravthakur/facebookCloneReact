@@ -2,4 +2,28 @@
 @import '../variables';
 
 .tip {
+  background-color: rgba($black, 0.7);
+  border-radius: 0.5rem;
+  padding: 0.7rem 1rem;
+  color: $white;
+  position: absolute;
+  top: 5.5rem;
+  left: 4.3rem;
+  display: none !important;
+
+  & > p {
+    font-size: 1.2rem;
+  }
+
+  &__home,
+  &__friends,
+  &__watch,
+  &__groups,
+  &__gaming,
+  &__create,
+  &__messenger,
+  &__notifications,
+  &__account {
+    display: block !important;
+  }
 }
