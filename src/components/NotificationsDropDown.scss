@@ -28,4 +28,48 @@
     background-color: #bcc0c4;
     border-radius: 2rem;
   }
+  &__container {
+    & > h5 {
+      font-size: 1.7rem;
+      color: #050505;
+      padding-left: 1rem;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    & > h4 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      font-family: 'Segoe UI';
+    }
+
+    &__icon {
+      font-size: 2.4rem !important;
+      cursor: pointer;
+      color: #5b626a !important;
+    }
+
+    &__icon__container {
+      border-radius: 100%;
+      transition: 0.1s ease-in;
+      height: 3.2rem;
+      width: 3.2rem;
+      max-height: 3.2rem;
+      max-width: 3.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background-color: darken($lightGray, 2);
+      }
+    }
+  }
 }
