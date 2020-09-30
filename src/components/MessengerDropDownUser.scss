@@ -2,4 +2,30 @@
 @import '../variables';
 
 .messengerDropDownUser {
+  padding: 1rem 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &__content {
+    & > h5 {
+      font-size: 1.5rem;
+      font-weight: normal;
+      font-family: 'Segoe UI';
+      color: #050505;
+    }
+
+    & > p {
+      font-size: 1.3rem;
+      color: #65676b;
+    }
+  }
+
+  &__avatar {
+    height: 5.6rem !important;
+    max-height: 5.6rem !important;
+    width: 5.6rem !important;
+    max-width: 5.6rem !important;
+    margin-right: 1rem;
+  }
 }

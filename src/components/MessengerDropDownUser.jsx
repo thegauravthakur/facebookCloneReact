@@ -1,15 +1,22 @@
 import React from 'react'
+import { Avatar } from '@material-ui/core'
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
-import CheckIcon from '@material-ui/icons/Check'
-import { RiMessengerFill } from 'react-icons/ri'
-import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined'
-import NotificationsIcon from '@material-ui/icons/Notifications'
-import PhoneIcon from '@material-ui/icons/Phone'
-import VideocamIcon from '@material-ui/icons/Videocam'
+import UserOptions from './MessengerUserOptions'
 import './MessengerDropDownUser.scss'
 
-function MessengerDropDownUser() {
-  return <div className='messengerDropDownUser'></div>
+function MessengerDropDownUser({ src, name, message, date }) {
+  return (
+    <div className='messengerDropDownUser'>
+      <Avatar className='messengerDropDownUser__avatar' src={src} />
+      <div className='messengerDropDownUser__content'>
+        <h5>{name}</h5>
+        <p>
+          {message}
+          <span> &#8729; {date}</span>
+        </p>
+      </div>
+    </div>
+  )
 }
 
 export default MessengerDropDownUser

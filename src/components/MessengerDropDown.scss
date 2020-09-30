@@ -10,10 +10,24 @@
     rgba($white, 0.5) 0rem 0rem 0rem 0.1rem inset;
   max-width: 36rem;
   width: 36rem;
-  max-height: 70rem;
-  height: 70rem;
-  top: 20rem;
+  max-height: 100rem;
+  height: 85rem;
+  top: 10rem;
   right: 20rem;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0.8rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #fff;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #bcc0c4;
+    border-radius: 2rem;
+  }
 
   &__header {
     padding-left: 0rem;
@@ -91,6 +105,7 @@
     padding: 1rem;
     display: flex;
     align-items: center;
+    margin-bottom: 1rem;
 
     &__icon {
       color: #6b7179 !important;
