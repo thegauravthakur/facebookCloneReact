@@ -148,7 +148,9 @@ export default function Navbar() {
             outsideClickIgnoreClass={'navbar__right__notifications__button'}
           />
 
-          <button className='navbar__right__button navbar__right__account_button'>
+          <button
+            className='navbar__right__button navbar__right__account_button'
+            onClick={() => toggleDropDownStatus(setAccountDropDownOpen)}>
             <ArrowDropDownRoundedIcon className='navbar__right__icon navbar__right__icon__arrow' />
             <Tip text='Account' />
           </button>

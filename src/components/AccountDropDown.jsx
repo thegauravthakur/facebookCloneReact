@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Avatar } from '@material-ui/core'
 import onClickOutside from 'react-onclickoutside'
 import Brightness3Icon from '@material-ui/icons/Brightness3'
@@ -21,15 +21,31 @@ import Checkbox from './Checkbox'
 import './AccountDropDown.scss'
 
 function AccountDropDown(isDropDownOpen, setAccountDropDownOpen) {
-  AccountDropDown.handleClickOutside = () => {
-    setAccountDropDownOpen(false)
+  const [activeMenu, setActiveMenu] = useState('main')
+  const [menuHeight, setMenuHeight] = useState(null)
+
+  const dropDownRef = useRef(null)
+
+  useEffect(() => {
+    setMenuHeight(dropDownRef.current?.firstChild.offsetHeight)
+  }, [])
+
+  function calcHeight(el) {
+    const height = el.offsetHeight
+    setMenuHeight(height)
   }
 
-  const [activeMenu, setActiveMenu] = useState('main')
-
   return (
-    <>
-      <CSSTransition in={activeMenu === 'main'} unmountOnExit timeout={500} classNames='menu-primary'>
+    <div
+      className={`accountDropDown__wrapper ${isDropDownOpen && 'accountDropDown__wrapper__Open'}`}
+      style={{ height: menuHeight }}
+      ref={dropDownRef}>
+      <CSSTransition
+        in={activeMenu === 'main'}
+        unmountOnExit
+        timeout={500}
+        classNames='menu-primary'
+        onEnter={calcHeight}>
         <div className='accountDropDown'>
           <div className='accountDropDown__header'>
             <Avatar className='accountDropDown__header__avatar' />
@@ -51,7 +67,9 @@ function AccountDropDown(isDropDownOpen, setAccountDropDownOpen) {
 
           <hr className='accountDropDown__line' />
 
-          <div className='accountDropDown__row accountDropDown__row__secondary'>
+          <div
+            className='accountDropDown__row accountDropDown__row__secondary'
+            onClick={() => setActiveMenu('settings')}>
             <div className='accountDropDown__row__icon__container'>
               <SettingsIcon className='accountDropDown__row__icon' />
             </div>
@@ -61,7 +79,7 @@ function AccountDropDown(isDropDownOpen, setAccountDropDownOpen) {
             </div>
           </div>
 
-          <div className='accountDropDown__row accountDropDown__row__secondary'>
+          <div className='accountDropDown__row accountDropDown__row__secondary' onClick={() => setActiveMenu('help')}>
             <div className='accountDropDown__row__icon__container'>
               <HelpIcon className='accountDropDown__row__icon' />
             </div>
@@ -99,10 +117,15 @@ function AccountDropDown(isDropDownOpen, setAccountDropDownOpen) {
         </div>
       </CSSTransition>
 
-      <CSSTransition in={activeMenu === 'settings'} unmountOnExit timeout={500} classNames='menu-settings'>
+      <CSSTransition
+        in={activeMenu === 'settings'}
+        unmountOnExit
+        timeout={500}
+        classNames='menu-settings'
+        onEnter={calcHeight}>
         <div className='accountDropDown'>
           <div className='accountDropDown__header accountDropDown__header__settings'>
-            <div className='accountDropDown__header__back__icon__container '>
+            <div className='accountDropDown__header__back__icon__container ' onClick={() => setActiveMenu('main')}>
               <ArrowBackIcon className='accountDropDown__header__back__icon' />
             </div>
 
@@ -167,10 +190,15 @@ function AccountDropDown(isDropDownOpen, setAccountDropDownOpen) {
         </div>
       </CSSTransition>
 
-      <CSSTransition in={activeMenu === 'help'} unmountOnExit timeout={500} classNames='menu-help'>
+      <CSSTransition
+        in={activeMenu === 'help'}
+        unmountOnExit
+        timeout={500}
+        classNames='menu-settings'
+        onEnter={calcHeight}>
         <div className='accountDropDown'>
           <div className='accountDropDown__header accountDropDown__header__settings'>
-            <div className='accountDropDown__header__back__icon__container '>
+            <div className='accountDropDown__header__back__icon__container ' onClick={() => setActiveMenu('main')}>
               <ArrowBackIcon className='accountDropDown__header__back__icon' />
             </div>
 
@@ -216,12 +244,8 @@ function AccountDropDown(isDropDownOpen, setAccountDropDownOpen) {
           </div>
         </div>
       </CSSTransition>
-    </>
+    </div>
   )
 }
 
-const clickOutsideConfig = {
-  handleClickOutside: () => AccountDropDown.handleClickOutside,
-}
-
-export default onClickOutside(AccountDropDown)
+export default AccountDropDown
