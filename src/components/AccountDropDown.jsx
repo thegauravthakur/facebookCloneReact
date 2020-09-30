@@ -25,7 +25,7 @@ function AccountDropDown(isDropDownOpen, setAccountDropDownOpen) {
     setAccountDropDownOpen(false)
   }
 
-  const [activeMenu, setActiveMenu] = useState('settings')
+  const [activeMenu, setActiveMenu] = useState('main')
 
   return (
     <>
@@ -122,7 +122,7 @@ function AccountDropDown(isDropDownOpen, setAccountDropDownOpen) {
 
           <div className='accountDropDown__row accountDropDown__row__secondary'>
             <div className='accountDropDown__row__icon__container'>
-              <HelpIcon className='accountDropDown__row__icon' />
+              <EnhancedEncryptionIcon className='accountDropDown__row__icon' />
             </div>
             <div className='accountDropDown__row__content accountDropDown__row__content__secondary'>
               <h4>Privacy Checkup</h4>
@@ -131,7 +131,7 @@ function AccountDropDown(isDropDownOpen, setAccountDropDownOpen) {
 
           <div className='accountDropDown__row accountDropDown__row__secondary'>
             <div className='accountDropDown__row__icon__container'>
-              <Brightness3Icon className='accountDropDown__row__icon accountDropDown__row__icon__darkmode' />
+              <LockIcon className='accountDropDown__row__icon accountDropDown__row__icon' />
             </div>
             <div className='accountDropDown__row__content accountDropDown__row__content__secondary'>
               <h4>Privacy Shortcuts</h4>
@@ -140,7 +140,7 @@ function AccountDropDown(isDropDownOpen, setAccountDropDownOpen) {
 
           <div className='accountDropDown__row accountDropDown__row__secondary'>
             <div className='accountDropDown__row__icon__container'>
-              <ExitToAppIcon className='accountDropDown__row__icon accountDropDown__row__icon__darkmode' />
+              <FormatListBulletedIcon className='accountDropDown__row__icon accountDropDown__row__icon__darkmode' />
             </div>
             <div className='accountDropDown__row__content accountDropDown__row__content__secondary'>
               <h4>Activity Log</h4>
@@ -149,7 +149,7 @@ function AccountDropDown(isDropDownOpen, setAccountDropDownOpen) {
 
           <div className='accountDropDown__row accountDropDown__row__secondary'>
             <div className='accountDropDown__row__icon__container'>
-              <ExitToAppIcon className='accountDropDown__row__icon accountDropDown__row__icon__darkmode' />
+              <PostAddIcon className='accountDropDown__row__icon accountDropDown__row__icon__darkmode' />
             </div>
             <div className='accountDropDown__row__content accountDropDown__row__content__secondary'>
               <h4>News Feed Preferences</h4>
@@ -158,10 +158,60 @@ function AccountDropDown(isDropDownOpen, setAccountDropDownOpen) {
 
           <div className='accountDropDown__row accountDropDown__row__secondary'>
             <div className='accountDropDown__row__icon__container'>
-              <ExitToAppIcon className='accountDropDown__row__icon accountDropDown__row__icon__darkmode' />
+              <LanguageIcon className='accountDropDown__row__icon accountDropDown__row__icon__darkmode' />
             </div>
             <div className='accountDropDown__row__content accountDropDown__row__content__secondary'>
               <h4>Language</h4>
+            </div>
+          </div>
+        </div>
+      </CSSTransition>
+
+      <CSSTransition in={activeMenu === 'help'} unmountOnExit timeout={500} classNames='menu-help'>
+        <div className='accountDropDown'>
+          <div className='accountDropDown__header accountDropDown__header__settings'>
+            <div className='accountDropDown__header__back__icon__container '>
+              <ArrowBackIcon className='accountDropDown__header__back__icon' />
+            </div>
+
+            <div className='accountDropDown__header__content'>
+              <h4 className='accountDropDown__header__settings__text'>Help & Support</h4>
+            </div>
+          </div>
+
+          <div className='accountDropDown__row accountDropDown__row__secondary'>
+            <div className='accountDropDown__row__icon__container'>
+              <HelpIcon className='accountDropDown__row__icon' />
+            </div>
+            <div className='accountDropDown__row__content accountDropDown__row__content__secondary'>
+              <h4>Help Center</h4>
+            </div>
+          </div>
+
+          <div className='accountDropDown__row accountDropDown__row__secondary'>
+            <div className='accountDropDown__row__icon__container'>
+              <ChatBubbleIcon className='accountDropDown__row__icon' />
+            </div>
+            <div className='accountDropDown__row__content accountDropDown__row__content__secondary'>
+              <h4>Help Community</h4>
+            </div>
+          </div>
+
+          <div className='accountDropDown__row accountDropDown__row__secondary'>
+            <div className='accountDropDown__row__icon__container'>
+              <LocalPostOfficeIcon className='accountDropDown__row__icon accountDropDown__row__icon' />
+            </div>
+            <div className='accountDropDown__row__content accountDropDown__row__content__secondary'>
+              <h4>Support Inbox</h4>
+            </div>
+          </div>
+
+          <div className='accountDropDown__row accountDropDown__row__secondary'>
+            <div className='accountDropDown__row__icon__container'>
+              <ReportIcon className='accountDropDown__row__icon accountDropDown__row__icon__darkmode' />
+            </div>
+            <div className='accountDropDown__row__content accountDropDown__row__content__secondary'>
+              <h4>Report a Problem</h4>
             </div>
           </div>
         </div>
