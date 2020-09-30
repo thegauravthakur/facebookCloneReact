@@ -20,7 +20,7 @@
   &__line {
     border: none;
     border-bottom: 1px solid rgba($black, 0.2);
-    margin: 0 1rem 1rem 1rem;
+    margin: 0 1rem 0.7rem 1rem;
   }
 
   &__header {
@@ -59,5 +59,48 @@
 
   &__row {
     position: relative;
+    width: 100%;
+    padding: 1rem 1rem;
+    transition: 0.2s ease-in-out;
+    background-color: #fff;
+    border-radius: 0.8rem;
+    margin-bottom: 0.7rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      background-color: #f2f2f2;
+    }
+
+    &__icon__container {
+      height: 3.6rem !important;
+      max-width: 3.6rem !important;
+      width: 3.6rem !important;
+      max-height: 3.6rem !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      border-radius: 50%;
+      background-color: #e4e6eb;
+    }
+
+    &__icon {
+      font-size: 2rem !important;
+      color: #1c1e21 !important;
+    }
+
+    &__content {
+      & > h4 {
+        color: #050505;
+        font-size: 1.5rem;
+      }
+
+      & > p {
+        color: #65676b;
+        font-size: 1.3rem;
+      }
+    }
   }
 }
