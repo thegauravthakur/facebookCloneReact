@@ -35,8 +35,8 @@ export default function Navbar() {
           <svg viewBox='0 0 36 36' className='navbar__left__logo' fill='url(#jsc_s_2)' height='40' width='40'>
             <defs>
               <linearGradient x1='50%' x2='50%' y1='97.0782153%' y2='0%' id='jsc_s_2'>
-                <stop offset='0%' stop-color='#0062E0'></stop>
-                <stop offset='100%' stop-color='#19AFFF'></stop>
+                <stop offset='0%' stopColor='#0062E0'></stop>
+                <stop offset='100%' stopColor='#19AFFF'></stop>
               </linearGradient>
             </defs>
             <path d='M15 35.8C6.5 34.3 0 26.9 0 18 0 8.1 8.1 0 18 0s18 8.1 18 18c0 8.9-6.5 16.3-15 17.8l-1-.8h-4l-1 .8z'></path>
@@ -98,15 +98,23 @@ export default function Navbar() {
             <h4>William</h4>
           </div>
 
-          <button className='navbar__right__button' onClick={() => toggleDropDownStatus(setCreateDropDownOpen)}>
+          <button
+            className='navbar__right__button navbar__right__create__button'
+            onClick={() => toggleDropDownStatus(setCreateDropDownOpen)}>
             <AddIcon className='navbar__right__icon' />
 
             <Tip text='Create' />
           </button>
 
-          <CreateDropDown isDropDownOpen={createDropDownOpen} setCreateDropDownOpen={setCreateDropDownOpen} />
+          <CreateDropDown
+            isDropDownOpen={createDropDownOpen}
+            setCreateDropDownOpen={setCreateDropDownOpen}
+            outsideClickIgnoreClass={'navbar__right__create__button'}
+          />
 
-          <button className='navbar__right__button' onClick={() => toggleDropDownStatus(setMessengerDropDownOpen)}>
+          <button
+            className='navbar__right__button navbar__right__messenger__button'
+            onClick={() => toggleDropDownStatus(setMessengerDropDownOpen)}>
             <svg viewBox='0 0 28 28' alt='' className='navbar__right__icon' height='20' width='20'>
               <path d='M14 2.042c6.76 0 12 4.952 12 11.64S20.76 25.322 14 25.322a13.091 13.091 0 0 1-3.474-.461.956 .956 0 0 0-.641.047L7.5 25.959a.961.961 0 0 1-1.348-.849l-.065-2.134a.957.957 0 0 0-.322-.684A11.389 11.389 0 0 1 2 13.682C2 6.994 7.24 2.042 14 2.042ZM6.794 17.086a.57.57 0 0 0 .827.758l3.786-2.874a.722.722 0 0 1 .868 0l2.8 2.1a1.8 1.8 0 0 0 2.6-.481l3.525-5.592a.57.57 0 0 0-.827-.758l-3.786 2.874a.722.722 0 0 1-.868 0l-2.8-2.1a1.8 1.8 0 0 0-2.6.481Z'></path>
             </svg>
@@ -117,6 +125,7 @@ export default function Navbar() {
           <MessengerDropDown
             isDropDownOpen={messengerDropDownOpen}
             setMessengerDropDownOpen={setMessengerDropDownOpen}
+            outsideClickIgnoreClass={'navbar__right__messenger__button'}
           />
 
           <button className='navbar__right__button'>

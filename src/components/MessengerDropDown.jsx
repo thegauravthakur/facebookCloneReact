@@ -19,7 +19,7 @@ function MessengerDropDown({ isDropDownOpen, setMessengerDropDownOpen }) {
 
   return (
     <>
-      <div className={`messengerDropDown ${isDropDownOpen && 'messengerDropDown__Open'}`}>
+      <div className={`messengerDropDown  ${isDropDownOpen && 'messengerDropDown__Open'}`}>
         <div className='messengerDropDown__container'>
           <div className='messengerDropDown__header'>
             <h4>Messenger</h4>
@@ -196,7 +196,8 @@ function MessengerDropDown({ isDropDownOpen, setMessengerDropDownOpen }) {
           </div>
         </div>
       </div>
-      <div className='messengerDropDown__footer'>
+
+      <div className={`messengerDropDown__footer ${isDropDownOpen && 'messengerDropDown__footer__Open'}`}>
         <Link to='/messenger'>See All in Messenger</Link>
       </div>
     </>

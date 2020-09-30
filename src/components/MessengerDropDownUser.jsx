@@ -16,7 +16,11 @@ function MessengerDropDownUser({ src, name, message, date }) {
       <div className='messengerDropDownUser__options' onClick={toggleUserOptionStatus}>
         <MoreHorizIcon className='messengerDropDownUser__options__icon' />
       </div>
-      <UserOptions isUserOptionOpen={userOptionOpen} setUserOptionsOpen={setUserOptionsOpen} />
+      <UserOptions
+        isUserOptionOpen={userOptionOpen}
+        setUserOptionsOpen={setUserOptionsOpen}
+        outsideClickIgnoreClass={'messengerDropDownUser__options'}
+      />
 
       <Avatar className='messengerDropDownUser__avatar' src={src} />
       <div className='messengerDropDownUser__content'>

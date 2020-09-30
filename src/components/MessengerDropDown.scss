@@ -143,6 +143,7 @@
     padding: 1rem;
     top: 90rem;
     right: 2rem;
+    display: none;
 
     & > a {
       color: #216fdb;
@@ -157,5 +158,9 @@
 }
 
 .messengerDropDown__Open {
-  display: block !important;
+  display: block;
+}
+
+.messengerDropDown__footer__Open {
+  display: flex;
 }
