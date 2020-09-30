@@ -9,7 +9,7 @@
   right: 10rem;
   padding: 1rem;
   max-height: 45rem;
-  height: 44rem;
+  height: 45rem;
   max-width: 36rem;
   width: 36rem;
   border-radius: 0.8rem;
@@ -69,6 +69,10 @@
     display: flex;
     align-items: center;
 
+    &__secondary {
+      margin-bottom: 0.1rem;
+    }
+
     &:hover {
       background-color: #f2f2f2;
     }
@@ -89,6 +93,10 @@
     &__icon {
       font-size: 2rem !important;
       color: #1c1e21 !important;
+
+      &__darkmode {
+        transform: rotate(180deg);
+      }
     }
 
     &__content {
