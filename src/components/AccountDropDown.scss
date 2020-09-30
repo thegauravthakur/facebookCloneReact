@@ -8,8 +8,8 @@
   top: 10rem;
   right: 10rem;
   padding: 1rem;
-  max-height: 46rem;
-  height: 45.5rem;
+  max-height: 45.5rem;
+  // height: 45.5rem;
   max-width: 36rem;
   width: 36rem;
   border-radius: 0.8rem;
@@ -34,6 +34,19 @@
 
     &:hover {
       background-color: $lightGray;
+    }
+
+    &__settings {
+      cursor: default;
+      background-color: #fff;
+
+      &:hover {
+        background-color: #fff;
+      }
+    }
+
+    &__back__icon {
+      font-size: 2rem !important;
     }
 
     &__avatar {
@@ -135,4 +148,55 @@
       }
     }
   }
+}
+
+.menu-primary-enter {
+  position: absolute;
+  transform: translateX(-110%);
+}
+.menu-primary-enter-active {
+  transform: translateX(0%);
+  transition: 0.5s ease;
+}
+
+.menu-primary-enter-exit {
+  position: absolute;
+}
+.menu-primary-enter-active {
+  transform: translateX(-110%);
+  transition: 0.5s ease;
+}
+
+.menu-settings-enter {
+  position: absolute;
+  transform: translateX(-110%);
+}
+.menu-settings-enter-active {
+  transform: translateX(0%);
+  transition: 0.5s ease;
+}
+
+.menu-settings-enter-exit {
+  position: absolute;
+}
+.menu-settings-enter-active {
+  transform: translateX(-110%);
+  transition: 0.5s ease;
+}
+
+.menu-help-enter {
+  position: absolute;
+  transform: translateX(-110%);
+}
+.menu-help-enter-active {
+  transform: translateX(0%);
+  transition: 0.5s ease;
+}
+
+.menu-help-enter-exit {
+  position: absolute;
+}
+.menu-help-enter-active {
+  transform: translateX(-110%);
+  transition: 0.5s ease;
 }
