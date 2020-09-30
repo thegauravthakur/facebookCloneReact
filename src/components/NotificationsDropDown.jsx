@@ -21,6 +21,19 @@ function NotificationsDropDown({ isDropDownOpen, setNotificationsDropDownOpen })
         </div>
 
         <h5>New</h5>
+        <Notification src color notification time type Icon />
+        <Notification src color notification time type Icon />
+
+        <h5>Earlier</h5>
+
+        <Notification src color notification time type Icon />
+        <Notification src color notification time type Icon />
+        <Notification src color notification time type Icon />
+        <Notification src color notification time type Icon />
+        <Notification src color notification time type Icon />
+        <Notification src color notification time type Icon />
+        <Notification src color notification time type Icon />
+        <Notification src color notification time type Icon />
       </div>
     </div>
   )

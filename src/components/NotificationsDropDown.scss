@@ -33,6 +33,12 @@
       font-size: 1.7rem;
       color: #050505;
       padding-left: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    & > h5:last-of-type {
+      padding-top: 1rem;
+      margin-bottom: 1rem;
     }
   }
 

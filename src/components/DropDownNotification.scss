@@ -1,2 +1,66 @@
 @import '../mixins';
 @import '../variables';
+
+.DropDownNotification {
+  padding: 1rem 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 0.8rem;
+  position: relative;
+
+  &__dot {
+    color: #1876f2;
+    position: absolute;
+    top: 50%;
+    right: 0rem;
+    transform: translateY(-50%);
+  }
+
+  &:hover {
+    background-color: $lightGray;
+  }
+
+  &__content {
+    &__text {
+      font-size: 1.5rem;
+      font-weight: normal;
+      font-family: 'Segoe UI';
+      color: #050505;
+    }
+
+    &__time {
+      font-size: 1.3rem;
+      color: #1876f2;
+      font-weight: 600;
+    }
+  }
+
+  &__avatar {
+    height: 5.6rem !important;
+    max-height: 5.6rem !important;
+    width: 5.6rem !important;
+    max-width: 5.6rem !important;
+    margin-right: 1rem;
+
+    &__type {
+      position: absolute;
+      background-color: red;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 2.8rem;
+      width: 2.8rem;
+      height: 2.8rem;
+      max-height: 2.8rem;
+      top: 5.5rem;
+      left: 4.5rem;
+
+      &__icon {
+        color: #fff !important;
+        font-size: 1.8rem !important;
+      }
+    }
+  }
+}
