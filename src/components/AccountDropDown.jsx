@@ -48,9 +48,9 @@ function AccountDropDown(isDropDownOpen, setAccountDropDownOpen) {
         <div className='accountDropDown__row__icon__container'>
           <SettingsIcon className='accountDropDown__row__icon' />
         </div>
-        <div className='accountDropDown__row__content'>
-          <h4>Give Feedback</h4>
-          <ArrowForwardIosIcon />
+        <div className='accountDropDown__row__content accountDropDown__row__content__secondary'>
+          <h4>Settings & Privacy</h4>
+          <ArrowForwardIosIcon className='accountDropDown__row__content__arrow' />
         </div>
       </div>
     </div>

@@ -101,6 +101,18 @@
         color: #65676b;
         font-size: 1.3rem;
       }
+
+      &__secondary {
+        display: flex;
+        align-items: center;
+      }
+
+      &__arrow {
+        position: absolute;
+        right: 1rem;
+        color: #7b8188 !important;
+        font-size: 2rem !important;
+      }
     }
   }
 }
