@@ -6,6 +6,41 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  border-radius: 0.8rem;
+
+  &:hover {
+    background-color: $lightGray;
+  }
+
+  &:hover > .messengerDropDownUser__options {
+    display: flex;
+  }
+
+  &__options {
+    position: absolute;
+    right: 3rem;
+    border-radius: 50%;
+    height: 3.6rem;
+    max-height: 3.6rem;
+    max-width: 3.6rem;
+    width: 3.6rem;
+    border: 1px solid rgb(101, 103, 107);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    transition: 0.1s ease-in-out;
+    display: none;
+
+    &:hover {
+      background-color: darken($lightGray, 2);
+    }
+
+    &__icon {
+      font-size: 2rem !important;
+      color: darken(gray, 20) !important;
+    }
+  }
 
   &__content {
     & > h5 {

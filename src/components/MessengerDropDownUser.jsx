@@ -7,6 +7,10 @@ import './MessengerDropDownUser.scss'
 function MessengerDropDownUser({ src, name, message, date }) {
   return (
     <div className='messengerDropDownUser'>
+      <div className='messengerDropDownUser__options'>
+        <MoreHorizIcon className='messengerDropDownUser__options__icon' />
+      </div>
+
       <Avatar className='messengerDropDownUser__avatar' src={src} />
       <div className='messengerDropDownUser__content'>
         <h5>{name}</h5>
