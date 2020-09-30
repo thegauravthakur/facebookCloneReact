@@ -15,6 +15,7 @@ import ReportIcon from '@material-ui/icons/Report'
 import ChatBubbleIcon from '@material-ui/icons/ChatBubble'
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos'
 import { CSSTransition } from 'react-transition-group'
+import Checkbox from './Checkbox'
 import './AccountDropDown.scss'
 
 function AccountDropDown(isDropDownOpen, setAccountDropDownOpen) {
@@ -70,7 +71,7 @@ function AccountDropDown(isDropDownOpen, setAccountDropDownOpen) {
         </div>
         <div className='accountDropDown__row__content accountDropDown__row__content__secondary'>
           <h4>Dark Mode</h4>
-          <ArrowForwardIosIcon className='accountDropDown__row__content__arrow' />
+          <Checkbox />
         </div>
       </div>
 

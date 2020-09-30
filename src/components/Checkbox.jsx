@@ -5,7 +5,7 @@ function Checkbox() {
   return (
     <div className='checkbox'>
       <input className='checkbox__input' type='checkbox' name='checkbox' id='checkbox' />
-      <span className='checkbox__check'></span>
+      <label className='checkbox__check' for='checkbox'></label>
     </div>
   )
 }
