@@ -19,16 +19,51 @@
   }
 
   &__header {
-    padding-left: 1rem;
+    padding-left: 0rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-right: 1rem;
 
+    & > h4 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      font-family: 'Segoe UI';
+    }
+
     &__icon {
+      font-size: 2.4rem !important;
+
+      cursor: pointer;
+      color: #5b626a !important;
+    }
+
+    &__icons {
+      display: flex;
+      align-items: center;
     }
 
     &__icon__container {
+      margin-right: 0.5rem;
+      border-radius: 100%;
+      transition: 0.1s ease-in;
+      height: 3.2rem;
+      width: 3.2rem;
+      max-height: 3.2rem;
+      max-width: 3.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background-color: darken($lightGray, 2);
+      }
+    }
+
+    &__icon__container:last-of-type {
+      margin-right: 0;
     }
   }
 }

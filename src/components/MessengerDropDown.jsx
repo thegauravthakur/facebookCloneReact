@@ -14,13 +14,21 @@ function MessengerDropDown() {
     <div className='messengerDropDown'>
       <div className='messengerDropDown__container'>
         <div className='messengerDropDown__header'>
-          <h3>Messenger</h3>
+          <h4>Messenger</h4>
 
-          <div className='messengerDropDown__header__icon__container'>
-            <FullscreenExitIcon className='messengerDropDown__header__icon' />
-            <VideoCallIcon className='messengerDropDown__header__icon' />
-            <CreateIcon className='messengerDropDown__header__icon' />
-            <MoreHorizIcon className='messengerDropDown__header__icon' />
+          <div className='messengerDropDown__header__icons'>
+            <div className='messengerDropDown__header__icon__container'>
+              <FullscreenExitIcon className='messengerDropDown__header__icon' />
+            </div>
+            <div className='messengerDropDown__header__icon__container'>
+              <VideoCallIcon className='messengerDropDown__header__icon' />
+            </div>
+            <div className='messengerDropDown__header__icon__container'>
+              <CreateIcon className='messengerDropDown__header__icon' />
+            </div>
+            <div className='messengerDropDown__header__icon__container'>
+              <MoreHorizIcon className='messengerDropDown__header__icon' />
+            </div>
           </div>
         </div>
 
