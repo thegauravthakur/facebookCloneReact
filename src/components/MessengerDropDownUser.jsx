@@ -9,6 +9,7 @@ function MessengerDropDownUser({ src, name, message, date }) {
     <div className='messengerDropDownUser'>
       <div className='messengerDropDownUser__options'>
         <MoreHorizIcon className='messengerDropDownUser__options__icon' />
+        <UserOptions />
       </div>
 
       <Avatar className='messengerDropDownUser__avatar' src={src} />

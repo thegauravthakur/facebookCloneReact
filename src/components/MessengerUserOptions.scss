@@ -1,0 +1,41 @@
+@import '../mixins';
+@import '../variables';
+
+.messengerUserOptions {
+  position: absolute;
+  background-color: #fff;
+  right: -4rem;
+  max-width: 35rem;
+  width: 33rem;
+  padding: 1rem;
+  padding-right: 2rem;
+  border-radius: 0.8rem;
+  box-shadow: rgba($black, 0.2) 0rem 1.2rem 2.8rem 0rem, rgba($black, 0.1) 0rem 0.2rem 0.4rem 0rem,
+    rgba($white, 0.5) 0rem 0rem 0rem 0.1rem inset;
+  z-index: 2;
+
+  &__option {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 0.8rem;
+
+    &:hover {
+      background-color: $lightGray;
+    }
+
+    &__icon {
+      color: gray;
+      margin-right: 1rem;
+      font-size: 2.2rem !important;
+    }
+    & > h3 {
+      font-size: 1.5rem;
+      flex: 1;
+      color: #050505;
+    }
+  }
+}
