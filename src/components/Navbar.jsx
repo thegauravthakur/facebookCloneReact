@@ -149,17 +149,18 @@ export default function Navbar() {
           />
 
           <button
-            className='navbar__right__button navbar__right__account_button'
+            className='navbar__right__button navbar__right__account__button'
             onClick={() => toggleDropDownStatus(setAccountDropDownOpen)}>
             <ArrowDropDownRoundedIcon className='navbar__right__icon navbar__right__icon__arrow' />
             <Tip text='Account' />
           </button>
 
-          <AccountDropDown
-            isDropDownOpen={accountDropDownOpen}
-            setAccountDropDownOpen={setAccountDropDownOpen}
-            outsideClickIgnoreClass={'navbar__right__notifications__button'}
-          />
+          {accountDropDownOpen && (
+            <AccountDropDown
+              setAccountDropDownOpen={setAccountDropDownOpen}
+              outsideClickIgnoreClass={'navbar__right__account__button'}
+            />
+          )}
         </div>
       </div>
     </div>

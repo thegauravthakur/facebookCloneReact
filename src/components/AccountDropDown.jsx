@@ -20,7 +20,7 @@ import { CSSTransition } from 'react-transition-group'
 import Checkbox from './Checkbox'
 import './AccountDropDown.scss'
 
-function AccountDropDown(isDropDownOpen, setAccountDropDownOpen) {
+function AccountDropDown(setAccountDropDownOpen) {
   const [activeMenu, setActiveMenu] = useState('main')
   const [menuHeight, setMenuHeight] = useState(null)
 
@@ -36,10 +36,7 @@ function AccountDropDown(isDropDownOpen, setAccountDropDownOpen) {
   }
 
   return (
-    <div
-      className={`accountDropDown__wrapper ${isDropDownOpen && 'accountDropDown__wrapper__Open'}`}
-      style={{ height: menuHeight }}
-      ref={dropDownRef}>
+    <div className='accountDropDown__wrapper' style={{ height: menuHeight }} ref={dropDownRef}>
       <CSSTransition
         in={activeMenu === 'main'}
         unmountOnExit
