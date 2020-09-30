@@ -20,7 +20,7 @@ import { CSSTransition } from 'react-transition-group'
 import Checkbox from './Checkbox'
 import './AccountDropDown.scss'
 
-function AccountDropDown(setAccountDropDownOpen) {
+function AccountDropDown({ setAccountDropDownOpen }) {
   const [activeMenu, setActiveMenu] = useState('main')
   const [menuHeight, setMenuHeight] = useState(null)
 
@@ -33,6 +33,10 @@ function AccountDropDown(setAccountDropDownOpen) {
   function calcHeight(el) {
     const height = el.offsetHeight
     setMenuHeight(height)
+  }
+
+  AccountDropDown.handleClickOutside = () => {
+    setAccountDropDownOpen(false)
   }
 
   return (
@@ -245,4 +249,8 @@ function AccountDropDown(setAccountDropDownOpen) {
   )
 }
 
-export default AccountDropDown
+const clickOutsideConfig = {
+  handleClickOutside: () => AccountDropDown.handleClickOutside,
+}
+
+export default onClickOutside(AccountDropDown, clickOutsideConfig)
