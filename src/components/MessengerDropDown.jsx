@@ -10,12 +10,16 @@ import Tip from './Tip'
 import MessengerDropDownUser from './MessengerDropDownUser'
 import './MessengerDropDown.scss'
 
-function MessengerDropDown() {
+function MessengerDropDown({ isDropDownOpen, setMessengerDropDownOpen }) {
   const history = useHistory()
+
+  MessengerDropDown.handleClickOutside = () => {
+    setMessengerDropDownOpen(false)
+  }
 
   return (
     <>
-      <div className='messengerDropDown'>
+      <div className={`messengerDropDown ${isDropDownOpen && 'messengerDropDown__Open'}`}>
         <div className='messengerDropDown__container'>
           <div className='messengerDropDown__header'>
             <h4>Messenger</h4>
@@ -199,4 +203,8 @@ function MessengerDropDown() {
   )
 }
 
-export default MessengerDropDown
+const clickOutsideConfig = {
+  handleClickOutside: () => MessengerDropDown.handleClickOutside,
+}
+
+export default onClickOutside(MessengerDropDown, clickOutsideConfig)

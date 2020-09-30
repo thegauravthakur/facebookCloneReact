@@ -7,11 +7,16 @@ import './MessengerDropDownUser.scss'
 function MessengerDropDownUser({ src, name, message, date }) {
   const [userOptionOpen, setUserOptionsOpen] = useState(false)
 
+  const toggleUserOptionStatus = () => {
+    setUserOptionsOpen((state) => !state)
+  }
+
   return (
     <div className='messengerDropDownUser'>
-      <div className='messengerDropDownUser__options'>
+      <div className='messengerDropDownUser__options' onClick={toggleUserOptionStatus}>
         <MoreHorizIcon className='messengerDropDownUser__options__icon' />
       </div>
+      <UserOptions isUserOptionOpen={userOptionOpen} setUserOptionsOpen={setUserOptionsOpen} />
 
       <Avatar className='messengerDropDownUser__avatar' src={src} />
       <div className='messengerDropDownUser__content'>

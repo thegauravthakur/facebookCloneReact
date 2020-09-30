@@ -8,9 +8,13 @@ import PhoneIcon from '@material-ui/icons/Phone'
 import VideocamIcon from '@material-ui/icons/Videocam'
 import './MessengerUserOptions.scss'
 
-function MessengerDropDownUserOptions() {
+function MessengerDropDownUserOptions({ isUserOptionOpen, setUserOptionsOpen }) {
+  MessengerDropDownUserOptions.handleClickOutside = () => {
+    setUserOptionsOpen(false)
+  }
+
   return (
-    <div className='messengerUserOptions'>
+    <div className={`messengerUserOptions ${isUserOptionOpen && 'messengerUserOptions__Open'}`}>
       <div className='messengerUserOptions__option'>
         <CheckIcon className='messengerUserOptions__option__icon' />
         <h3>Mark as Unread</h3>
@@ -44,4 +48,8 @@ function MessengerDropDownUserOptions() {
   )
 }
 
-export default MessengerDropDownUserOptions
+const clickOutsideConfig = {
+  handleClickOutside: () => MessengerDropDownUserOptions.handleClickOutside,
+}
+
+export default onClickOutside(MessengerDropDownUserOptions, clickOutsideConfig)
