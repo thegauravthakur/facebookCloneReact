@@ -1,8 +1,13 @@
 import React from 'react'
 import ArrowRightIcon from '@material-ui/icons/ArrowRight'
+import onClickOutside from 'react-onclickoutside'
 import './GenderToolTip.scss'
 
 function GenderToolTip({ toolTipOpen, closeToolTip, setGenderToolTipOpen }) {
+  GenderToolTip.handleClickOutside = () => {
+    setGenderToolTipOpen(false)
+  }
+
   return (
     <div className={`gendertooltip ${toolTipOpen && 'gendertooltip__Open'}`}>
       <ArrowRightIcon className='gendertooltip__arrow' />
@@ -22,4 +27,8 @@ function GenderToolTip({ toolTipOpen, closeToolTip, setGenderToolTipOpen }) {
   )
 }
 
-export default GenderToolTip
+const clickOutsideConfig = {
+  handleClickOutside: () => GenderToolTip.handleClickOutside,
+}
+
+export default onClickOutside(GenderToolTip, clickOutsideConfig)

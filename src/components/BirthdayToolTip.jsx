@@ -1,8 +1,13 @@
 import React from 'react'
 import ArrowRightIcon from '@material-ui/icons/ArrowRight'
+import onClickOutside from 'react-onclickoutside'
 import './BirthdayToolTip.scss'
 
 function BirthdayToolTip({ toolTipOpen, closeToolTip, setBirthdayToolTipOpen }) {
+  BirthdayToolTip.handleClickOutside = () => {
+    setBirthdayToolTipOpen(false)
+  }
+
   return (
     <div className={`birthdaytooltip ${toolTipOpen && 'birthdaytooltip__Open'}`}>
       <ArrowRightIcon className='birthdaytooltip__arrow' />
@@ -23,4 +28,8 @@ function BirthdayToolTip({ toolTipOpen, closeToolTip, setBirthdayToolTipOpen }) 
   )
 }
 
-export default BirthdayToolTip
+const clickOutsideConfig = {
+  handleClickOutside: () => BirthdayToolTip.handleClickOutside,
+}
+
+export default onClickOutside(BirthdayToolTip, clickOutsideConfig)

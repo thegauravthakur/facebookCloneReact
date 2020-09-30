@@ -1,6 +1,7 @@
 import React from 'react'
 import CheckIcon from '@material-ui/icons/Check'
 import { RiMessengerFill } from 'react-icons/ri'
+import onClickOutside from 'react-onclickoutside'
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined'
 import NotificationsIcon from '@material-ui/icons/Notifications'
 import PhoneIcon from '@material-ui/icons/Phone'
