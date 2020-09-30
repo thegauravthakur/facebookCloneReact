@@ -15,6 +15,7 @@
   top: 6rem;
   right: 2rem;
   overflow-y: scroll;
+  display: none;
 
   &::-webkit-scrollbar {
     width: 0.8rem;
@@ -78,4 +79,8 @@
       }
     }
   }
+}
+
+.notificationsDropDown__Open {
+  display: block;
 }

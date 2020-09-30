@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import SearchIcon from '@material-ui/icons/Search'
 import { Avatar } from '@material-ui/core'
 import AddIcon from '@material-ui/icons/Add'
@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import CreateDropDown from './CreateDropDown'
 import NotificationsDropDown from './NotificationsDropDown'
 import MessengerDropDown from './MessengerDropDown'
-import DropDown from './DropDown'
+import AccountDropDown from './AccountDropDown'
 import Tip from './Tip'
 import './Navbar.scss'
 
@@ -19,10 +19,15 @@ export default function Navbar() {
     document.body.style.overflowY = 'scroll'
   }, [])
 
+  const createDropDownRef = useRef(null)
+  const messengerDropDownRef = useRef(null)
+  const notificationsDropDownRef = useRef(null)
+  const accountDropDownRef = useRef(null)
+
   const [createDropDownOpen, setCreateDropDownOpen] = useState(false)
   const [messengerDropDownOpen, setMessengerDropDownOpen] = useState(false)
   const [notificationDropDownOpen, setNotificationsDropDownOpen] = useState(false)
-  const [dropDownOpen, setDropDownOpen] = useState(false)
+  const [accountDropDownOpen, setAccountDropDownOpen] = useState(false)
 
   const toggleDropDownStatus = (setState) => {
     setState((state) => !state)
@@ -143,10 +148,16 @@ export default function Navbar() {
             outsideClickIgnoreClass={'navbar__right__notifications__button'}
           />
 
-          <button className='navbar__right__button'>
+          <button className='navbar__right__button navbar__right__account_button'>
             <ArrowDropDownRoundedIcon className='navbar__right__icon navbar__right__icon__arrow' />
             <Tip text='Account' />
           </button>
+
+          <AccountDropDown
+            isDropDownOpen={accountDropDownOpen}
+            setAccountDropDownOpen={setAccountDropDownOpen}
+            outsideClickIgnoreClass={'navbar__right__notifications__button'}
+          />
         </div>
       </div>
     </div>

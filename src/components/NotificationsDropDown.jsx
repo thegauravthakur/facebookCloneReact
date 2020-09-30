@@ -10,8 +10,11 @@ import VideocamIcon from '@material-ui/icons/Videocam'
 import './NotificationsDropDown.scss'
 
 function NotificationsDropDown({ isDropDownOpen, setNotificationsDropDownOpen }) {
+  NotificationsDropDown.handleClickOutside = () => {
+    setNotificationsDropDownOpen(false)
+  }
   return (
-    <div className='notificationsDropDown'>
+    <div className={`notificationsDropDown ${isDropDownOpen && 'notificationsDropDown__Open'}`}>
       <div className='notificationsDropDown__container'>
         <div className='notificationsDropDown__header'>
           <h4>Notifications</h4>
@@ -120,4 +123,8 @@ function NotificationsDropDown({ isDropDownOpen, setNotificationsDropDownOpen })
   )
 }
 
-export default NotificationsDropDown
+const clickOutsideConfig = {
+  handleClickOutside: () => NotificationsDropDown.handleClickOutside,
+}
+
+export default onClickOutside(NotificationsDropDown, clickOutsideConfig)

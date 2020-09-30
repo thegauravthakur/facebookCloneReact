@@ -1,0 +1,63 @@
+@import '../mixins';
+@import '../variables';
+
+.accountDropDown {
+  transition: 0.5s ease;
+  position: absolute;
+  background-color: #fff;
+  top: 10rem;
+  right: 10rem;
+  padding: 1rem;
+  max-height: 45rem;
+  height: 44rem;
+  max-width: 36rem;
+  width: 36rem;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  box-shadow: rgba($black, 0.2) 0rem 1.2rem 2.8rem 0rem, rgba($black, 0.1) 0rem 0.2rem 0.4rem 0rem,
+    rgba($white, 0.5) 0rem 0rem 0rem 0.1rem inset;
+
+  &__line {
+    border: none;
+    border-bottom: 1px solid rgba($black, 0.2);
+    margin: 0 1rem 1rem 1rem;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    border-radius: 0.8rem;
+    padding: 1rem 1rem;
+
+    &:hover {
+      background-color: $lightGray;
+    }
+
+    &__avatar {
+      height: 6rem !important;
+      max-width: 6rem !important;
+      width: 6rem !important;
+      max-height: 6rem !important;
+      margin-right: 1rem;
+    }
+
+    &__content {
+      & > h4 {
+        color: #050505;
+        font-size: 1.7rem;
+      }
+
+      & > p {
+        color: #65676b;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  &__row {
+    position: relative;
+  }
+}
