@@ -58,6 +58,25 @@
       &:hover {
         background-color: darken($lightGray, 2);
       }
+
+      &:hover > .tip {
+        display: block;
+        opacity: 1;
+        top: 5rem;
+      }
+    }
+
+    &__icon__container:nth-of-type(1):hover > .tip {
+      left: 10rem;
+    }
+    &__icon__container:nth-of-type(2):hover > .tip {
+      left: 18rem;
+    }
+    &__icon__container:nth-of-type(3):hover > .tip {
+      left: 22rem;
+    }
+    &__icon__container:nth-of-type(4):hover > .tip {
+      left: 26rem;
     }
 
     &__icon__container:last-of-type {
