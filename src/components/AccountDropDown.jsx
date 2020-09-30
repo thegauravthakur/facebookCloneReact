@@ -9,6 +9,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted'
 import LockIcon from '@material-ui/icons/Lock'
+import EnhancedEncryptionIcon from '@material-ui/icons/EnhancedEncryption'
 import LanguageIcon from '@material-ui/icons/Language'
 import PostAddIcon from '@material-ui/icons/PostAdd'
 import LocalPostOfficeIcon from '@material-ui/icons/LocalPostOffice'
@@ -101,12 +102,12 @@ function AccountDropDown(isDropDownOpen, setAccountDropDownOpen) {
       <CSSTransition in={activeMenu === 'settings'} unmountOnExit timeout={500} classNames='menu-settings'>
         <div className='accountDropDown'>
           <div className='accountDropDown__header accountDropDown__header__settings'>
-            <div className='accountDropDown__header__back__icon__container'>
+            <div className='accountDropDown__header__back__icon__container '>
               <ArrowBackIcon className='accountDropDown__header__back__icon' />
             </div>
 
             <div className='accountDropDown__header__content'>
-              <h4>Settings & Privacy</h4>
+              <h4 className='accountDropDown__header__settings__text'>Settings & Privacy</h4>
             </div>
           </div>
 
@@ -115,8 +116,7 @@ function AccountDropDown(isDropDownOpen, setAccountDropDownOpen) {
               <SettingsIcon className='accountDropDown__row__icon' />
             </div>
             <div className='accountDropDown__row__content accountDropDown__row__content__secondary'>
-              <h4>Settings & Privacy</h4>
-              <ArrowForwardIosIcon className='accountDropDown__row__content__arrow' />
+              <h4>Settings</h4>
             </div>
           </div>
 
@@ -125,8 +125,7 @@ function AccountDropDown(isDropDownOpen, setAccountDropDownOpen) {
               <HelpIcon className='accountDropDown__row__icon' />
             </div>
             <div className='accountDropDown__row__content accountDropDown__row__content__secondary'>
-              <h4>Help & Support</h4>
-              <ArrowForwardIosIcon className='accountDropDown__row__content__arrow' />
+              <h4>Privacy Checkup</h4>
             </div>
           </div>
 
@@ -135,8 +134,7 @@ function AccountDropDown(isDropDownOpen, setAccountDropDownOpen) {
               <Brightness3Icon className='accountDropDown__row__icon accountDropDown__row__icon__darkmode' />
             </div>
             <div className='accountDropDown__row__content accountDropDown__row__content__secondary'>
-              <h4>Dark Mode</h4>
-              <Checkbox />
+              <h4>Privacy Shortcuts</h4>
             </div>
           </div>
 
@@ -145,7 +143,25 @@ function AccountDropDown(isDropDownOpen, setAccountDropDownOpen) {
               <ExitToAppIcon className='accountDropDown__row__icon accountDropDown__row__icon__darkmode' />
             </div>
             <div className='accountDropDown__row__content accountDropDown__row__content__secondary'>
-              <h4>Log Out</h4>
+              <h4>Activity Log</h4>
+            </div>
+          </div>
+
+          <div className='accountDropDown__row accountDropDown__row__secondary'>
+            <div className='accountDropDown__row__icon__container'>
+              <ExitToAppIcon className='accountDropDown__row__icon accountDropDown__row__icon__darkmode' />
+            </div>
+            <div className='accountDropDown__row__content accountDropDown__row__content__secondary'>
+              <h4>News Feed Preferences</h4>
+            </div>
+          </div>
+
+          <div className='accountDropDown__row accountDropDown__row__secondary'>
+            <div className='accountDropDown__row__icon__container'>
+              <ExitToAppIcon className='accountDropDown__row__icon accountDropDown__row__icon__darkmode' />
+            </div>
+            <div className='accountDropDown__row__content accountDropDown__row__content__secondary'>
+              <h4>Language</h4>
             </div>
           </div>
         </div>
