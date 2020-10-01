@@ -35,6 +35,16 @@ export default function Sidebar() {
         title='C++ Developers'
         shortcut
       />
+
+      <div className='sidebar__footer'>
+        <p>
+          <span>Privacy</span> &#8729; <span>Terms</span> &#8729; <span>Advertising</span> &#8729;{' '}
+          <span>Ad Choices</span> &#8729; <span>Cookies</span> &#8729;
+        </p>
+        <p>
+          <span>More</span> &#8729; <span>Facebook &copy; </span>
+        </p>
+      </div>
     </div>
   )
 }

@@ -44,13 +44,13 @@ export default function PostSender() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
           />
-          <input
+          {/* <input
             type='text'
             placeholder='Image URL (Optional)'
             className='postSender__topImageinput'
             value={imageUrl}
             onChange={(e) => setImageUrl(e.target.value)}
-          />
+          /> */}
           <button onClick={handleSubmit} type='submit'>
             Submit
           </button>
