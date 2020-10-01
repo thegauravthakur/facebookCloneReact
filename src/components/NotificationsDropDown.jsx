@@ -9,9 +9,11 @@ import NotificationsIcon from '@material-ui/icons/Notifications'
 import VideocamIcon from '@material-ui/icons/Videocam'
 import './NotificationsDropDown.scss'
 
-function NotificationsDropDown({ isDropDownOpen, setNotificationsDropDownOpen }) {
+function NotificationsDropDown({ isDropDownOpen, setNotificationsDropDownOpen, iconRef }) {
   NotificationsDropDown.handleClickOutside = () => {
     setNotificationsDropDownOpen(false)
+    iconRef.current.style.fill = '#000'
+    iconRef.current.style.color = '#000'
   }
   return (
     <div className={`notificationsDropDown ${isDropDownOpen && 'notificationsDropDown__Open'}`}>

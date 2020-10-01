@@ -8,9 +8,11 @@ import DateRangeRoundedIcon from '@material-ui/icons/DateRangeRounded'
 import onClickOutside from 'react-onclickoutside'
 import './CreateDropDown.scss'
 
-function CreateDropDown({ isDropDownOpen, setCreateDropDownOpen }) {
+function CreateDropDown({ isDropDownOpen, setCreateDropDownOpen, iconRef }) {
   CreateDropDown.handleClickOutside = () => {
     setCreateDropDownOpen(false)
+    iconRef.current.style.fill = '#000'
+    iconRef.current.style.color = '#000'
   }
 
   return (

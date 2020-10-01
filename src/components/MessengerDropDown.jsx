@@ -10,11 +10,13 @@ import Tip from './Tip'
 import MessengerDropDownUser from './MessengerDropDownUser'
 import './MessengerDropDown.scss'
 
-function MessengerDropDown({ isDropDownOpen, setMessengerDropDownOpen }) {
+function MessengerDropDown({ isDropDownOpen, setMessengerDropDownOpen, iconRef }) {
   const history = useHistory()
 
   MessengerDropDown.handleClickOutside = () => {
     setMessengerDropDownOpen(false)
+    iconRef.current.style.fill = '#000'
+    iconRef.current.style.color = '#000'
   }
 
   return (

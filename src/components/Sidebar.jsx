@@ -1,25 +1,23 @@
 import React from 'react'
-import LocalHospitalIcon from '@material-ui/icons/LocalHospital'
-import EmojiFlagsIcon from '@material-ui/icons/EmojiFlags'
-import PeopleIcon from '@material-ui/icons/People'
-import StorefrontIcon from '@material-ui/icons/Storefront'
-import ChatIcon from '@material-ui/icons/Chat'
-import VideoLibraryIcon from '@material-ui/icons/VideoLibrary'
-import ExpandMoreOutlinedIcon from '@material-ui/icons/ExpandMoreOutlined'
+import ExpandMoreRoundedIcon from '@material-ui/icons/ExpandMoreRounded'
 import './Sidebar.scss'
 import SidebarRow from './SidebarRow'
 
 export default function Sidebar() {
   return (
-    <div className='sidebar`'>
-      <SidebarRow title={'William Simms'} src='' />
-      <SidebarRow Icon={LocalHospitalIcon} title='COVID-19 Information Center' />
-      <SidebarRow Icon={EmojiFlagsIcon} title='Pages' />
-      <SidebarRow Icon={PeopleIcon} title='Find Friends' />
-      <SidebarRow Icon={ChatIcon} title='Messenger' />
-      <SidebarRow Icon={StorefrontIcon} title='Marketplace' />
-      <SidebarRow Icon={VideoLibraryIcon} title='Videos' />
-      <SidebarRow Icon={ExpandMoreOutlinedIcon} title='Marketplace' />
+    <div className='sidebar'>
+      <SidebarRow title={'William Simms'} src='' userRow />
+      <SidebarRow
+        image='https://static.xx.fbcdn.net/rsrc.php/v3/yB/r/squBo4GNUfh.png'
+        title='COVID-19 Information Center'
+      />
+      <SidebarRow image='https://static.xx.fbcdn.net/rsrc.php/v3/yx/r/-XF4FQcre_i.png' title='Friends' />
+      <SidebarRow image='https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/mk4dH3FK0jT.png' title='Groups' />
+      <SidebarRow image='https://static.xx.fbcdn.net/rsrc.php/v3/yG/r/A1HlI2LVo58.png' title='Videos' />
+      <SidebarRow image='https://static.xx.fbcdn.net/rsrc.php/v3/yv/r/QAyfjudAqqG.png' title='Events' />
+      <SidebarRow image='https://static.xx.fbcdn.net/rsrc.php/v3/yf/r/GA7Y4WRJMp8.png' title='Memories' />
+      <SidebarRow image='https://static.xx.fbcdn.net/rsrc.php/v3/yr/r/2uPlV4oORjU.png' title='Saved' />
+      <SidebarRow Icon={ExpandMoreRoundedIcon} title='See More' />
     </div>
   )
 }

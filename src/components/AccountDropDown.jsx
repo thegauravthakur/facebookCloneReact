@@ -20,7 +20,7 @@ import { CSSTransition } from 'react-transition-group'
 import Checkbox from './Checkbox'
 import './AccountDropDown.scss'
 
-function AccountDropDown({ setAccountDropDownOpen }) {
+function AccountDropDown({ setAccountDropDownOpen, iconRef }) {
   const [activeMenu, setActiveMenu] = useState('main')
   const [menuHeight, setMenuHeight] = useState(null)
 
@@ -37,6 +37,8 @@ function AccountDropDown({ setAccountDropDownOpen }) {
 
   AccountDropDown.handleClickOutside = () => {
     setAccountDropDownOpen(false)
+    iconRef.current.style.fill = '#000'
+    iconRef.current.style.color = '#000'
   }
 
   return (

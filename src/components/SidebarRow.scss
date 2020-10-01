@@ -6,20 +6,29 @@
   align-items: center;
   cursor: pointer;
   padding: 1rem;
+  padding-left: 0.5rem;
+  margin-left: 0.8rem;
+  border-radius: 1rem;
+  padding-bottom: 0.8rem;
+  transition: 0.1s ease-in-out;
 
   &:hover {
-    border-radius: 1rem;
-    background-color: lightgray;
+    background-color: lighten(#d8dadf, 4);
   }
 
   & > h4 {
-    margin-left: 2rem;
+    margin-left: 1rem;
     font-weight: 600;
     font-size: 1.5rem;
+    color: #050505;
   }
 
   &__Icon {
-    color: $blue;
+    color: #3f4246;
     font-size: 3rem !important;
+  }
+
+  &__image {
+    max-height: 3.5rem;
   }
 }
