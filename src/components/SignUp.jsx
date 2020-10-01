@@ -1,169 +1,182 @@
-import React, { useState, useRef, useContext } from 'react'
-import { useHistory } from 'react-router-dom'
-import ErrorIcon from '@material-ui/icons/Error'
-import HelpIcon from '@material-ui/icons/Help'
-import CloseIcon from '@material-ui/icons/Close'
-import UserContext from '../UserProvider'
-import { auth } from '../firebase'
-import validateEmail from '../utilities/validateEmail'
-import validatePassword from '../utilities/validatePassword'
-import validateYear from '../utilities/validateYear'
-import validateName from '../utilities/validateName'
-import ErrorNotification from './ErrorNotification'
-import BirthdayToolTip from './BirthdayToolTip'
-import GenderToolTip from './GenderToolTip'
-import './SignUp.scss'
+import React, { useState, useRef, useContext } from "react";
+import { useHistory } from "react-router-dom";
+import ErrorIcon from "@material-ui/icons/Error";
+import HelpIcon from "@material-ui/icons/Help";
+import CloseIcon from "@material-ui/icons/Close";
+import UserContext from "../UserProvider";
+import { auth } from "../firebase";
+import validateEmail from "../utilities/validateEmail";
+import validatePassword from "../utilities/validatePassword";
+import validateYear from "../utilities/validateYear";
+import validateName from "../utilities/validateName";
+import ErrorNotification from "./ErrorNotification";
+import BirthdayToolTip from "./BirthdayToolTip";
+import GenderToolTip from "./GenderToolTip";
+import "./SignUp.scss";
 
 function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
-  const { state } = useContext(UserContext)
+  const { state } = useContext(UserContext);
 
-  const history = useHistory()
+  const history = useHistory();
 
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [birthdayDay, setBirthdayDay] = useState('')
-  const [birthdayMonth, setBirthdayMonth] = useState('')
-  const [birthdayYear, setBirthdayYear] = useState('')
-  const [pronoun, setPronoun] = useState('')
-  const [gender, setGender] = useState('')
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [birthdayDay, setBirthdayDay] = useState("");
+  const [birthdayMonth, setBirthdayMonth] = useState("");
+  const [birthdayYear, setBirthdayYear] = useState("");
+  const [pronoun, setPronoun] = useState("");
+  const [gender, setGender] = useState("");
 
-  const [birthdayToolTipOpen, setBirthdayToolTipOpen] = useState(false)
-  const [genderToolTipOpen, setGenderToolTipOpen] = useState(false)
+  const [birthdayToolTipOpen, setBirthdayToolTipOpen] = useState(false);
+  const [genderToolTipOpen, setGenderToolTipOpen] = useState(false);
 
   const openToolTip = (setState) => {
-    setState(true)
-  }
+    setState(true);
+  };
 
   const closeToolTip = (setState) => {
-    setState(false)
-  }
+    setState(false);
+  };
 
-  const customSectionRef = useRef(null)
-  const formRef = useRef(null)
-  const lastNameRef = useRef(null)
-  const emailRef = useRef(null)
-  const passwordRef = useRef(null)
-  const daySelectRef = useRef(null)
-  const monthSelectRef = useRef(null)
-  const yearSelectRef = useRef(null)
-  const femaleSelectRef = useRef(null)
-  const maleSelectRef = useRef(null)
-  const customSelectRef = useRef(null)
-  const firstNameErrorRef = useRef(null)
-  const lastNameErrorRef = useRef(null)
-  const emailErrorRef = useRef(null)
-  const passwordErrorRef = useRef(null)
-  const birthdayErrorRef = useRef(null)
-  const genderErrorRef = useRef(null)
-  const pronounErrorRef = useRef(null)
-  const firstNameNotificationErrorRef = useRef(null)
-  const lastNameNotificationErrorRef = useRef(null)
-  const emailNotificationErrorRef = useRef(null)
-  const passwordNotificationErrorRef = useRef(null)
-  const birthdayNotificationErrorRef = useRef(null)
-  const genderNotificationErrorRef = useRef(null)
-  const pronounNotificationErrorRef = useRef(null)
-  const pronounRef = useRef(null)
-  const femaleSelectContainerRef = useRef(null)
-  const maleSelectContainerRef = useRef(null)
-  const customSelectContainerRef = useRef(null)
+  const customSectionRef = useRef(null);
+  const formRef = useRef(null);
+  const lastNameRef = useRef(null);
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+  const daySelectRef = useRef(null);
+  const monthSelectRef = useRef(null);
+  const yearSelectRef = useRef(null);
+  const femaleSelectRef = useRef(null);
+  const maleSelectRef = useRef(null);
+  const customSelectRef = useRef(null);
+  const firstNameErrorRef = useRef(null);
+  const lastNameErrorRef = useRef(null);
+  const emailErrorRef = useRef(null);
+  const passwordErrorRef = useRef(null);
+  const birthdayErrorRef = useRef(null);
+  const genderErrorRef = useRef(null);
+  const pronounErrorRef = useRef(null);
+  const firstNameNotificationErrorRef = useRef(null);
+  const lastNameNotificationErrorRef = useRef(null);
+  const emailNotificationErrorRef = useRef(null);
+  const passwordNotificationErrorRef = useRef(null);
+  const birthdayNotificationErrorRef = useRef(null);
+  const genderNotificationErrorRef = useRef(null);
+  const pronounNotificationErrorRef = useRef(null);
+  const pronounRef = useRef(null);
+  const femaleSelectContainerRef = useRef(null);
+  const maleSelectContainerRef = useRef(null);
+  const customSelectContainerRef = useRef(null);
 
-  const firstRender = useRef(true)
+  const firstRender = useRef(true);
 
   const normalSelectChangeHandler = (e) => {
-    if (e.target.value !== 'Custom' && e.target.checked) {
-      customSectionRef.current.style.display = 'none'
+    if (e.target.value !== "Custom" && e.target.checked) {
+      customSectionRef.current.style.display = "none";
     }
-  }
+  };
 
   const customChangeHandler = (e) => {
-    if (e.target.value === 'Custom' && e.target.checked) {
-      customSectionRef.current.style.display = 'block'
+    if (e.target.value === "Custom" && e.target.checked) {
+      customSectionRef.current.style.display = "block";
     }
-  }
+  };
 
-  const blurInput = (ref, inputValue, validator, errorIconRef, errorNotificationRef) => {
+  const blurInput = (
+    ref,
+    inputValue,
+    validator,
+    errorIconRef,
+    errorNotificationRef
+  ) => {
     if (validator(inputValue)) {
-      ref.current.style.border = '1px solid #ccd0d5'
-      errorIconRef.current.style.opacity = 0
+      ref.current.style.border = "1px solid #ccd0d5";
+      errorIconRef.current.style.opacity = 0;
     } else {
-      ref.current.style.border = '1px solid red'
-      errorIconRef.current.style.opacity = 1
+      ref.current.style.border = "1px solid red";
+      errorIconRef.current.style.opacity = 1;
     }
-    errorNotificationRef.current.style.display = 'none'
-  }
+    errorNotificationRef.current.style.display = "none";
+  };
 
-  const focusInput = (ref, inputValue, validator, errorIconRef, errorNotificationRef, render = false) => {
-    ref.current.style.border = '1px solid #ccd0d5'
+  const focusInput = (
+    ref,
+    inputValue,
+    validator,
+    errorIconRef,
+    errorNotificationRef,
+    render = false
+  ) => {
+    ref.current.style.border = "1px solid #ccd0d5";
 
-    errorIconRef.current.style.opacity = 0
+    errorIconRef.current.style.opacity = 0;
 
     if (render) {
-      errorNotificationRef.current.style.display = 'none'
-      firstRender.current = false
+      errorNotificationRef.current.style.display = "none";
+      firstRender.current = false;
     } else {
       if (validator(inputValue)) {
-        errorNotificationRef.current.style.display = 'none'
+        errorNotificationRef.current.style.display = "none";
       } else {
-        errorNotificationRef.current.style.display = 'block'
+        errorNotificationRef.current.style.display = "block";
       }
     }
-  }
+  };
 
   const blurSelect = () => {
     if (validateYear(birthdayYear)) {
-      daySelectRef.current.style.border = '1px solid #ccd0d5'
-      monthSelectRef.current.style.border = '1px solid #ccd0d5'
-      yearSelectRef.current.style.border = '1px solid #ccd0d5'
-      birthdayErrorRef.current.style.opacity = 0
+      daySelectRef.current.style.border = "1px solid #ccd0d5";
+      monthSelectRef.current.style.border = "1px solid #ccd0d5";
+      yearSelectRef.current.style.border = "1px solid #ccd0d5";
+      birthdayErrorRef.current.style.opacity = 0;
     } else {
-      daySelectRef.current.style.border = '1px solid red'
-      monthSelectRef.current.style.border = '1px solid red'
-      yearSelectRef.current.style.border = '1px solid red'
-      birthdayErrorRef.current.style.opacity = 1
+      daySelectRef.current.style.border = "1px solid red";
+      monthSelectRef.current.style.border = "1px solid red";
+      yearSelectRef.current.style.border = "1px solid red";
+      birthdayErrorRef.current.style.opacity = 1;
     }
 
-    birthdayNotificationErrorRef.current.style.display = 'none'
-  }
+    birthdayNotificationErrorRef.current.style.display = "none";
+  };
 
   const focusSelect = () => {
-    daySelectRef.current.style.border = '1px solid #ccd0d5'
-    monthSelectRef.current.style.border = '1px solid #ccd0d5'
-    yearSelectRef.current.style.border = '1px solid #ccd0d5'
+    daySelectRef.current.style.border = "1px solid #ccd0d5";
+    monthSelectRef.current.style.border = "1px solid #ccd0d5";
+    yearSelectRef.current.style.border = "1px solid #ccd0d5";
 
     if (validateYear(birthdayYear)) {
-      birthdayNotificationErrorRef.current.style.display = 'none'
+      birthdayNotificationErrorRef.current.style.display = "none";
     } else {
-      birthdayNotificationErrorRef.current.style.display = 'block'
+      birthdayNotificationErrorRef.current.style.display = "block";
     }
-  }
+  };
 
   const focusPronoun = () => {
-    pronounNotificationErrorRef.current.style.display = 'block'
-    pronounRef.current.style.border = '1px solid 1px solid #ccd0d5 '
-    pronounErrorRef.current.style.opacity = 0
-  }
+    pronounNotificationErrorRef.current.style.display = "block";
+    pronounRef.current.style.border = "1px solid 1px solid #ccd0d5 ";
+    pronounErrorRef.current.style.opacity = 0;
+  };
 
   const blurPronoun = () => {
-    if (pronoun !== 'Select your pronoun') {
-      pronounNotificationErrorRef.current.style.display = 'none'
-      pronounRef.current.style.border = '1px solid #ccd0d5 '
+    if (pronoun !== "Select your pronoun") {
+      pronounNotificationErrorRef.current.style.display = "none";
+      pronounRef.current.style.border = "1px solid #ccd0d5 ";
     } else {
-      pronounNotificationErrorRef.current.style.display = 'none'
-      pronounRef.current.style.border = '1px solid red '
-      pronounErrorRef.current.style.opacity = 1
+      pronounNotificationErrorRef.current.style.display = "none";
+      pronounRef.current.style.border = "1px solid red ";
+      pronounErrorRef.current.style.opacity = 1;
     }
-  }
+  };
 
   const focusGender = () => {
-    femaleSelectContainerRef.current.style = '1px solid #ccd0d5'
-    maleSelectContainerRef.current.style = '1px solid #ccd0d5'
-    customSelectContainerRef.current.style = '1px solid #ccd0d5'
-    genderErrorRef.current.style.opacity = 0
-    genderNotificationErrorRef.current.style.display = 'none'
-  }
+    femaleSelectContainerRef.current.style = "1px solid #ccd0d5";
+    maleSelectContainerRef.current.style = "1px solid #ccd0d5";
+    customSelectContainerRef.current.style = "1px solid #ccd0d5";
+    genderErrorRef.current.style.opacity = 0;
+    genderNotificationErrorRef.current.style.display = "none";
+  };
 
   const blurGender = () => {
     if (
@@ -171,26 +184,26 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
       maleSelectRef.current.checked === true ||
       customSelectRef.current.checked === true
     ) {
-      femaleSelectContainerRef.current.style = '1px solid #ccd0d5'
-      maleSelectContainerRef.current.style = '1px solid #ccd0d5'
-      customSelectContainerRef.current.style = '1px solid #ccd0d5'
-      genderErrorRef.current.style.opacity = 0
+      femaleSelectContainerRef.current.style = "1px solid #ccd0d5";
+      maleSelectContainerRef.current.style = "1px solid #ccd0d5";
+      customSelectContainerRef.current.style = "1px solid #ccd0d5";
+      genderErrorRef.current.style.opacity = 0;
     } else {
-      femaleSelectContainerRef.current.style = '1px solid red'
-      maleSelectContainerRef.current.style = '1px solid red'
-      customSelectContainerRef.current.style = '1px solid red'
-      genderErrorRef.current.style.opacity = 1
+      femaleSelectContainerRef.current.style = "1px solid red";
+      maleSelectContainerRef.current.style = "1px solid red";
+      customSelectContainerRef.current.style = "1px solid red";
+      genderErrorRef.current.style.opacity = 1;
     }
 
-    genderNotificationErrorRef.current.style.display = 'none'
-  }
+    genderNotificationErrorRef.current.style.display = "none";
+  };
 
   const clickGenderErrorHandler = () => {
-    genderNotificationErrorRef.current.style.display = 'block'
-  }
+    genderNotificationErrorRef.current.style.display = "block";
+  };
 
   const signUpWithEmailAndPassword = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (
       validateName(firstName) &&
@@ -198,48 +211,48 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
       validateEmail(email) &&
       validatePassword(password) &&
       validateYear(birthdayYear) &&
-      (femaleSelectRef.current.checked || maleSelectRef.current.checked || customSelectRef.current.checked)
+      (femaleSelectRef.current.checked ||
+        maleSelectRef.current.checked ||
+        customSelectRef.current.checked)
     ) {
       auth
         .createUserWithEmailAndPassword(email, password)
         .then((user) => {
-          history.push('/home')
+          history.push("/home");
+
+          user.updateProfile({
+            displayName: `${firstName.trim()} ${lastName.trim()}`,
+          });
         })
         .catch((e) => {
-          console.error(e)
-        })
-
-      const user = auth.currentUser
-
-      user.updateProfile({
-        displayName: `${firstName.trim()} ${lastName.trim()}`,
-      })
+          console.error(e);
+        });
     } else {
       if (!validateName(firstName)) {
-        signUpFirstNameInputRef.current.style.border = '1px solid red'
-        firstNameErrorRef.current.style.opacity = 1
+        signUpFirstNameInputRef.current.style.border = "1px solid red";
+        firstNameErrorRef.current.style.opacity = 1;
       }
 
       if (!validateName(lastName)) {
-        lastNameRef.current.style.border = '1px solid red'
-        lastNameErrorRef.current.style.opacity = 1
+        lastNameRef.current.style.border = "1px solid red";
+        lastNameErrorRef.current.style.opacity = 1;
       }
 
       if (!validateEmail(email)) {
-        emailRef.current.style.border = '1px solid red'
-        emailErrorRef.current.style.opacity = 1
+        emailRef.current.style.border = "1px solid red";
+        emailErrorRef.current.style.opacity = 1;
       }
 
       if (!validatePassword(password)) {
-        passwordRef.current.style.border = '1px solid red'
-        passwordErrorRef.current.style.opacity = 1
+        passwordRef.current.style.border = "1px solid red";
+        passwordErrorRef.current.style.opacity = 1;
       }
 
       if (!validateYear(birthdayYear)) {
-        daySelectRef.current.style.border = '1px solid red'
-        monthSelectRef.current.style.border = '1px solid red'
-        yearSelectRef.current.style.border = '1px solid red'
-        birthdayErrorRef.current.style.opacity = 1
+        daySelectRef.current.style.border = "1px solid red";
+        monthSelectRef.current.style.border = "1px solid red";
+        yearSelectRef.current.style.border = "1px solid red";
+        birthdayErrorRef.current.style.opacity = 1;
       }
 
       if (
@@ -247,22 +260,22 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
         maleSelectRef.current.checked === true ||
         customSelectRef.current.checked === true
       ) {
-        femaleSelectContainerRef.current.style.border = '1px solid #ccd0d5'
-        maleSelectContainerRef.current.style.border = '1px solid #ccd0d5'
-        customSelectContainerRef.current.style.border = '1px solid #ccd0d5'
-        genderErrorRef.current.style.opacity = 0
+        femaleSelectContainerRef.current.style.border = "1px solid #ccd0d5";
+        maleSelectContainerRef.current.style.border = "1px solid #ccd0d5";
+        customSelectContainerRef.current.style.border = "1px solid #ccd0d5";
+        genderErrorRef.current.style.opacity = 0;
       } else {
-        femaleSelectContainerRef.current.style.border = '1px solid red'
-        maleSelectContainerRef.current.style.border = '1px solid red'
-        customSelectContainerRef.current.style.border = '1px solid red'
-        genderErrorRef.current.style.opacity = 1
+        femaleSelectContainerRef.current.style.border = "1px solid red";
+        maleSelectContainerRef.current.style.border = "1px solid red";
+        customSelectContainerRef.current.style.border = "1px solid red";
+        genderErrorRef.current.style.opacity = 1;
       }
     }
-  }
+  };
 
   return (
-    <div className={`signUp ${isFormOpen && 'signUp__Open'}`}>
-      <div className='signUp__header'>
+    <div className={`signUp ${isFormOpen && "signUp__Open"}`}>
+      <div className="signUp__header">
         <h3>Sign Up</h3>
         <p>It's quick and easy</p>
         <CloseIcon
@@ -300,22 +313,29 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
               customSelectContainerRef
             )
           }
-          className='signUp__header__close'
+          className="signUp__header__close"
         />
       </div>
 
-      <hr className='signUp__line' />
+      <hr className="signUp__line" />
 
-      <form className='signUp__form__container' ref={formRef} onSubmit={(e) => e.preventDefault()}>
-        <div className='signUp__form'>
-          <div className='signUp__form__name'>
-            <ErrorNotification text="What's your name?" reference={firstNameNotificationErrorRef} />
+      <form
+        className="signUp__form__container"
+        ref={formRef}
+        onSubmit={(e) => e.preventDefault()}
+      >
+        <div className="signUp__form">
+          <div className="signUp__form__name">
+            <ErrorNotification
+              text="What's your name?"
+              reference={firstNameNotificationErrorRef}
+            />
 
             <input
               ref={signUpFirstNameInputRef}
-              className='signUp__form__input signUp__form__input__first'
-              type='text'
-              placeholder='First name'
+              className="signUp__form__input signUp__form__input__first"
+              type="text"
+              placeholder="First name"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
               onBlur={() =>
@@ -337,34 +357,53 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
                   firstRender.current
                 )
               }
-              id='firstName'
+              id="firstName"
             />
-            <label htmlFor='firstName'>
+            <label htmlFor="firstName">
               <ErrorIcon
-                className='signUp__form__firstName__errorIcon signUp__form__errorIcon'
+                className="signUp__form__firstName__errorIcon signUp__form__errorIcon"
                 ref={firstNameErrorRef}
               />
             </label>
 
-            <ErrorNotification text="What's your name?" lastName reference={lastNameNotificationErrorRef} />
+            <ErrorNotification
+              text="What's your name?"
+              lastName
+              reference={lastNameNotificationErrorRef}
+            />
 
             <input
-              className='signUp__form__input'
-              type='text'
-              placeholder='Last name'
+              className="signUp__form__input"
+              type="text"
+              placeholder="Last name"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
               onBlur={() =>
-                blurInput(lastNameRef, lastName, validateName, lastNameErrorRef, lastNameNotificationErrorRef)
+                blurInput(
+                  lastNameRef,
+                  lastName,
+                  validateName,
+                  lastNameErrorRef,
+                  lastNameNotificationErrorRef
+                )
               }
               onFocus={() =>
-                focusInput(lastNameRef, lastName, validateName, lastNameErrorRef, lastNameNotificationErrorRef)
+                focusInput(
+                  lastNameRef,
+                  lastName,
+                  validateName,
+                  lastNameErrorRef,
+                  lastNameNotificationErrorRef
+                )
               }
               ref={lastNameRef}
-              id='lastName'
+              id="lastName"
             />
-            <label htmlFor='lastName'>
-              <ErrorIcon className='signUp__form__lastName__errorIcon signUp__form__errorIcon' ref={lastNameErrorRef} />
+            <label htmlFor="lastName">
+              <ErrorIcon
+                className="signUp__form__lastName__errorIcon signUp__form__errorIcon"
+                ref={lastNameErrorRef}
+              />
             </label>
           </div>
 
@@ -375,43 +414,77 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
           />
 
           <input
-            type='text'
-            placeholder='Email'
+            type="text"
+            placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className='signUp__form__input__email signUp__form__input'
+            className="signUp__form__input__email signUp__form__input"
             ref={emailRef}
-            onBlur={() => blurInput(emailRef, email, validateEmail, emailErrorRef, emailNotificationErrorRef)}
-            onFocus={() => focusInput(emailRef, email, validateEmail, emailErrorRef, emailNotificationErrorRef)}
-            id='email'
+            onBlur={() =>
+              blurInput(
+                emailRef,
+                email,
+                validateEmail,
+                emailErrorRef,
+                emailNotificationErrorRef
+              )
+            }
+            onFocus={() =>
+              focusInput(
+                emailRef,
+                email,
+                validateEmail,
+                emailErrorRef,
+                emailNotificationErrorRef
+              )
+            }
+            id="email"
           />
-          <label htmlFor='email'>
-            <ErrorIcon className='signUp__form__email__errorIcon signUp__form__errorIcon' ref={emailErrorRef} />
+          <label htmlFor="email">
+            <ErrorIcon
+              className="signUp__form__email__errorIcon signUp__form__errorIcon"
+              ref={emailErrorRef}
+            />
           </label>
 
           <ErrorNotification
-            text='Enter a combination of at least six numbers, letters and punctuation marks (like ! and &).'
+            text="Enter a combination of at least six numbers, letters and punctuation marks (like ! and &)."
             password
             reference={passwordNotificationErrorRef}
           />
 
           <input
-            type='password'
-            placeholder='New password'
+            type="password"
+            placeholder="New password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className='signUp__form__input__password signUp__form__input'
+            className="signUp__form__input__password signUp__form__input"
             ref={passwordRef}
             onBlur={() =>
-              blurInput(passwordRef, password, validatePassword, passwordErrorRef, passwordNotificationErrorRef)
+              blurInput(
+                passwordRef,
+                password,
+                validatePassword,
+                passwordErrorRef,
+                passwordNotificationErrorRef
+              )
             }
             onFocus={() =>
-              focusInput(passwordRef, password, validatePassword, passwordErrorRef, passwordNotificationErrorRef)
+              focusInput(
+                passwordRef,
+                password,
+                validatePassword,
+                passwordErrorRef,
+                passwordNotificationErrorRef
+              )
             }
-            id='password'
+            id="password"
           />
-          <label htmlFor='password'>
-            <ErrorIcon className='signUp__form__password__errorIcon signUp__form__errorIcon' ref={passwordErrorRef} />
+          <label htmlFor="password">
+            <ErrorIcon
+              className="signUp__form__password__errorIcon signUp__form__errorIcon"
+              ref={passwordErrorRef}
+            />
           </label>
 
           <BirthdayToolTip
@@ -420,137 +493,143 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
             setBirthdayToolTipOpen={setBirthdayToolTipOpen}
           />
 
-          <div className='signUp__form__birthday'>
-            <p className='signUp__form__birthday__text'>
+          <div className="signUp__form__birthday">
+            <p className="signUp__form__birthday__text">
               Birthday
               <HelpIcon
-                titleAccess='Click for more information'
-                className='signUp__form__birthday__text__icon'
+                titleAccess="Click for more information"
+                className="signUp__form__birthday__text__icon"
                 onClick={() => openToolTip(setBirthdayToolTipOpen)}
               />
             </p>
 
             <ErrorNotification
-              text='It looks like you entered the wrong info. Please be sure to use your real birthday.'
+              text="It looks like you entered the wrong info. Please be sure to use your real birthday."
               birthday
               reference={birthdayNotificationErrorRef}
             />
 
-            <ErrorIcon className='signUp__form__birthday__errorIcon signUp__form__errorIcon' ref={birthdayErrorRef} />
+            <ErrorIcon
+              className="signUp__form__birthday__errorIcon signUp__form__errorIcon"
+              ref={birthdayErrorRef}
+            />
 
-            <div className='signUp__form__birthday__select__container'>
+            <div className="signUp__form__birthday__select__container">
               <select
-                name='month'
-                className='signUp__form__birthday__select signUp__form__birthday__select__month'
-                title='Month'
+                name="month"
+                className="signUp__form__birthday__select signUp__form__birthday__select__month"
+                title="Month"
                 ref={monthSelectRef}
                 onChange={(e) => setBirthdayMonth(e.target.value)}
                 value={birthdayMonth}
                 onFocus={focusSelect}
-                onBlur={blurSelect}>
-                <option value='January'>Jan</option>
-                <option value='February'>Feb</option>
-                <option value='March'>Mar</option>
-                <option value='April'>Apr</option>
-                <option value='May'>May</option>
-                <option value='June'>Jun</option>
-                <option value='July'>Jul</option>
-                <option value='August'>Aug</option>
-                <option value='September'>Sep</option>
-                <option value='October'>Oct</option>
-                <option value='November'>Nov</option>
-                <option value='December'>Dec</option>
+                onBlur={blurSelect}
+              >
+                <option value="January">Jan</option>
+                <option value="February">Feb</option>
+                <option value="March">Mar</option>
+                <option value="April">Apr</option>
+                <option value="May">May</option>
+                <option value="June">Jun</option>
+                <option value="July">Jul</option>
+                <option value="August">Aug</option>
+                <option value="September">Sep</option>
+                <option value="October">Oct</option>
+                <option value="November">Nov</option>
+                <option value="December">Dec</option>
               </select>
 
               <select
-                name='day'
-                className='signUp__form__birthday__select signUp__form__birthday__select__day'
-                title='Day'
+                name="day"
+                className="signUp__form__birthday__select signUp__form__birthday__select__day"
+                title="Day"
                 ref={daySelectRef}
                 onChange={(e) => setBirthdayDay(e.target.value)}
                 value={birthdayDay}
                 onFocus={focusSelect}
-                onBlur={blurSelect}>
-                <option value='1'>1</option>
-                <option value='2'>2</option>
-                <option value='3'>3</option>
-                <option value='4'>4</option>
-                <option value='5'>5</option>
-                <option value='6'>6</option>
-                <option value='7'>7</option>
-                <option value='8'>8</option>
-                <option value='9'>9</option>
-                <option value='10'>10</option>
-                <option value='11'>11</option>
-                <option value='12'>12</option>
-                <option value='13'>13</option>
-                <option value='14'>14</option>
-                <option value='15'>15</option>
-                <option value='16'>16</option>
-                <option value='17'>17</option>
-                <option value='18'>18</option>
-                <option value='19'>19</option>
-                <option value='20'>20</option>
-                <option value='21'>21</option>
-                <option value='22'>22</option>
-                <option value='23'>23</option>
-                <option value='24'>24</option>
-                <option value='25'>25</option>
-                <option value='26'>26</option>
-                <option value='27'>27</option>
-                <option value='28'>28</option>
-                <option value='29'>29</option>
-                <option value='30'>30</option>
-                <option value='31'>31</option>
+                onBlur={blurSelect}
+              >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
               </select>
 
               <select
-                name='year'
-                className='signUp__form__birthday__select signUp__form__birthday__select__year'
+                name="year"
+                className="signUp__form__birthday__select signUp__form__birthday__select__year"
                 value={birthdayYear}
                 onChange={(e) => setBirthdayYear(e.target.value)}
-                title='Year'
+                title="Year"
                 onBlur={blurSelect}
                 onFocus={focusSelect}
-                ref={yearSelectRef}>
-                <option value='2020'>2020</option>
-                <option value='2019'>2019</option>
-                <option value='2018'>2018</option>
-                <option value='2017'>2017</option>
-                <option value='2016'>2016</option>
-                <option value='2015'>2015</option>
-                <option value='2014'>2014</option>
-                <option value='2013'>2013</option>
-                <option value='2012'>2012</option>
-                <option value='2011'>2011</option>
-                <option value='2010'>2010</option>
-                <option value='2009'>2009</option>
-                <option value='2008'>2008</option>
-                <option value='2007'>2007</option>
-                <option value='2006'>2006</option>
-                <option value='2005'>2005</option>
-                <option value='2004'>2004</option>
-                <option value='2003'>2003</option>
-                <option value='2002'>2002</option>
-                <option value='2001'>2001</option>
-                <option value='2000'>2000</option>
-                <option value='1999'>1999</option>
-                <option value='1998'>1998</option>
-                <option value='1997'>1997</option>
-                <option value='1996'>1996</option>
-                <option value='1995'>1995</option>
+                ref={yearSelectRef}
+              >
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+                <option value="2017">2017</option>
+                <option value="2016">2016</option>
+                <option value="2015">2015</option>
+                <option value="2014">2014</option>
+                <option value="2013">2013</option>
+                <option value="2012">2012</option>
+                <option value="2011">2011</option>
+                <option value="2010">2010</option>
+                <option value="2009">2009</option>
+                <option value="2008">2008</option>
+                <option value="2007">2007</option>
+                <option value="2006">2006</option>
+                <option value="2005">2005</option>
+                <option value="2004">2004</option>
+                <option value="2003">2003</option>
+                <option value="2002">2002</option>
+                <option value="2001">2001</option>
+                <option value="2000">2000</option>
+                <option value="1999">1999</option>
+                <option value="1998">1998</option>
+                <option value="1997">1997</option>
+                <option value="1996">1996</option>
+                <option value="1995">1995</option>
               </select>
             </div>
           </div>
 
           <ErrorNotification
-            text='Please choose a gender. You can change who can see this later'
+            text="Please choose a gender. You can change who can see this later"
             gender
             reference={genderNotificationErrorRef}
           />
 
           <ErrorIcon
-            className='signUp__form__gender__errorIcon signUp__form__errorIcon'
+            className="signUp__form__gender__errorIcon signUp__form__errorIcon"
             ref={genderErrorRef}
             onClick={clickGenderErrorHandler}
           />
@@ -561,62 +640,65 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
             setGenderToolTipOpen={setGenderToolTipOpen}
           />
 
-          <div className='signUp__form__gender'>
-            <p className='signUp__form__gender__text'>
+          <div className="signUp__form__gender">
+            <p className="signUp__form__gender__text">
               Gender
               <HelpIcon
-                titleAccess='Click for more information'
-                className='signUp__form__gender__text__icon'
+                titleAccess="Click for more information"
+                className="signUp__form__gender__text__icon"
                 onClick={() => openToolTip(setGenderToolTipOpen)}
               />
             </p>
-            <div className='signUp__form__gender__container'>
+            <div className="signUp__form__gender__container">
               <label
-                className='signUp__form__gender__option signUp__form__gender__option__female'
-                htmlFor='female'
-                ref={femaleSelectContainerRef}>
+                className="signUp__form__gender__option signUp__form__gender__option__female"
+                htmlFor="female"
+                ref={femaleSelectContainerRef}
+              >
                 Female
                 <input
                   ref={femaleSelectRef}
                   onChange={normalSelectChangeHandler}
-                  value='Female'
-                  type='radio'
-                  name='gender'
-                  id='female'
+                  value="Female"
+                  type="radio"
+                  name="gender"
+                  id="female"
                   onFocus={focusGender}
                   onBlur={blurGender}
                 />
               </label>
 
               <label
-                className='signUp__form__gender__option signUp__form__gender__option__male'
-                htmlFor='male'
-                ref={maleSelectContainerRef}>
+                className="signUp__form__gender__option signUp__form__gender__option__male"
+                htmlFor="male"
+                ref={maleSelectContainerRef}
+              >
                 Male
                 <input
                   ref={maleSelectRef}
                   onChange={normalSelectChangeHandler}
-                  value='Male'
-                  type='radio'
-                  name='gender'
-                  id='male'
+                  value="Male"
+                  type="radio"
+                  name="gender"
+                  id="male"
                   onFocus={focusGender}
                   onBlur={blurGender}
                 />
               </label>
 
               <label
-                className='signUp__form__gender__option signUp__form__gender__option__custom'
-                htmlFor='custom'
-                ref={customSelectContainerRef}>
+                className="signUp__form__gender__option signUp__form__gender__option__custom"
+                htmlFor="custom"
+                ref={customSelectContainerRef}
+              >
                 Custom
                 <input
                   ref={customSelectRef}
-                  value='Custom'
+                  value="Custom"
                   onChange={customChangeHandler}
-                  type='radio'
-                  name='gender'
-                  id='custom'
+                  type="radio"
+                  name="gender"
+                  id="custom"
                   onFocus={focusGender}
                   onBlur={blurGender}
                 />
@@ -624,52 +706,79 @@ function SignUp({ closeFormHandler, isFormOpen, signUpFirstNameInputRef }) {
             </div>
           </div>
 
-          <div className='signUp__form__custom' ref={customSectionRef}>
+          <div className="signUp__form__custom" ref={customSectionRef}>
             <select
               ref={pronounRef}
-              name='pronoun'
-              id='pronoun'
-              className='signUp__form__custom__select'
+              name="pronoun"
+              id="pronoun"
+              className="signUp__form__custom__select"
               value={pronoun}
               onChange={(e) => setPronoun(e.target.value)}
               onFocus={focusPronoun}
-              onBlur={blurPronoun}>
-              <option value='Select your pronoun'>Select your pronoun</option>
-              <option value='She: "Wish her a happy birthday!"'>She: "Wish her a happy birthday!"</option>
-              <option value='He: "Wish him a happy birthday!"'>He: "Wish him a happy birthday!"</option>
-              <option value='Them: "Wish them a happy birthday!"'>Them: "Wish them a happy birthday!"</option>
+              onBlur={blurPronoun}
+            >
+              <option value="Select your pronoun">Select your pronoun</option>
+              <option value='She: "Wish her a happy birthday!"'>
+                She: "Wish her a happy birthday!"
+              </option>
+              <option value='He: "Wish him a happy birthday!"'>
+                He: "Wish him a happy birthday!"
+              </option>
+              <option value='Them: "Wish them a happy birthday!"'>
+                Them: "Wish them a happy birthday!"
+              </option>
             </select>
 
-            <ErrorNotification text='Please select a pronoun' pronoun reference={pronounNotificationErrorRef} />
+            <ErrorNotification
+              text="Please select a pronoun"
+              pronoun
+              reference={pronounNotificationErrorRef}
+            />
 
-            <ErrorIcon className='signUp__form__pronoun__errorIcon signUp__form__errorIcon' ref={pronounErrorRef} />
+            <ErrorIcon
+              className="signUp__form__pronoun__errorIcon signUp__form__errorIcon"
+              ref={pronounErrorRef}
+            />
 
-            <p className='signUp__form__custom__text'>Your pronoun is visible to everyone</p>
+            <p className="signUp__form__custom__text">
+              Your pronoun is visible to everyone
+            </p>
 
             <input
-              type='text'
-              className='signUp__form__custom__input'
-              placeholder='Gender (optional)'
+              type="text"
+              className="signUp__form__custom__input"
+              placeholder="Gender (optional)"
               value={gender}
               onChange={(e) => setGender(e.target.value)}
             />
           </div>
 
-          <p className='signUp__form__footerText'>
+          <p className="signUp__form__footerText">
             By clicking Sign Up, you agree to our
-            <span className='signUp__form__footerText__blue'> Terms</span>,
-            <span className='signUp__form__footerText__blue'> Data Policy </span> and
-            <span className='signUp__form__footerText__blue'> Cookies Policy</span>. You may receive SMS Notifications
-            from us and can opt out any time.
+            <span className="signUp__form__footerText__blue"> Terms</span>,
+            <span className="signUp__form__footerText__blue">
+              {" "}
+              Data Policy{" "}
+            </span>{" "}
+            and
+            <span className="signUp__form__footerText__blue">
+              {" "}
+              Cookies Policy
+            </span>
+            . You may receive SMS Notifications from us and can opt out any
+            time.
           </p>
 
-          <button className='signUp__form__button' onClick={signUpWithEmailAndPassword}>
+          <button
+            className="signUp__form__button"
+            onClick={signUpWithEmailAndPassword}
+          >
             Sign Up
           </button>
         </div>
       </form>
     </div>
-  )
+  );
 }
 
-export default SignUp
+export default SignUp;
