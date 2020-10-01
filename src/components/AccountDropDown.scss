@@ -161,6 +161,12 @@
     & > p {
       color: #65676b;
       font-size: 1.3rem;
+      & > span {
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
   }
 }

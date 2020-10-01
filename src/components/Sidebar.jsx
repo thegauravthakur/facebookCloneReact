@@ -42,7 +42,7 @@ export default function Sidebar() {
           <span>Ad Choices</span> &#8729; <span>Cookies</span> &#8729;
         </p>
         <p>
-          <span>More</span> &#8729; <span>Facebook &copy; </span>
+          <span>More</span> &#8729; Facebook &copy; 2020
         </p>
       </div>
     </div>

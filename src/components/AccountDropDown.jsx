@@ -113,9 +113,12 @@ function AccountDropDown({ setAccountDropDownOpen, iconRef }) {
 
           <div className='accountDropDown__footer'>
             <p className='accountDropDown__footer__text'>
-              Privacy &#8729; Terms &#8729; Advertising &#8729; Ad Choices &#8729; Cookies &#8729;
+              <span>Privacy</span> &#8729; <span>Terms</span> &#8729; <span>Advertising</span> &#8729;{' '}
+              <span>Ad Choices</span> &#8729; <span>Cookies</span> &#8729;
             </p>
-            <p className='accountDropDown__footer__text'>More &#8729; Facebook &copy; 2020</p>
+            <p className='accountDropDown__footer__text'>
+              <span>More</span> &#8729; Facebook &copy; 2020
+            </p>
           </div>
         </div>
       </CSSTransition>
