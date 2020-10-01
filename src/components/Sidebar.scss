@@ -2,6 +2,22 @@
 @import '../variables';
 
 .sidebar {
+  overflow-y: hidden;
   padding: 1rem 0rem;
   flex: 0.4;
+
+  &__line {
+    margin-left: 1.5rem;
+    border: none;
+    border-bottom: 1px solid rgba($black, 0.2);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &__shortcut__text {
+    padding-left: 1.5rem;
+    font-size: 1.7rem;
+    color: #65676b;
+    margin-bottom: 1rem;
+  }
 }

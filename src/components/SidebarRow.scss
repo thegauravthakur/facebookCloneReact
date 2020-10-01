@@ -18,9 +18,22 @@
 
   & > h4 {
     margin-left: 1rem;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1.5rem;
     color: #050505;
+    font-family: 'Segoe UI';
+  }
+
+  &__Icon__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d8dadf;
+    height: 3.5rem;
+    max-height: 3.5rem;
+    max-width: 3.5rem;
+    width: 3.5rem;
+    border-radius: 50%;
   }
 
   &__Icon {
@@ -30,5 +43,10 @@
 
   &__image {
     max-height: 3.5rem;
+
+    &__shortcut {
+      border-radius: 0.5rem;
+      max-width: 3.8rem;
+    }
   }
 }
